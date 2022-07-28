@@ -1,15 +1,14 @@
-import 'controller/welcome_controller.dart';
-import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:application1/core/app_export.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:application1/widgets/custom_button.dart';
 
-class WelcomeScreen extends GetWidget<WelcomeController> {
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorConstant.whiteA700,
+        backgroundColor: ColorConstant.gray100,
         body: Container(
           width: size.width,
           child: SingleChildScrollView(
@@ -137,6 +136,9 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                       right: 16,
                     ),
                     alignment: Alignment.center,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.namePasswordScreen);
+                    }
                   ),
                   Align(
                     alignment: Alignment.center,

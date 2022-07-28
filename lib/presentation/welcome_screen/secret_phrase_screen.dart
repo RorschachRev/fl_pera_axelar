@@ -1,6 +1,3 @@
-import '../secret_phrase_screen/widgets/secretphrase_item_widget.dart';
-import 'controller/secret_phrase_controller.dart';
-import 'models/secretphrase_item_model.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_switch.dart';
@@ -75,7 +72,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                                   ),
                                 ),
                                 Obx(
-                                  () => CustomSwitch(
+                                      () => CustomSwitch(
                                     padding: getPadding(
                                       left: 4,
                                     ),
@@ -149,7 +146,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                         CustomTextFormField(
                           width: 312,
                           focusNode: FocusNode(),
-                          controller: controller.headlinesecretController,
+                          controller: controller.headlineSecretController,
                           hintText: "msg_your_secret_phr".tr,
                           margin: getMargin(
                             left: 8,
@@ -162,12 +159,12 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                         Wrap(
                           children: List<Widget>.generate(
                               controller.secretPhraseModelObj.value
-                                  .secretphraseItemList.length, (index) {
-                            SecretphraseItemModel model = controller
+                                  .secretPhraseItemList.length, (index) {
+                            SecretPhraseItemModel model = controller
                                 .secretPhraseModelObj
                                 .value
-                                .secretphraseItemList[index];
-                            return SecretphraseItemWidget(model);
+                                .secretPhraseItemList[index];
+                            return SecretPhraseItemWidget(model);
                           }),
                         ),
                       ],
@@ -277,7 +274,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                               maxLines: null,
                               textAlign: TextAlign.left,
                               style:
-                                  AppStyle.txtInterMedium14Black90099.copyWith(
+                              AppStyle.txtInterMedium14Black90099.copyWith(
                                 letterSpacing: 0.14,
                                 height: 1.71,
                               ),
@@ -342,5 +339,104 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
         ),
       ),
     );
+  }
+}
+class SecretPhraseController extends GetxController {
+  TextEditingController headlineSecretController = TextEditingController();
+
+  Rx<SecretPhraseModel> secretPhraseModelObj = SecretPhraseModel().obs;
+
+  RxBool isSelectedSwitch = false.obs;
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    headlineSecretController.dispose();
+  }
+}
+
+class SecretPhraseItemModel {
+  Rx<String> secretPhraseTxt = Rx('Life');
+
+  RxBool isSelected = false.obs;
+}
+class SecretPhraseModel {
+  RxList<SecretPhraseItemModel> secretPhraseItemList =
+    RxList.generate(12, (index) => SecretPhraseItemModel());
+}
+
+class SecretPhraseItemWidget extends StatelessWidget {
+  SecretPhraseItemWidget(this.secretphraseItemModelObj);
+
+  SecretPhraseItemModel secretphraseItemModelObj;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+          () => Padding(
+        padding: getPadding(
+          right: 5,
+          bottom: 5,
+        ),
+        child: ChoiceChip(
+          label: Text(
+            secretphraseItemModelObj.secretPhraseTxt.value,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: ColorConstant.black900Dd,
+              fontSize: getFontSize(
+                14,
+              ),
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          selected: secretphraseItemModelObj.isSelected.value,
+          backgroundColor: Colors.transparent,
+          selectedColor: ColorConstant.fromHex("#33000000"),
+          shape: secretphraseItemModelObj.isSelected.value
+              ? RoundedRectangleBorder(
+            side: BorderSide(
+              color: ColorConstant.fromHex("#ff197aff"),
+              width: getHorizontalSize(
+                1.00,
+              ),
+            ),
+            borderRadius: BorderRadius.circular(
+              getHorizontalSize(
+                8.00,
+              ),
+            ),
+          )
+              : RoundedRectangleBorder(
+            side: BorderSide(
+              color: ColorConstant.fromHex("#ff197aff"),
+              width: getHorizontalSize(
+                1.50,
+              ),
+            ),
+            borderRadius: BorderRadius.circular(
+              getHorizontalSize(
+                8.00,
+              ),
+            ),
+          ),
+          onSelected: (value) {
+            secretphraseItemModelObj.isSelected.value = value;
+          },
+        ),
+      ),
+    );
+  }
+}
+class SecretPhraseBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => SecretPhraseController());
   }
 }

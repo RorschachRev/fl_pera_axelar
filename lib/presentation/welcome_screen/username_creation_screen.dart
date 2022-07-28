@@ -1,9 +1,9 @@
-import 'controller/username_creation_controller.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'secret_phrase_screen.dart';
 
-class UsernameCreationScreen extends GetWidget<UsernameCreationController> {
+class UsernameCreationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -251,6 +251,9 @@ class UsernameCreationScreen extends GetWidget<UsernameCreationController> {
                       top: 240,
                       right: 16,
                     ),
+                    onTap: () {
+                      Get.toNamed(AppRoutes.secretPhrasesScreen);
+                    },
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
