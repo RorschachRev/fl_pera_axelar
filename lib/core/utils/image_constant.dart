@@ -66,5 +66,9 @@ class ImageConstant {
 
   static String img = 'assets/images/img_.svg';
 
+  static String imgEye = 'assets/images/img_eye.svg';
+
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  static String imgCheckbox = 'assets/images/img_checkbox.svg';
 }
