@@ -6,8 +6,8 @@
 !/.packages
 !/.flutter-plugins-dependencies
 !/.flutter-plugins
-/.metadata/
-/.packages/
+!/.metadata/
+!/.packages/
 pubspec.lock
 .flutter-plugins
 .flutter-plugins-dependencies
