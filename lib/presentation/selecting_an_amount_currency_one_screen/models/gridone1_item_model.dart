@@ -1,0 +1,1 @@
+class Gridone1ItemModel {}
