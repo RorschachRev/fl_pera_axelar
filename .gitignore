@@ -2,9 +2,8 @@
 /.idea/
 /build/
 /.vscode/
-!/pubspec.lock
-!/.packages
-!/.flutter-plugins-dependencies
-!/.flutter-plugins
-/.metadata/
-/.packages/
+pubspec.lock
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.packages
