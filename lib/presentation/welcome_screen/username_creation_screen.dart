@@ -1,7 +1,7 @@
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'secret_phrase_screen.dart';
+import 'package:application1/widgets/custom_close_icon.dart';
 
 class UsernameCreationScreen extends StatelessWidget {
   @override
@@ -33,15 +33,7 @@ class UsernameCreationScreen extends StatelessWidget {
                               top: 21,
                               bottom: 21,
                             ),
-                            child: CommonImageView(
-                              svgPath: ImageConstant.imgClose,
-                              height: getSize(
-                                14.00,
-                              ),
-                              width: getSize(
-                                14.00,
-                              ),
-                            ),
+                            child: CustomCloseIcon(),
                           ),
                           Padding(
                             padding: getPadding(

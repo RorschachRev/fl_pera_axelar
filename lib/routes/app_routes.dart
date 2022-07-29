@@ -1,15 +1,13 @@
 import 'package:get/get.dart';
-import '../presentation/main_screen.dart';
-import '../presentation/welcome_screen/welcome_screen_main.dart';
-import '../presentation/welcome_screen/secret_phrase_screen.dart';
-import '../presentation/welcome_screen/name_password_screen.dart';
-import '../presentation/welcome_screen/username_creation_screen.dart';
+import 'package:application1/presentation/main_screen/main_screen.dart';
+import 'package:application1/presentation/welcome_screen/welcome_screen_main.dart';
+import 'package:application1/presentation/welcome_screen/secret_phrase_screen.dart';
+import 'package:application1/presentation/welcome_screen/username_creation_screen.dart';
 
 class AppRoutes {
   static String mainScreen = '/main_screen';
   static String welcomeScreen = '/welcome_screen';
   static String secretPhrasesScreen = '/secret_phrases';
-  static String namePasswordScreen = '/name_password';
   static String usernameCreationScreen = '/username_creation_screen';
 
   static List<GetPage> pages = [
@@ -27,10 +25,6 @@ class AppRoutes {
     GetPage(
       name: welcomeScreen,
       page: () => WelcomeScreen(),
-    ),
-    GetPage(
-      name: namePasswordScreen,
-      page: () => NamePasswordScreen(),
     ),
     GetPage(
       name: usernameCreationScreen,

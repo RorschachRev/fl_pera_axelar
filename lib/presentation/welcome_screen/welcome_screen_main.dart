@@ -137,7 +137,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     onTap: () {
-                      Get.toNamed(AppRoutes.namePasswordScreen);
+                      Get.toNamed(AppRoutes.usernameCreationScreen);
                     }
                   ),
                   Align(

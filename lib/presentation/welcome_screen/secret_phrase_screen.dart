@@ -2,6 +2,7 @@ import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_switch.dart';
 import 'package:application1/widgets/custom_text_form_field.dart';
+import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
 
 class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
@@ -34,15 +35,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                               top: 21,
                               bottom: 21,
                             ),
-                            child: CommonImageView(
-                              svgPath: ImageConstant.imgClose,
-                              height: getSize(
-                                14.00,
-                              ),
-                              width: getSize(
-                                14.00,
-                              ),
-                            ),
+                            child: CustomCloseIcon(),
                           ),
                           Padding(
                             padding: getPadding(
@@ -292,6 +285,9 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                       top: 66,
                       right: 16,
                     ),
+                    onTap: () {
+                      Get.offAllNamed(AppRoutes.mainScreen);
+                    },
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
