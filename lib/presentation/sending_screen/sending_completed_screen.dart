@@ -1,9 +1,8 @@
-import 'controller/sending_completed_controller.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
+class SendingCompletedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,7 +69,7 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                                         ),
                                         child: CommonImageView(
                                           svgPath:
-                                              ImageConstant.imgCheckmark58X78,
+                                          ImageConstant.imgCheckmark58X78,
                                           height: getVerticalSize(
                                             58.00,
                                           ),
@@ -89,14 +88,14 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                             alignment: Alignment.centerLeft,
                             child: Padding(
                               padding: getPadding(
-                                left: 53,
+                                left: 70,
                                 top: 32,
-                                right: 53,
+                                right: 70,
                               ),
                               child: Text(
                                 "msg_sending_succesf".tr,
                                 overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
+                                textAlign: TextAlign.center,
                                 style: AppStyle.txtInterSemiBold24Black900dd
                                     .copyWith(),
                               ),
@@ -108,7 +107,9 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                               right: 53,
                             ),
                             child: Text(
-                              "lbl_0_6_etc".tr,
+                              Get.parameters['amount'].toString() + " " +
+                                  (((Get.parameters['currency'] == "Ethereum")?  "ETC"
+                                      :(Get.parameters['currency'] == "Bitcoin") ? "BTC" : "USDT")),
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtInterMedium18.copyWith(
@@ -155,13 +156,13 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                                       top: 25,
                                     ),
                                     decoration:
-                                        AppDecoration.fillGray100.copyWith(
+                                    AppDecoration.fillGray100.copyWith(
                                       borderRadius:
-                                          BorderRadiusStyle.roundedBorder8,
+                                      BorderRadiusStyle.roundedBorder8,
                                     ),
                                     child: Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      CrossAxisAlignment.center,
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
@@ -202,37 +203,6 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                                       ],
                                     ),
                                   ),
-                                  Container(
-                                    height: getSize(
-                                      25.00,
-                                    ),
-                                    width: getSize(
-                                      25.00,
-                                    ),
-                                    margin: getMargin(
-                                      left: 16,
-                                      top: 1,
-                                      bottom: 39,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: ColorConstant.black900,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getSize(
-                                      1.00,
-                                    ),
-                                    width: getSize(
-                                      1.00,
-                                    ),
-                                    margin: getMargin(
-                                      right: 24,
-                                      bottom: 64,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: ColorConstant.black900,
-                                    ),
-                                  ),
                                 ],
                               ),
                             ),
@@ -245,6 +215,9 @@ class SendingCompletedScreen extends GetWidget<SendingCompletedController> {
                               right: 10,
                             ),
                             alignment: Alignment.centerLeft,
+                            onTap: () {
+                              Get.offAllNamed(AppRoutes.mainScreen);
+                            },
                           ),
                           Container(
                             height: getVerticalSize(

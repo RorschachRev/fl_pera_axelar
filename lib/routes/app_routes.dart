@@ -6,6 +6,8 @@ import 'package:application1/presentation/welcome_screen/username_creation_scree
 import 'package:application1/presentation/sending_screen/sending_screen.dart';
 import 'package:application1/presentation/sending_screen/selecting_currency_screen.dart';
 import 'package:application1/presentation/sending_screen/checkout_screen.dart';
+import 'package:application1/presentation/sending_screen/sending_completed_screen.dart';
+import 'package:application1/presentation/request_screen/request_preferences.dart';
 
 
 class AppRoutes {
@@ -16,6 +18,8 @@ class AppRoutes {
   static String sendingScreen = '/sending/sending_screen';
   static String selectingCurrencyScreen = '/sending/selecting_currency_screen';
   static String checkoutScreen = '/sending/checkout_screen';
+  static String sendingCompletedScreen = '/sending/completed';
+  static String requestPreferencesScreen = '/request/request_screen';
 
   static List<GetPage> pages = [
     GetPage(
@@ -54,6 +58,14 @@ class AppRoutes {
     GetPage(
       name: checkoutScreen,
       page: () => CheckoutScreen(),
+    ),
+    GetPage(
+      name: sendingCompletedScreen,
+      page: () => SendingCompletedScreen(),
+    ),
+    GetPage(
+      name: requestPreferencesScreen,
+      page: () => RequestPreferencesScreen(),
     ),
   ];
 }

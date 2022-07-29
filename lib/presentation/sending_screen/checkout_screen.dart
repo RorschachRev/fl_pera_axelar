@@ -318,6 +318,9 @@ class CheckoutScreen extends StatelessWidget {
                             top: 333,
                             right: 16,
                           ),
+                          onTap: () {
+                            Get.toNamed('/sending/completed?amount=${Get.parameters['amount']}&currency=${Get.parameters['currency']}');
+                          }
                         ),
                         Container(
                           height: getVerticalSize(

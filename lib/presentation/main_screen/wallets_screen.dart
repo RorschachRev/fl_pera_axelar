@@ -3,7 +3,7 @@ import 'package:application1/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class WalletsScreen extends StatelessWidget {
-  var controller = Get.put(WalletsController());
+  final controller = Get.put(WalletsController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -378,6 +378,9 @@ class WalletsScreen extends StatelessWidget {
                                 svgPath: ImageConstant
                                     .imgBlueA40052X52,
                               ),
+                              onTap: () {
+                                Get.toNamed(AppRoutes.requestPreferencesScreen);
+                              },
                             ),
                             Padding(
                               padding: getPadding(

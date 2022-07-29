@@ -71,9 +71,12 @@ class CustomDropDown extends StatelessWidget {
         items: items?.map((SelectionPopupModel item) {
           return DropdownMenuItem<SelectionPopupModel>(
             value: item,
-            child: Text(
-              item.title,
-              overflow: TextOverflow.ellipsis,
+            child: Column(
+              children: [
+                Text(item.title,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ]
             ),
           );
         }).toList(),
@@ -87,7 +90,7 @@ class CustomDropDown extends StatelessWidget {
 
   _buildDecoration() {
     return InputDecoration(
-      hintText: hintText ?? "",
+      hintText: hintText,
       hintStyle: _setFontStyle(),
       border: _setBorderStyle(),
       focusedBorder: _setBorderStyle(),
