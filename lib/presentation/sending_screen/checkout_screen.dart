@@ -1,9 +1,9 @@
-import 'controller/checkout_controller.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:application1/widgets/custom_close_icon.dart';
 
-class CheckoutScreen extends GetWidget<CheckoutController> {
+class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,15 +50,7 @@ class CheckoutScreen extends GetWidget<CheckoutController> {
                               right: 21,
                               bottom: 21,
                             ),
-                            child: CommonImageView(
-                              svgPath: ImageConstant.imgClose,
-                              height: getSize(
-                                14.00,
-                              ),
-                              width: getSize(
-                                14.00,
-                              ),
-                            ),
+                            child: CustomCloseIcon('/main_screen'),
                           ),
                         ],
                       ),
@@ -66,7 +58,8 @@ class CheckoutScreen extends GetWidget<CheckoutController> {
                   ),
                   CustomButton(
                     width: 360,
-                    text: "lbl_0_6_etc".tr,
+                    text: Get.parameters['amount'].toString() + " " + ((Get.parameters['currency'] == "Ethereum")?  "ETC"
+                        :(Get.parameters['currency'] == "Bitcoin") ? "BTC" : "USDT"),
                     variant: ButtonVariant.FillWhiteA700,
                     padding: ButtonPadding.PaddingAll23,
                     fontStyle: ButtonFontStyle.InterMedium34,
@@ -165,9 +158,9 @@ class CheckoutScreen extends GetWidget<CheckoutController> {
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
@@ -266,7 +259,8 @@ class CheckoutScreen extends GetWidget<CheckoutController> {
                                         top: 16,
                                       ),
                                       child: Text(
-                                        "lbl_ethereum_etc".tr,
+                                        (Get.parameters['currency'] == "Ethereum")?  "ETC"
+                                            :(Get.parameters['currency'] == "Bitcoin") ? "BTC" : "USDT",
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.right,
                                         style: AppStyle

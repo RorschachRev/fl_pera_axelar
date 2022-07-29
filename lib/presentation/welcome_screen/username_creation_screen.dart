@@ -33,7 +33,7 @@ class UsernameCreationScreen extends StatelessWidget {
                               top: 21,
                               bottom: 21,
                             ),
-                            child: CustomCloseIcon(),
+                            child: CustomCloseIcon('/welcome_screen'),
                           ),
                           Padding(
                             padding: getPadding(

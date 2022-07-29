@@ -97,7 +97,7 @@ class SelectingAnAmountCurrencyScreen
                                                   .CircleBorder16,
                                               child: CommonImageView(
                                                   svgPath: ImageConstant
-                                                      .imgBitcoinbadge)),
+                                                      .imgBitcoinBadge)),
                                           Container(
                                               margin: getMargin(left: 8),
                                               child: Column(

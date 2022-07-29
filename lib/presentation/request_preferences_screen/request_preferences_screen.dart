@@ -314,7 +314,7 @@ class RequestPreferencesScreen extends GetWidget<RequestPreferencesController> {
                                                               bottom: 15),
                                                           child: CommonImageView(
                                                               svgPath: ImageConstant
-                                                                  .imgArrowdown,
+                                                                  .imgEthereumBadge,
                                                               height:
                                                                   getVerticalSize(
                                                                       24.00),

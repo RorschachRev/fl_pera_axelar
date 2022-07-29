@@ -303,7 +303,7 @@ class RequestCurrencyOnScreen extends GetWidget<RequestCurrencyOnController> {
                                                           bottom: 15),
                                                       child: CommonImageView(
                                                           svgPath: ImageConstant
-                                                              .imgArrowdown,
+                                                              .imgEthereumBadge,
                                                           height:
                                                               getVerticalSize(
                                                                   24.00),
@@ -439,7 +439,7 @@ class RequestCurrencyOnScreen extends GetWidget<RequestCurrencyOnController> {
                                                           bottom: 15),
                                                       child: CommonImageView(
                                                           svgPath: ImageConstant
-                                                              .imgArrowdown,
+                                                              .imgEthereumBadge,
                                                           height:
                                                               getVerticalSize(
                                                                   24.00),
@@ -526,7 +526,7 @@ class RequestCurrencyOnScreen extends GetWidget<RequestCurrencyOnController> {
                                                           .CircleBorder16,
                                                       child: CommonImageView(
                                                           svgPath: ImageConstant
-                                                              .imgBitcoinbadge)),
+                                                              .imgBitcoinBadge)),
                                                   Container(
                                                       width: getHorizontalSize(
                                                           264.00),
@@ -601,7 +601,7 @@ class RequestCurrencyOnScreen extends GetWidget<RequestCurrencyOnController> {
                                                           bottom: 12),
                                                       child: CommonImageView(
                                                           svgPath: ImageConstant
-                                                              .imgCut,
+                                                              .imgCosmosBadge,
                                                           height:
                                                               getSize(32.00),
                                                           width:

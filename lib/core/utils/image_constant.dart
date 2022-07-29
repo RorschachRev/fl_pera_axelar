@@ -11,9 +11,9 @@ class ImageConstant {
 
   static String imgArrowleft = 'assets/images/img_arrowleft.svg';
 
-  static String imgCryptotetherba = 'assets/images/img_cryptotetherba.svg';
+  static String imgEtherBadge = 'assets/images/img_cryptotetherba.svg';
 
-  static String imgArrowdown = 'assets/images/img_arrowdown.svg';
+  static String imgEthereumBadge = 'assets/images/img_arrowdown.svg';
 
   static String imgClose = 'assets/images/img_close.svg';
 
@@ -32,7 +32,7 @@ class ImageConstant {
 
   static String img274pxneo21 = 'assets/images/img_274pxneo21.png';
 
-  static String imgBitcoinbadge = 'assets/images/img_bitcoinbadge.svg';
+  static String imgBitcoinBadge = 'assets/images/img_bitcoinbadge.svg';
 
   static String imgUser = 'assets/images/img_user.svg';
 
@@ -52,7 +52,7 @@ class ImageConstant {
 
   static String imgBlueA40052X52 = 'assets/images/img__blue_A400_52X52.svg';
 
-  static String imgCut = 'assets/images/img_cut.svg';
+  static String imgCosmosBadge = 'assets/images/img_cut.svg';
 
   static String imgCreditcard18X18 = 'assets/images/img_creditcard_18X18.svg';
 

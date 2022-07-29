@@ -329,6 +329,9 @@ class WalletsScreen extends StatelessWidget {
                                 svgPath: ImageConstant
                                     .imgBlueA400,
                               ),
+                              onTap: () {
+                                Get.toNamed(AppRoutes.sendingScreen);
+                              },
                             ),
                             Padding(
                               padding: getPadding(
@@ -556,7 +559,7 @@ class WalletsScreen extends StatelessWidget {
                               .CircleBorder20,
                           child: CommonImageView(
                             svgPath: ImageConstant
-                                .imgBitcoinbadge,
+                                .imgBitcoinBadge,
                           ),
                         ),
                         Padding(
@@ -747,7 +750,7 @@ class WalletsItemWidget extends StatelessWidget {
                     ),
                   ),
                   child: CommonImageView(
-                    svgPath: ImageConstant.imgArrowdown,
+                    svgPath: ImageConstant.imgEthereumBadge,
                     height: getSize(
                       40.00,
                     ),
