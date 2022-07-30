@@ -418,12 +418,13 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                   )
                                                 ),
                                                 Column(
-                                                  children: List<Container>.generate(
+                                                  children: List<GestureDetector>.generate(
                                                       controller.requestPreferencesModelObj.value.dropdownItemList.length, (index) =>
-                                                        Container(
-                                                            margin: getMargin(top: 10, left: 14),
+                                                        GestureDetector(
+                                                          child: Container (
+                                                            color: Colors.white,
+                                                            margin: getMargin(top: 10, left: 14, right: 14),
                                                             padding: EdgeInsets.all(3),
-                                                            child: GestureDetector(
                                                               child: Row(
                                                                 children: [
                                                                   CommonImageView(
@@ -435,28 +436,42 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                                       getHorizontalSize(
                                                                           16.00)
                                                                   ),
-                                                                  Column(
-                                                                    children: [
-                                                                      Text(
-                                                                          controller.requestPreferencesModelObj.value.dropdownItemList[index].title,
-                                                                      ),
-                                                                      Text(
-                                                                          controller.requestPreferencesModelObj.value.dropdownItemList[index].hint
-                                                                      ),
-                                                                    ],
-                                                                  )
+                                                                  Expanded(
+                                                                      child: Padding(
+                                                                        padding: getPadding(left: 14),
+                                                                        child: Align(
+                                                                          alignment: Alignment.centerLeft,
+                                                                          child: Column(
+                                                                            children: [
+                                                                              Align(
+                                                                                alignment: Alignment.centerLeft,
+                                                                                child: Text(
+                                                                                  controller.requestPreferencesModelObj.value.dropdownItemList[index].title,
+                                                                                ),
+                                                                              ),
+                                                                              Align(
+                                                                                alignment: Alignment.centerLeft,
+                                                                                  child: Text(
+                                                                                      controller.requestPreferencesModelObj.value.dropdownItemList[index].hint
+                                                                                  ),
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      )
+                                                                  ),
                                                                 ],
                                                             ),
-                                                              onTap: () {
-                                                                controller.onSelected(index);
-                                                                controller.selectedUSD.value = false;
-                                                                setState(() {
-                                                                  requestUSDValue = 0.0;
-                                                                });
-                                                                controller.showDropdownFunc();
-                                                              },
-                                                          )
-                                                        )
+                                                        ),
+                                                        onTap: () {
+                                                            controller.onSelected(index);
+                                                            controller.selectedUSD.value = false;
+                                                            setState(() {
+                                                              requestUSDValue = 0.0;
+                                                            });
+                                                            controller.showDropdownFunc();
+                                                          },
+                                                      )
                                                   ),
                                                 )
 

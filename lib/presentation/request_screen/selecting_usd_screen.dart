@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class SelectingUSDScreen extends StatelessWidget {
   final controller = Get.put(SelectingAnAmountCurrencyOneController());
   final formKey = GlobalKey<FormState>();
+  final textEditController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -71,29 +72,76 @@ class SelectingUSDScreen extends StatelessWidget {
                                 key: formKey,
                                 child: Column(
                                   children: [
-                                    CustomTextFormField(
-                                      width: 328,
-                                      focusNode: FocusNode(),
-                                      margin: getMargin(left: 15, top: 32, right: 15),
-                                      textInputAction: TextInputAction.done,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return 'Please enter value';
-                                        }
-                                        if (double.tryParse(value) == null) {
-                                          return 'Enter only numbers';
-                                        }
-                                        controller.formValue.value = double.parse(value);
-                                        return null;
-                                      },
+                                      Container(
+                                        margin: getMargin(right: 14, left: 14),
+                                        padding: getPadding(left: 10),
+                                        width: double.infinity,
+                                        height: 50,
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: TextFormField(
+                                            controller: textEditController,
+                                            validator: (value) {
+                                              if (value == null || value.isEmpty) {
+                                                return 'Please enter value';
+                                              }
+                                              if (double.tryParse(value) == null) {
+                                                return 'Enter only numbers';
+                                              }
+                                              controller.formValue.value = double.parse(value).toString();
+                                              return null;
+                                            },
+                                            readOnly: true,
+                                            autofocus: true,
+                                            decoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              hintText: "\$ 0.0"
+                                            ),
+                                          ),
+                                        ),
+                                        // child: TextField(
+                                        //   decoration: InputDecoration(
+                                        //     border: InputBorder.none,
+                                        //     hintText: '\$0',
+                                        //   ),
+                                        //   keyboardType: TextInputType.none,
+                                        // ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            getHorizontalSize(
+                                              8.00,
+                                            ),
+                                          ),
+                                          border: Border.all(
+                                            color: ColorConstant.bluegray100,
+                                            width: 1.1,
+                                          ),
+                                        ),
+                                      ),
+                                    Container(
+                                      margin: getMargin(top: 100, bottom: 100),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: SizedBox(
+                                            width: 300,
+                                            height: 400,
+                                            child: GridView.count(
+                                              crossAxisSpacing: 0.5,
+                                              crossAxisCount: 3,
+                                              children: List.generate(12, (index) {
+                                                return numberButton((index + 1).toString());
+                                              }),
+                                            ),
+                                      ),
                                     ),
                                     CustomButton(
                                         width: 328,
                                         text: "lbl_continue".tr,
-                                        margin: getMargin(left: 15, top: 24, right: 15),
+                                        margin: getMargin(left: 15, right: 15),
                                         onTap: () {
                                           if (formKey.currentState!.validate()) {
-                                            Get.back(result: controller.formValue.value);
+                                            Get.toNamed(AppRoutes.sendLinkUSDScreen + '?amount=${controller.formValue.value}');
                                           }
                                         },
                                     ),
@@ -108,13 +156,35 @@ class SelectingUSDScreen extends StatelessWidget {
         )
     );
   }
-
+  CustomButton numberButton(String number) {
+    switch (number) {
+      case "10": number = "."; break;
+      case "11": number = "0"; break;
+      case "12": number = "del"; break;
+      default: number = number; break;
+    }
+    return CustomButton(
+      shape: ButtonShape.Square,
+      variant: ButtonVariant.FillWhiteA700,
+      text: number,
+      fontStyle: ButtonFontStyle.InterMedium16Black90060,
+      onTap: () {
+        if (number == "del") {
+          controller.formValue.value = controller.formValue.value.substring(0, controller.formValue.value.length - 1);
+        }
+        else {
+          controller.formValue.value += number.toString();
+        }
+        textEditController.text = controller.formValue.value;
+      },
+    );
+  }
   onTapImgArrowleft() {
     Get.back();
   }
 }
 class SelectingAnAmountCurrencyOneController extends GetxController {
-  RxDouble formValue = (0.0).obs;
+  RxString formValue = "".obs;
   @override
   void onReady() {
     super.onReady();
