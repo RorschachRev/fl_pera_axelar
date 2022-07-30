@@ -11,7 +11,6 @@ class RequestPreferencesScreen extends StatefulWidget {
 }
 class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
   final controller = Get.put(RequestPreferencesController());
-  double requestUSDValue = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -271,15 +270,8 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                             )
                                         ),
                                         GestureDetector(
-                                          onTap: () async {
-                                            var result = await Get.toNamed(AppRoutes.selectingUSDScreen);
-                                            if (result != null) {
-                                              setState(() {
-                                                requestUSDValue = result;
-                                              });
-                                              controller.canContinue.value = true;
-                                              controller.selectedUSD.value = true;
-                                            }
+                                          onTap: ()  {
+                                           Get.toNamed(AppRoutes.selectingUSDScreen);
                                           },
                                           child:  Container(
                                             margin: getMargin(right: 14, left: 14),
@@ -288,7 +280,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                             height: 50,
                                             child: Align(
                                               alignment: Alignment.centerLeft,
-                                              child: Text('\$ ${requestUSDValue}'),
+                                              child: Text('\$ 0.0'),
                                             ),
                                             // child: TextField(
                                             //   decoration: InputDecoration(
@@ -465,10 +457,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                         ),
                                                         onTap: () {
                                                             controller.onSelected(index);
-                                                            controller.selectedUSD.value = false;
-                                                            setState(() {
-                                                              requestUSDValue = 0.0;
-                                                            });
+                                                            controller.canContinue.value = true;
                                                             controller.showDropdownFunc();
                                                           },
                                                       )
@@ -515,9 +504,8 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                               fontStyle: ButtonFontStyle.InterMedium16,
                                               alignment: Alignment.center,
                                               onTap: () {
-                                                if (controller.selectedUSD.value) {
-                                                  Get.toNamed('/request/usd_link?amount=${requestUSDValue}');
-                                                }
+                                                  Get.toNamed(AppRoutes.selectingRequestCurrencyScreen +
+                                                      '?currency=${controller.currentItemCurrency.value.title}&imageConst=${controller.currentItemCurrency.value.imageConst}');
                                               },
                                           ),
                                         ),
@@ -586,7 +574,6 @@ enum selectedPreferenceEnum {cheapest, fastest}
 class RequestPreferencesController extends GetxController {
   Rx<RequestPreferencesModel> requestPreferencesModelObj =
       RequestPreferencesModel().obs;
-  RxBool selectedUSD = false.obs;
   RxBool checkbox = false.obs;
   RxBool showDropdown = false.obs;
   Rx<selectedPreferenceEnum> selectedPreference = Rx<selectedPreferenceEnum>(selectedPreferenceEnum.cheapest);

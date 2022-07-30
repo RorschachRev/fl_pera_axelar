@@ -99,13 +99,6 @@ class SelectingUSDScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        // child: TextField(
-                                        //   decoration: InputDecoration(
-                                        //     border: InputBorder.none,
-                                        //     hintText: '\$0',
-                                        //   ),
-                                        //   keyboardType: TextInputType.none,
-                                        // ),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
                                             getHorizontalSize(
@@ -177,6 +170,7 @@ class SelectingUSDScreen extends StatelessWidget {
         }
         textEditController.text = controller.formValue.value;
       },
+      //ImageConstant.imgDelete,
     );
   }
   onTapImgArrowleft() {

@@ -10,6 +10,8 @@ import 'package:application1/presentation/sending_screen/sending_completed_scree
 import 'package:application1/presentation/request_screen/request_preferences.dart';
 import 'package:application1/presentation/request_screen/selecting_usd_screen.dart';
 import 'package:application1/presentation/request_screen/send_link_usd_screen.dart';
+import 'package:application1/presentation/request_screen/selecting_currency_screen.dart';
+import 'package:application1/presentation/request_screen/send_link_currency_screen.dart';
 
 
 class AppRoutes {
@@ -24,6 +26,8 @@ class AppRoutes {
   static String requestPreferencesScreen = '/request/request_screen';
   static String selectingUSDScreen = '/request/usd_screen';
   static String sendLinkUSDScreen = '/request/usd_link';
+  static String selectingRequestCurrencyScreen = '/request/currency_screen';
+  static String sendingLinkCurrencyScreen = '/request/currency_link';
 
   static List<GetPage> pages = [
     GetPage(
@@ -78,6 +82,14 @@ class AppRoutes {
     GetPage(
       name: sendLinkUSDScreen,
       page: () => SendLinkUSDScreen(),
+    ),
+    GetPage(
+      name: selectingRequestCurrencyScreen,
+      page: () => SelectingCurrencyOnScreen(),
+    ),
+    GetPage(
+      name: sendingLinkCurrencyScreen,
+      page: () => SendLinkCurrencyScreen(),
     ),
   ];
 }
