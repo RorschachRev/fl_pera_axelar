@@ -8,6 +8,8 @@ import 'package:application1/presentation/sending_screen/selecting_currency_scre
 import 'package:application1/presentation/sending_screen/checkout_screen.dart';
 import 'package:application1/presentation/sending_screen/sending_completed_screen.dart';
 import 'package:application1/presentation/request_screen/request_preferences.dart';
+import 'package:application1/presentation/request_screen/selecting_usd_screen.dart';
+import 'package:application1/presentation/request_screen/send_link_usd_screen.dart';
 
 
 class AppRoutes {
@@ -20,6 +22,8 @@ class AppRoutes {
   static String checkoutScreen = '/sending/checkout_screen';
   static String sendingCompletedScreen = '/sending/completed';
   static String requestPreferencesScreen = '/request/request_screen';
+  static String selectingUSDScreen = '/request/usd_screen';
+  static String sendLinkUSDScreen = '/request/usd_link';
 
   static List<GetPage> pages = [
     GetPage(
@@ -66,6 +70,14 @@ class AppRoutes {
     GetPage(
       name: requestPreferencesScreen,
       page: () => RequestPreferencesScreen(),
+    ),
+    GetPage(
+      name: selectingUSDScreen,
+      page: () => SelectingUSDScreen(),
+    ),
+    GetPage(
+      name: sendLinkUSDScreen,
+      page: () => SendLinkUSDScreen(),
     ),
   ];
 }

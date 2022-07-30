@@ -2,10 +2,16 @@ import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_checkbox.dart';
 import 'package:application1/widgets/custom_drop_down.dart';
+import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
 
-class RequestPreferencesScreen extends StatelessWidget {
+class RequestPreferencesScreen extends StatefulWidget {
+  @override
+  State<RequestPreferencesScreen> createState() => _requestPreferencesScreen();
+}
+class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
   final controller = Get.put(RequestPreferencesController());
+  double requestUSDValue = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -90,15 +96,8 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                                   right: 21,
                                                                   bottom:
                                                                   21),
-                                                              child: CommonImageView(
-                                                                  svgPath:
-                                                                  ImageConstant
-                                                                      .imgClose,
-                                                                  height:
-                                                                  getSize(
-                                                                      14.00),
-                                                                  width: getSize(
-                                                                      14.00)))
+                                                              child: CustomCloseIcon('/main_screen'),
+                                                          )
                                                         ])))),
                                         Align(
                                             alignment: Alignment.centerLeft,
@@ -133,23 +132,14 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                     mainAxisSize:
                                                     MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                          height:
-                                                          getSize(20.00),
-                                                          width: getSize(20.00),
-                                                          margin: getMargin(
-                                                              top: 14,
-                                                              bottom: 14),
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                              BorderRadius.circular(
-                                                                  getHorizontalSize(
-                                                                      10.00)),
-                                                              border: Border.all(
-                                                                  color: ColorConstant
-                                                                      .black90099,
-                                                                  width: getHorizontalSize(
-                                                                      2.00)))),
+                                                      Obx(() => Radio(
+                                                          value: selectedPreferenceEnum.cheapest,
+                                                          groupValue: controller.selectedPreference.value,
+                                                          onChanged: (selectedPreferenceEnum? value) {
+                                                            controller.selectedPreference.value = value!;
+                                                          }
+                                                        ),
+                                                      ),
                                                       Container(
                                                           margin: getMargin(
                                                               left: 30),
@@ -226,23 +216,14 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                     mainAxisSize:
                                                     MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                          height:
-                                                          getSize(20.00),
-                                                          width: getSize(20.00),
-                                                          margin: getMargin(
-                                                              top: 14,
-                                                              bottom: 14),
-                                                          decoration: BoxDecoration(
-                                                              borderRadius:
-                                                              BorderRadius.circular(
-                                                                  getHorizontalSize(
-                                                                      10.00)),
-                                                              border: Border.all(
-                                                                  color: ColorConstant
-                                                                      .black90099,
-                                                                  width: getHorizontalSize(
-                                                                      2.00)))),
+                                                      Obx(() => Radio(
+                                                          value: selectedPreferenceEnum.fastest,
+                                                          groupValue: controller.selectedPreference.value,
+                                                          onChanged: (selectedPreferenceEnum? value) {
+                                                            controller.selectedPreference.value = value!;
+                                                          }
+                                                        ),
+                                                      ),
                                                       CustomDropDown(
                                                           width: 240,
                                                           focusNode:
@@ -261,7 +242,7 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                           items: controller
                                                               .requestPreferencesModelObj
                                                               .value
-                                                              .dropdownItemList1,
+                                                              .dropdownPreferencesItemList,
                                                           onChanged: (value) {
                                                             controller.onSelected1(value);
                                                           })
@@ -289,25 +270,43 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                 )
                                             )
                                         ),
-                                        Container(
-                                          margin: getMargin(right: 14, left: 14),
-                                          padding: getPadding(left: 10),
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: '\$0',
+                                        GestureDetector(
+                                          onTap: () async {
+                                            var result = await Get.toNamed(AppRoutes.selectingUSDScreen);
+                                            if (result != null) {
+                                              setState(() {
+                                                requestUSDValue = result;
+                                              });
+                                              controller.canContinue.value = true;
+                                              controller.selectedUSD.value = true;
+                                            }
+                                          },
+                                          child:  Container(
+                                            margin: getMargin(right: 14, left: 14),
+                                            padding: getPadding(left: 10),
+                                            width: double.infinity,
+                                            height: 50,
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text('\$ ${requestUSDValue}'),
                                             ),
-                                            keyboardType: TextInputType.number,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(
-                                              getHorizontalSize(
-                                                8.00,
+                                            // child: TextField(
+                                            //   decoration: InputDecoration(
+                                            //     border: InputBorder.none,
+                                            //     hintText: '\$0',
+                                            //   ),
+                                            //   keyboardType: TextInputType.none,
+                                            // ),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(
+                                                getHorizontalSize(
+                                                  8.00,
+                                                ),
                                               ),
-                                            ),
-                                            border: Border.all(
-                                              color: ColorConstant.bluegray100,
-                                              width: 1.1,
+                                              border: Border.all(
+                                                color: ColorConstant.bluegray100,
+                                                width: 1.1,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -450,6 +449,10 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                             ),
                                                               onTap: () {
                                                                 controller.onSelected(index);
+                                                                controller.selectedUSD.value = false;
+                                                                setState(() {
+                                                                  requestUSDValue = 0.0;
+                                                                });
                                                                 controller.showDropdownFunc();
                                                               },
                                                           )
@@ -477,20 +480,32 @@ class RequestPreferencesScreen extends StatelessWidget {
                                                   controller.checkbox.value =
                                                       value;
                                                 }))),
-                                        CustomButton(
-                                            width: 328,
-                                            text: "lbl_continue".tr,
-                                            margin: getMargin(
-                                                left: 15, top: 17, right: 15),
-                                            variant: ButtonVariant.FillGray102,
-                                            fontStyle: ButtonFontStyle
-                                                .InterMedium16Black90060,
-                                            alignment: Alignment.center,
-                                            onTap: () {
-
-                                            },
+                                        Obx(() =>
+                                          (!controller.canContinue.value) ?
+                                            CustomButton(
+                                              width: 328,
+                                              text: "lbl_continue".tr,
+                                              margin: getMargin(
+                                                  left: 15, top: 17, right: 15),
+                                              variant: ButtonVariant.FillGray102,
+                                              fontStyle: ButtonFontStyle
+                                                  .InterMedium16Black90060,
+                                              alignment: Alignment.center,
+                                            ) : CustomButton(
+                                              width: 328,
+                                              text: "lbl_continue".tr,
+                                              margin: getMargin(
+                                                  left: 15, top: 17, right: 15),
+                                              variant: ButtonVariant.FillBlueA400,
+                                              fontStyle: ButtonFontStyle.InterMedium16,
+                                              alignment: Alignment.center,
+                                              onTap: () {
+                                                if (controller.selectedUSD.value) {
+                                                  Get.toNamed('/request/usd_link?amount=${requestUSDValue}');
+                                                }
+                                              },
+                                          ),
                                         ),
-
                                         Container(
                                             height: getVerticalSize(2.00),
                                             width: getHorizontalSize(64.00),
@@ -532,7 +547,7 @@ class RequestPreferencesModel {
     )
   ].obs;
 
-  RxList<SelectionPopupModel> dropdownItemList1 = [
+  RxList<SelectionPopupModel> dropdownPreferencesItemList = [
     SelectionPopupModel(
       id: 1,
       title: "Fastest",
@@ -552,17 +567,16 @@ class RequestPreferencesModel {
     ),
   ].obs;
 }
+enum selectedPreferenceEnum {cheapest, fastest}
 class RequestPreferencesController extends GetxController {
   Rx<RequestPreferencesModel> requestPreferencesModelObj =
       RequestPreferencesModel().obs;
-
+  RxBool selectedUSD = false.obs;
   RxBool checkbox = false.obs;
   RxBool showDropdown = false.obs;
-
-  RxInt selectedDropdownValue = (-1).obs;
-
-
-  SelectionPopupModel? selectedDropDownValue1;
+  Rx<selectedPreferenceEnum> selectedPreference = Rx<selectedPreferenceEnum>(selectedPreferenceEnum.cheapest);
+  RxBool canContinue = false.obs;
+  SelectionPopupModel? selectedPreferenceDropDownValue;
   Rx<SelectionPopupModel> currentItemCurrency = SelectionPopupModel(title: 'Not Chosen').obs;
   @override
   void onInit() {
@@ -600,13 +614,13 @@ class RequestPreferencesController extends GetxController {
   }
 
   onSelected1(dynamic value) {
-    selectedDropDownValue1 = value as SelectionPopupModel;
-    requestPreferencesModelObj.value.dropdownItemList1.forEach((element) {
+    selectedPreferenceDropDownValue = value as SelectionPopupModel;
+    requestPreferencesModelObj.value.dropdownPreferencesItemList.forEach((element) {
       element.isSelected = false;
       if (element.id == value.id) {
         element.isSelected = true;
       }
     });
-    requestPreferencesModelObj.value.dropdownItemList1.refresh();
+    requestPreferencesModelObj.value.dropdownPreferencesItemList.refresh();
   }
 }

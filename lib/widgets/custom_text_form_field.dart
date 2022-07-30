@@ -77,6 +77,7 @@ class CustomTextFormField extends StatelessWidget {
         textInputAction: textInputAction,
         decoration: _buildDecoration(),
         validator: validator,
+        keyboardType: TextInputType.number,
       ),
     );
   }
