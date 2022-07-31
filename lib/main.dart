@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'core/app_export.dart';
+import 'package:walletconnect_qrcode_modal_dart/walletconnect_qrcode_modal_dart.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
