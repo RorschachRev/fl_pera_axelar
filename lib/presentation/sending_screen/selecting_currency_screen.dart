@@ -106,13 +106,19 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                         children: [
                                           CommonImageView(
                                             svgPath: item.imageConst,
+                                            width: 30,
+                                            height: 30,
                                           ),
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Text(item.title),
-                                              Text(item.amount.toString() + " " + item.hint,)
-                                            ],
+                                          Container(
+                                            margin: getMargin(left: 10),
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(item.title,),
+                                                Text(item.amount.toString() + " " + item.hint,)
+                                              ],
+                                            ),
                                           )
                                         ]
                                     ),
@@ -120,6 +126,42 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                 }).toList(),
                               ),
                             ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: getMargin(right: 14, left: 14, top: 10),
+                            padding: getPadding(left: 10),
+                            child: Text("Current preference:", style: TextStyle(fontSize: 15),),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: getMargin(right: 14, left: 14, top: 10),
+                            padding: EdgeInsets.all(10),
+                            child: Align(
+                              child: Text(
+                                "ETH - Wallet 0x3adc... - ${walletBalance} \$ \n"
+                                    "ETH - Wallet 0x3adc... USDt",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                getHorizontalSize(
+                                  8.00,
+                                ),
+                              ),
+                              border: Border.all(
+                                color: ColorConstant.bluegray100,
+                                width: 1.1,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            child: Text("Change preference", style: TextStyle(fontSize: 13),),
+                            onPressed: () {
+
+                            },
                           ),
                         ],
                       ),

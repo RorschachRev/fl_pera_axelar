@@ -302,10 +302,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                         .copyWith(
                                                         letterSpacing: 0.10,
                                                         height: 1.71)))),
-                                        Align(
-                                            alignment: Alignment.center,
-                                            child: Expanded(
-                                                child: Container(
+                                        Container(
                                                 margin: getMargin(right: 14, left: 14),
                                                 height: 50,
                                                 child: Obx(
@@ -345,9 +342,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                       ),
                                                   )
                                                 )
-                                              )
-                                            )
-                                        ),
+                                              ),
                                         Obx( () => Align(
                                           alignment: Alignment.center,
                                           child: Visibility(
