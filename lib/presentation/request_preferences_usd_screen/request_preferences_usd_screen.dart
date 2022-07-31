@@ -1,6 +1,6 @@
 import 'controller/request_preferences_usd_controller.dart';
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
+//import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_checkbox.dart';
 import 'package:application1/widgets/custom_drop_down.dart';
 import 'package:application1/widgets/custom_text_form_field.dart';
@@ -479,15 +479,15 @@ class RequestPreferencesUsdScreen
                                                   controller.checkbox.value =
                                                       value;
                                                 }))),
-                                        CustomButton(
-                                            width: 328,
-                                            text: "lbl_continue".tr,
-                                            margin: getMargin(
-                                                left: 15, top: 17, right: 15),
-                                            variant: ButtonVariant.FillGray102,
-                                            fontStyle: ButtonFontStyle
-                                                .InterMedium16Black90060,
-                                            alignment: Alignment.center),
+                                        // CustomButton(
+                                        //     width: 328,
+                                        //     text: "lbl_continue".tr,
+                                        //     margin: getMargin(
+                                        //         left: 15, top: 17, right: 15),
+                                        //     variant: ButtonVariant.FillGray102,
+                                        //     fontStyle: ButtonFontStyle
+                                        //         .InterMedium16Black90060,
+                                        //     alignment: Alignment.center),
                                         Container(
                                             height: getVerticalSize(2.00),
                                             width: getHorizontalSize(64.00),

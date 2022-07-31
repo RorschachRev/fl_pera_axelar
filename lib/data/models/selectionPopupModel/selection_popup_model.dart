@@ -9,6 +9,7 @@ class SelectionPopupModel {
   bool isSelected;
   String imageConst;
   String hint;
+  double amount;
 
   SelectionPopupModel({
     this.id,
@@ -17,5 +18,6 @@ class SelectionPopupModel {
     this.isSelected = false,
     this.imageConst = "assets/images/image_not_found.png",
     this.hint = "null",
+    this.amount = 0.0,
   });
 }

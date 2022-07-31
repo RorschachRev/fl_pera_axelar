@@ -1,5 +1,4 @@
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SelectingCurrencyScreen extends StatefulWidget {
@@ -7,9 +6,7 @@ class SelectingCurrencyScreen extends StatefulWidget {
   State<SelectingCurrencyScreen> createState() => _selectingCurrencyScreen();
 }
 class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
-  String dropdownValue = 'Ethereum';
-  double amount = 0;
-  TextEditingController controller = new TextEditingController();
+  final item_controller = Get.put(SelectingCurrencyDropdownController());
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -20,135 +17,127 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
               key: formKey,
               child: Container(
                 width: size.width,
-                child: SingleChildScrollView(
-                    child: Container(
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Align(
-                                  alignment: Alignment.centerLeft,
+                height: size.height,
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                  width: size.width,
                                   child: Container(
-                                      width: size.width,
-                                      child: Container(
-                                          decoration: AppDecoration.fillWhiteA700,
-                                          child: Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                GestureDetector(
-                                                    onTap: () {
-                                                      onTapImgArrowleft();
-                                                    },
-                                                    child: Padding(
-                                                        padding: getPadding(
-                                                            left: 22,
-                                                            top: 18,
-                                                            bottom: 18),
-                                                        child: CommonImageView(
-                                                            svgPath: ImageConstant
-                                                                .imgArrowleft,
-                                                            height:
-                                                            getVerticalSize(20.00),
-                                                            width: getHorizontalSize(
-                                                                11.00)))),
-                                                Padding(
+                                      decoration: AppDecoration.fillWhiteA700,
+                                      child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            GestureDetector(
+                                                onTap: () {
+                                                  onTapImgArrowleft();
+                                                },
+                                                child: Padding(
                                                     padding: getPadding(
-                                                        left: 81,
-                                                        top: 16,
-                                                        right: 115,
-                                                        bottom: 16),
-                                                    child: Text(
-                                                        "lbl_enter_an_amount".tr,
-                                                        overflow: TextOverflow.ellipsis,
-                                                        textAlign: TextAlign.center,
-                                                        style: AppStyle.txtInterMedium16
-                                                            .copyWith(
-                                                            letterSpacing: 0.16,
-                                                            height: 1.50)))
-                                              ])))),
-                              Align(
-                                  alignment: Alignment.center,
-                                  child: Container(
-                                      width: double.infinity,
-                                      margin: getMargin(left: 16, top: 16, right: 16),
-                                      decoration: AppDecoration.outlineBlack9001e12
-                                          .copyWith(
-                                          borderRadius:
-                                          BorderRadiusStyle.roundedBorder8),
-                                      child: DropdownButton<String>(
-                                        icon: Padding(
-                                                padding: const EdgeInsets.only(left: 0),
-                                                child: CommonImageView(
-                                                    svgPath: ImageConstant
-                                                        .imgArrowdownGray900,
-                                                    height:
-                                                    getVerticalSize(7.00),
-                                                    width: getHorizontalSize(
-                                                        12.00))
-                                        ),
-                                          value: dropdownValue,
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              dropdownValue = newValue!;
-                                            });
-                                          },
-                                          items: <String>['Ethereum', 'Bitcoin', 'Cosmos']
-                                              .map<DropdownMenuItem<String>>((String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: currencyDropdownItem(value),
-                                            );
-                                          }).toList(),
-                                      ),
-                                  ),
-                              ),
-                              Align(
-                                  alignment: Alignment.center,
-                                  child: Padding(
-                                      padding: getPadding(left: 16, top: 48, right: 16),
-                                      child: TextFormField(
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Please enter some number';
-                                            }
-                                            if (double.tryParse(value) == null) {
-                                              return 'Please enter correct number';
-                                            }
-                                            amount = double.parse(value);
-                                            return null;
-                                          },
-                                          keyboardType: TextInputType.number,
-                                          textAlign: TextAlign.center,
-                                          style: AppStyle.txtInterRegular34
-                                              .copyWith(letterSpacing: 0.25),
-                                        controller: controller,
-
+                                                        left: 22,
+                                                        top: 18,
+                                                        bottom: 18),
+                                                    child: CommonImageView(
+                                                        svgPath: ImageConstant
+                                                            .imgArrowleft,
+                                                        height:
+                                                        getVerticalSize(20.00),
+                                                        width: getHorizontalSize(
+                                                            11.00)))),
+                                            Padding(
+                                                padding: getPadding(
+                                                    left: 81,
+                                                    top: 16,
+                                                    right: 115,
+                                                    bottom: 16),
+                                                child: Text(
+                                                    "Select Currency",
+                                                    overflow: TextOverflow.ellipsis,
+                                                    textAlign: TextAlign.center,
+                                                    style: AppStyle.txtInterMedium16
+                                                        .copyWith(
+                                                        letterSpacing: 0.16,
+                                                        height: 1.50)))
+                                          ])))),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              width: double.infinity,
+                              margin: getMargin(left: 16, top: 16, right: 16),
+                              decoration: AppDecoration.outlineBlack9001e12
+                                  .copyWith(
+                                  borderRadius:
+                                  BorderRadiusStyle.roundedBorder8),
+                              child: DropdownButton<SelectionPopupModel>(
+                                icon: Expanded (
+                                  child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Padding(
+                                        padding: getPadding(right: 10),
+                                        child: CommonImageView(
+                                            svgPath: ImageConstant
+                                                .imgArrowdownGray900,
+                                            height:
+                                            getVerticalSize(7.00),
+                                            width: getHorizontalSize(
+                                                12.00)),
                                       )
-                                  )
+                                  ),
+                                ),
+                                value: item_controller.currentItemCurrency.value,
+                                onChanged: (SelectionPopupModel? newValue) {
+                                  setState(() {
+                                    item_controller.currentItemCurrency.value = newValue!;
+                                  });
+                                },
+                                items: item_controller.selectingCurrencyDropdownModelObj.value.dropdownItemList.map((SelectionPopupModel item) {
+                                  return DropdownMenuItem<SelectionPopupModel>(
+                                    value: item,
+                                    child: Row(
+                                        children: [
+                                          CommonImageView(
+                                            svgPath: item.imageConst,
+                                          ),
+                                          Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Text(item.title),
+                                              Text(item.amount.toString() + " " + item.hint,)
+                                            ],
+                                          )
+                                        ]
+                                    ),
+                                  );
+                                }).toList(),
                               ),
-                              Container(
-                                  height: getSize(1.00),
-                                  width: getSize(1.00),
-                                  margin: getMargin(left: 10, top: 267),
-                                  decoration:
-                                  BoxDecoration(color: ColorConstant.black900)),
-                              CustomButton(
-                                    width: 328,
-                                    text: "lbl_continue".tr,
-                                    margin: getMargin(left: 15, top: 100, right: 15),
-                                    onTap: () {
-                                      if (formKey.currentState!.validate()) {
-                                          Get.toNamed('/sending/checkout_screen?amount=${amount}&currency=${dropdownValue}');
-                                      }
-                                    },
-                              ),
-                            ],
-                        )
-                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        child:  ElevatedButton(
+                          child: Text('Continue'),
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              Get.toNamed(AppRoutes.selectingCurrencyAmountScreen + '?&currency=${item_controller.currentItemCurrency.value.hint}');
+                            }
+                          },
+                          style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
+                          ),
+                        ),
+                      ),
+                    ],
                 )
               )
             )
@@ -246,7 +235,16 @@ Container currencyDropdownItem(String item) {
 class SelectingCurrencyDropdownController extends GetxController {
   Rx<SelectingCurrencyModel> selectingCurrencyDropdownModelObj =
       SelectingCurrencyModel().obs;
-
+  Rx<SelectionPopupModel> currentItemCurrency = SelectionPopupModel(title: 'Not Chosen').obs;
+  void onInit() {
+    super.onInit();
+    selectingCurrencyDropdownModelObj.value.dropdownItemList.forEach((element) {
+      if (element.isSelected == true) {
+        currentItemCurrency.value = element;
+        update();
+      }
+    });
+  }
   @override
   void onReady() {
     super.onReady();
@@ -257,7 +255,31 @@ class SelectingCurrencyDropdownController extends GetxController {
     super.onClose();
   }
 }
-class SelectingCurrencyModel {}
+class SelectingCurrencyModel {
+  RxList<SelectionPopupModel> dropdownItemList = [
+    SelectionPopupModel(
+      id: 0,
+      title:  "Ethereum",
+      hint: "ETH",
+      imageConst: ImageConstant.imgEthereumBadge,
+      isSelected: true,
+      amount: 13.0,
+    ),
+    SelectionPopupModel(
+      id: 1,
+      title: "Bitcoin",
+      hint: "BTC",
+      amount: 0.0,
+      imageConst: ImageConstant.imgBitcoinBadge,
+    ),
+    SelectionPopupModel(
+      id: 2,
+      title: "Tether",
+      hint: "USDT",
+      imageConst: ImageConstant.imgCosmosBadge,
+    )
+  ].obs;
+}
 
 class SelectingCurrencyBinding extends Bindings {
   @override

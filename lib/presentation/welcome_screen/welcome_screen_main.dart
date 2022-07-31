@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:application1/widgets/custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -11,9 +10,8 @@ class WelcomeScreen extends StatelessWidget {
         backgroundColor: ColorConstant.gray100,
         body: Container(
           width: size.width,
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
+          height: size.height,
+          child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -127,18 +125,17 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  CustomButton(
-                    width: 328,
-                    text: "msg_create_new_acco".tr,
-                    margin: getMargin(
-                      left: 16,
-                      top: 16,
-                      right: 16,
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child:  ElevatedButton(
+                      child: Text('Create new account'),
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.usernameCreationScreen);
+                      },
+                      style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
+                      ),
                     ),
-                    alignment: Alignment.center,
-                    onTap: () {
-                      Get.toNamed(AppRoutes.usernameCreationScreen);
-                    }
                   ),
                   Align(
                     alignment: Alignment.center,
@@ -147,6 +144,7 @@ class WelcomeScreen extends StatelessWidget {
                         left: 16,
                         top: 16,
                         right: 16,
+                        bottom: 16
                       ),
                       child: Text(
                         "lbl_import_wallet".tr,
@@ -159,46 +157,8 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    margin: getMargin(
-                      top: 24,
-                    ),
-                    decoration: AppDecoration.fillWhiteA700,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: getVerticalSize(
-                            2.00,
-                          ),
-                          width: getHorizontalSize(
-                            64.00,
-                          ),
-                          margin: getMargin(
-                            left: 148,
-                            top: 8,
-                            right: 148,
-                            bottom: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: ColorConstant.gray500,
-                            borderRadius: BorderRadius.circular(
-                              getHorizontalSize(
-                                1.00,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
-            ),
-          ),
         ),
       ),
     );

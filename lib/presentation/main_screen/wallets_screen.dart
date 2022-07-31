@@ -1,5 +1,4 @@
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class WalletsScreen extends StatelessWidget {
@@ -315,23 +314,25 @@ class WalletsScreen extends StatelessWidget {
                           mainAxisAlignment:
                           MainAxisAlignment.start,
                           children: [
-                            CustomIconButton(
-                              height: 52,
-                              width: 52,
+                            Container(
                               margin: getMargin(
                                 left: 2,
                                 right: 2,
                               ),
-                              padding: IconButtonPadding
-                                  .PaddingAll18,
-                              alignment: Alignment.center,
-                              child: CommonImageView(
-                                svgPath: ImageConstant
-                                    .imgBlueA400,
+                              padding: EdgeInsets.all(2),
+                              child: ElevatedButton(
+                                child: CommonImageView(
+                                  svgPath: ImageConstant
+                                      .imgBlueA400,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(AppRoutes.sendingScreen);
+                                },
+                                style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(Size(52, 52)),
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                ),
                               ),
-                              onTap: () {
-                                Get.toNamed(AppRoutes.sendingScreen);
-                              },
                             ),
                             Padding(
                               padding: getPadding(
@@ -364,23 +365,25 @@ class WalletsScreen extends StatelessWidget {
                           mainAxisAlignment:
                           MainAxisAlignment.start,
                           children: [
-                            CustomIconButton(
-                              height: 52,
-                              width: 52,
+                            Container(
                               margin: getMargin(
                                 left: 2,
                                 right: 2,
                               ),
-                              padding: IconButtonPadding
-                                  .PaddingAll18,
-                              alignment: Alignment.center,
-                              child: CommonImageView(
-                                svgPath: ImageConstant
-                                    .imgBlueA40052X52,
+                              padding: EdgeInsets.all(2),
+                              child: ElevatedButton(
+                                child: CommonImageView(
+                                  svgPath: ImageConstant
+                                      .imgBlueA40052X52,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(AppRoutes.requestPreferencesScreen);
+                                },
+                                style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(Size(52, 52)),
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                ),
                               ),
-                              onTap: () {
-                                Get.toNamed(AppRoutes.requestPreferencesScreen);
-                              },
                             ),
                             Padding(
                               padding: getPadding(
@@ -413,18 +416,24 @@ class WalletsScreen extends StatelessWidget {
                           mainAxisAlignment:
                           MainAxisAlignment.start,
                           children: [
-                            CustomIconButton(
-                              height: 52,
-                              width: 52,
+                            Container(
                               margin: getMargin(
                                 left: 2,
                                 right: 2,
                               ),
-                              padding: IconButtonPadding
-                                  .PaddingAll18,
-                              alignment: Alignment.center,
-                              child: CommonImageView(
-                                svgPath: ImageConstant.img,
+                              padding: EdgeInsets.all(2),
+                              child: ElevatedButton(
+                                child: CommonImageView(
+                                  svgPath: ImageConstant
+                                      .img,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(AppRoutes.sendingScreen);
+                                },
+                                style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(Size(52, 52)),
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                ),
                               ),
                             ),
                             Padding(
@@ -458,19 +467,24 @@ class WalletsScreen extends StatelessWidget {
                           mainAxisAlignment:
                           MainAxisAlignment.start,
                           children: [
-                            CustomIconButton(
-                              height: 52,
-                              width: 52,
+                            Container(
                               margin: getMargin(
                                 left: 2,
                                 right: 2,
                               ),
-                              padding: IconButtonPadding
-                                  .PaddingAll14,
-                              alignment: Alignment.center,
-                              child: CommonImageView(
-                                svgPath:
-                                ImageConstant.img52X52,
+                              padding: EdgeInsets.all(2),
+                              child: ElevatedButton(
+                                child: CommonImageView(
+                                  svgPath: ImageConstant
+                                      .img52X52,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(AppRoutes.sendingScreen);
+                                },
+                                style: ButtonStyle(
+                                  minimumSize: MaterialStateProperty.all(Size(52, 52)),
+                                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                                ),
                               ),
                             ),
                             Padding(
@@ -548,21 +562,24 @@ class WalletsScreen extends StatelessWidget {
                       CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        CustomIconButton(
-                          height: 40,
-                          width: 40,
+                        Container(
                           margin: getMargin(
-                            left: 16,
-                            top: 8,
-                            bottom: 8,
+                            left: 2,
+                            right: 2,
                           ),
-                          variant: IconButtonVariant
-                              .FillAmber600,
-                          shape: IconButtonShape
-                              .CircleBorder20,
-                          child: CommonImageView(
-                            svgPath: ImageConstant
-                                .imgBitcoinBadge,
+                          padding: EdgeInsets.all(2),
+                          child: ElevatedButton(
+                            child: CommonImageView(
+                              svgPath: ImageConstant
+                                  .imgBitcoinBadge,
+                            ),
+                            onPressed: () {
+                              //
+                            },
+                            style: ButtonStyle(
+                              minimumSize: MaterialStateProperty.all(Size(40, 40)),
+                              backgroundColor: MaterialStateProperty.all(Colors.amber),
+                            ),
                           ),
                         ),
                         Padding(

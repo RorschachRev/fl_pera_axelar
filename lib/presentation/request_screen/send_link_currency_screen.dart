@@ -1,5 +1,4 @@
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -240,17 +239,17 @@ class SendLinkCurrencyScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  CustomButton(
-                    width: 328,
-                    text: "lbl_home".tr,
-                    margin: getMargin(
-                      left: 15,
-                      top: 16,
-                      right: 15,
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child:  ElevatedButton(
+                      child: Text('Home'),
+                      onPressed: () {
+                        Get.offAllNamed(AppRoutes.mainScreen);
+                      },
+                      style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
+                      ),
                     ),
-                    onTap: () {
-                      Get.offAllNamed(AppRoutes.mainScreen);
-                    },
                   ),
                   Container(
                     height: getVerticalSize(

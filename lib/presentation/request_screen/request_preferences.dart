@@ -1,5 +1,4 @@
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
 import 'package:application1/widgets/custom_checkbox.dart';
 import 'package:application1/widgets/custom_drop_down.dart';
 import 'package:application1/widgets/custom_close_icon.dart';
@@ -269,39 +268,23 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                 )
                                             )
                                         ),
-                                        GestureDetector(
-                                          onTap: ()  {
-                                           Get.toNamed(AppRoutes.selectingUSDScreen);
-                                          },
-                                          child:  Container(
+                                        Container(
                                             margin: getMargin(right: 14, left: 14),
-                                            padding: getPadding(left: 10),
                                             width: double.infinity,
                                             height: 50,
-                                            child: Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Text('\$ 0.0'),
-                                            ),
-                                            // child: TextField(
-                                            //   decoration: InputDecoration(
-                                            //     border: InputBorder.none,
-                                            //     hintText: '\$0',
-                                            //   ),
-                                            //   keyboardType: TextInputType.none,
-                                            // ),
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(
-                                                getHorizontalSize(
-                                                  8.00,
-                                                ),
+                                            child: OutlinedButton(
+                                              onPressed: ()  {
+                                                Get.toNamed(AppRoutes.selectingUSDScreen);
+                                              },
+                                              style: ButtonStyle(
+                                                fixedSize: MaterialStateProperty.all(Size(double.infinity, double.infinity)),
                                               ),
-                                              border: Border.all(
-                                                color: ColorConstant.bluegray100,
-                                                width: 1.1,
-                                              ),
+                                              child: Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Text('\$ 0.0', style: TextStyle(color: Colors.black),),
+                                              )
                                             ),
                                           ),
-                                        ),
                                         Align(
                                             alignment: Alignment.centerLeft,
                                             child: Padding(
@@ -322,54 +305,44 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                         Align(
                                             alignment: Alignment.center,
                                             child: Expanded(
-                                              child: GestureDetector(
-                                                  onTap: () {
-                                                    controller.showDropdownFunc();
-                                                  },
-                                                  child: Container(
-                                                  margin: getMargin(right: 14, left: 14),
-                                                  height: 50,
-                                                  decoration: BoxDecoration(
-                                                     borderRadius: BorderRadius.circular(
-                                                      getHorizontalSize(
-                                                        8.00,
+                                                child: Container(
+                                                margin: getMargin(right: 14, left: 14),
+                                                height: 50,
+                                                child: Obx(
+                                                  () => OutlinedButton(
+                                                      onPressed: () {
+                                                        controller.showDropdownFunc();
+                                                      },
+                                                      child: Row(
+                                                        children: [
+                                                          Padding(
+                                                              padding: EdgeInsets.all(10.0),
+                                                              child:  CommonImageView(
+                                                                  svgPath: controller.currentItemCurrency.value.imageConst,
+                                                                  height:
+                                                                  getVerticalSize(
+                                                                      24.00),
+                                                                  width:
+                                                                  getHorizontalSize(
+                                                                      16.00)
+                                                              )
+                                                          ),
+                                                          Text(
+                                                            controller.currentItemCurrency.value.title,
+                                                            style: TextStyle(color: Colors.black),
+                                                          ),
+                                                          Expanded(
+                                                              child: Align(
+                                                                  alignment: Alignment.centerRight,
+                                                                  child: Container(
+                                                                      margin: getMargin(right: 14),
+                                                                      child: CommonImageView(
+                                                                          svgPath:
+                                                                          ImageConstant.imgArrowdownGray900))
+                                                              )
+                                                          )
+                                                        ],
                                                       ),
-                                                     ),
-                                                    border: Border.all(
-                                                      color: ColorConstant.bluegray100,
-                                                      width: 1.1,
-                                                    ),
-                                                  ),
-                                                  child: Obx(
-                                                    () => Row(
-                                                    children: [
-                                                      Padding(
-                                                        padding: EdgeInsets.all(10.0),
-                                                        child:  CommonImageView(
-                                                            svgPath: controller.currentItemCurrency.value.imageConst,
-                                                            height:
-                                                            getVerticalSize(
-                                                                24.00),
-                                                            width:
-                                                            getHorizontalSize(
-                                                                16.00)
-                                                        )
-                                                      ),
-                                                      Text(
-                                                        controller.currentItemCurrency.value.title,
-                                                      ),
-                                                      Expanded(
-                                                        child: Align(
-                                                          alignment: Alignment.centerRight,
-                                                            child: Container(
-                                                                margin: getMargin(right: 14),
-                                                                child: CommonImageView(
-                                                                    svgPath:
-                                                                    ImageConstant.imgArrowdownGray900))
-                                                        )
-                                                      )
-                                                    ],
-                                                  ),
                                                   )
                                                 )
                                               )
@@ -410,9 +383,9 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                   )
                                                 ),
                                                 Column(
-                                                  children: List<GestureDetector>.generate(
+                                                  children: List<TextButton>.generate(
                                                       controller.requestPreferencesModelObj.value.dropdownItemList.length, (index) =>
-                                                        GestureDetector(
+                                                        TextButton(
                                                           child: Container (
                                                             color: Colors.white,
                                                             margin: getMargin(top: 10, left: 14, right: 14),
@@ -439,12 +412,14 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                                                 alignment: Alignment.centerLeft,
                                                                                 child: Text(
                                                                                   controller.requestPreferencesModelObj.value.dropdownItemList[index].title,
+                                                                                  style: TextStyle(color: Colors.black),
                                                                                 ),
                                                                               ),
                                                                               Align(
                                                                                 alignment: Alignment.centerLeft,
                                                                                   child: Text(
-                                                                                      controller.requestPreferencesModelObj.value.dropdownItemList[index].hint
+                                                                                      controller.requestPreferencesModelObj.value.dropdownItemList[index].hint,
+                                                                                    style: TextStyle(color: Colors.black),
                                                                                   ),
                                                                               )
                                                                             ],
@@ -455,7 +430,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                                 ],
                                                             ),
                                                         ),
-                                                        onTap: () {
+                                                       onPressed: () {
                                                             controller.onSelected(index);
                                                             controller.canContinue.value = true;
                                                             controller.showDropdownFunc();
@@ -485,41 +460,30 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                       value;
                                                 }))),
                                         Obx(() =>
-                                          (!controller.canContinue.value) ?
-                                            CustomButton(
-                                              width: 328,
-                                              text: "lbl_continue".tr,
-                                              margin: getMargin(
-                                                  left: 15, top: 17, right: 15),
-                                              variant: ButtonVariant.FillGray102,
-                                              fontStyle: ButtonFontStyle
-                                                  .InterMedium16Black90060,
-                                              alignment: Alignment.center,
-                                            ) : CustomButton(
-                                              width: 328,
-                                              text: "lbl_continue".tr,
-                                              margin: getMargin(
-                                                  left: 15, top: 17, right: 15),
-                                              variant: ButtonVariant.FillBlueA400,
-                                              fontStyle: ButtonFontStyle.InterMedium16,
-                                              alignment: Alignment.center,
-                                              onTap: () {
-                                                  Get.toNamed(AppRoutes.selectingRequestCurrencyScreen +
-                                                      '?currency=${controller.currentItemCurrency.value.title}&imageConst=${controller.currentItemCurrency.value.imageConst}');
+                                          Container(
+                                            padding: EdgeInsets.all(10),
+                                            child: (!controller.canContinue.value) ?
+                                            ElevatedButton(
+                                              child: Text('Continue'),
+                                              onPressed: () {
+
                                               },
-                                          ),
+                                              style: ButtonStyle(
+                                                minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
+                                                backgroundColor: MaterialStateProperty.all(ColorConstant.blueA4003d),
+                                              ),
+                                            ) : ElevatedButton(
+                                              child: Text('Continue'),
+                                              style: ButtonStyle(
+                                                minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
+                                              ),
+                                              onPressed: () {
+                                                Get.toNamed(AppRoutes.selectingRequestCurrencyScreen +
+                                                    '?currency=${controller.currentItemCurrency.value.title}&imageConst=${controller.currentItemCurrency.value.imageConst}');
+                                              },
+                                            ),
+                                          )
                                         ),
-                                        Container(
-                                            height: getVerticalSize(2.00),
-                                            width: getHorizontalSize(64.00),
-                                            margin: getMargin(
-                                                left: 15, top: 48, right: 15),
-                                            decoration: BoxDecoration(
-                                                color: ColorConstant.gray500,
-                                                borderRadius:
-                                                BorderRadius.circular(
-                                                    getHorizontalSize(
-                                                        1.00))))
                                       ])))
                         ]))))));
   }

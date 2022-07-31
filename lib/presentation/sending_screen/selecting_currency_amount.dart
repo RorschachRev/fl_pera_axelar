@@ -1,7 +1,7 @@
 import 'package:application1/core/app_export.dart';
 import 'package:flutter/material.dart';
 
-class SelectingCurrencyOnScreen extends StatelessWidget {
+class SelectingCurrencyAmountScreen extends StatelessWidget {
   final controller = Get.put(SelectingAnAmountCurrencyController());
   @override
   Widget build(BuildContext context) {
@@ -190,17 +190,6 @@ class SelectingCurrencyOnScreen extends StatelessWidget {
                       Align(
                         child: Column(
                           children: [
-                            SizedBox(
-                              width: 350,
-                              height: 300,
-                              child: GridView.count(
-                                crossAxisSpacing: 80,
-                                crossAxisCount: 3,
-                                children: List.generate(12, (index) {
-                                  return numberButton((index + 1).toString());
-                                }),
-                              ),
-                            ),
                             Container(
                               padding: EdgeInsets.all(10),
                               child:  ElevatedButton(
@@ -215,14 +204,25 @@ class SelectingCurrencyOnScreen extends StatelessWidget {
                                     controller.formValue.value = "";
                                   }
                                   else {
-                                    Get.offAllNamed(AppRoutes.sendingLinkCurrencyScreen + '?amount=${controller.formValue.value}&currency=${Get.parameters['currency']}');
+                                    Get.offAllNamed(AppRoutes.checkoutScreen + '?amount=${controller.formValue.value}&currency=${Get.parameters['currency']}');
                                   }
                                 },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
                                 ),
                               ),
-                            )
+                            ),
+                            SizedBox(
+                              width: 350,
+                              height: 300,
+                              child: GridView.count(
+                                crossAxisSpacing: 80,
+                                crossAxisCount: 3,
+                                children: List.generate(12, (index) {
+                                  return numberButton((index + 1).toString());
+                                }),
+                              ),
+                            ),
                           ],
                         ),
                       )

@@ -1,6 +1,6 @@
 import 'controller/request_usd_based_controller.dart';
 import 'package:application1/core/app_export.dart';
-import 'package:application1/widgets/custom_button.dart';
+//import 'package:application1/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class RequestUsdBasedScreen extends GetWidget<RequestUsdBasedController> {
@@ -154,10 +154,10 @@ class RequestUsdBasedScreen extends GetWidget<RequestUsdBasedController> {
                                         height: getVerticalSize(7.00),
                                         width: getHorizontalSize(12.00)))
                               ])),
-                      CustomButton(
-                          width: 328,
-                          text: "lbl_continue".tr,
-                          margin: getMargin(left: 14, top: 488, right: 14)),
+                      // CustomButton(
+                      //     width: 328,
+                      //     text: "lbl_continue".tr,
+                      //     margin: getMargin(left: 14, top: 488, right: 14)),
                       Container(
                           height: getVerticalSize(2.00),
                           width: getHorizontalSize(64.00),
