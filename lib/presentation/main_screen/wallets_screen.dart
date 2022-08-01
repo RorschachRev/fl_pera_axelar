@@ -7,6 +7,7 @@ class WalletsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: size.height,
       decoration: AppDecoration.fillGray100,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -14,7 +15,7 @@ class WalletsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: double.infinity,
+            width: size.width,
             decoration:
             AppDecoration.fillWhiteA700.copyWith(
               borderRadius:
@@ -24,270 +25,215 @@ class WalletsScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: getPadding(
-                      left: 16,
-                      right: 16,
-                    ),
-                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          decoration: AppDecoration
-                              .gradientTealA2006dTeal3002d
-                              .copyWith(
-                            borderRadius: BorderRadiusStyle
-                                .roundedBorder8,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                            mainAxisAlignment:
-                            MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  width: getHorizontalSize(
-                                    222.00,
-                                  ),
-                                  margin: getMargin(
-                                    left: 16,
-                                    top: 16,
-                                    right: 16,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .spaceBetween,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .end,
-                                    mainAxisSize:
-                                    MainAxisSize.max,
+              children: <Widget> [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width:300,
+                      height: 180,
+                      margin: EdgeInsets.all(10),
+                      child: PageView.builder(
+                          itemCount: wallets.length,
+                          pageSnapping: true,
+                          onPageChanged: (page) {
+                            controller.activeWallet.value = page;
+                          },
+                          itemBuilder: (context, pagePosition) {
+                            return Container(
+                              alignment: Alignment.center,
+                              decoration: AppDecoration
+                                  .gradientTealA2006dTeal3002d
+                                  .copyWith(
+                                borderRadius: BorderRadiusStyle
+                                    .roundedBorder8,
+                              ),
+                              child: Column(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        "lbl_100_000".tr,
-                                        overflow:
-                                        TextOverflow
-                                            .ellipsis,
-                                        textAlign: TextAlign
-                                            .center,
-                                        style: AppStyle
-                                            .txtInterMedium20
-                                            .copyWith(
-                                          height: 0.80,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: getPadding(
-                                          top: 10,
-                                          bottom: 2,
-                                        ),
-                                        child:
-                                        CommonImageView(
-                                          svgPath: ImageConstant
-                                              .imgMorehoriz,
-                                          height:
-                                          getVerticalSize(
-                                            4.00,
-                                          ),
-                                          width:
-                                          getHorizontalSize(
-                                            16.00,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: getPadding(
-                                  left: 16,
-                                  top: 8,
-                                  right: 16,
-                                ),
-                                child: Text(
-                                  "lbl_2_8_btc".tr,
-                                  overflow:
-                                  TextOverflow.ellipsis,
-                                  textAlign:
-                                  TextAlign.center,
-                                  style: AppStyle
-                                      .txtInterRegular16Black900
-                                      .copyWith(
-                                    height: 1.00,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: getVerticalSize(
-                                  1.00,
-                                ),
-                                width: getHorizontalSize(
-                                  190.00,
-                                ),
-                                margin: getMargin(
-                                  top: 26,
-                                  right: 10,
-                                ),
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment(
-                                      1,
-                                      0,
-                                    ),
-                                    end: Alignment(
-                                      0.021951219796567112,
-                                      0,
-                                    ),
-                                    colors: [
-                                      ColorConstant
-                                          .bluegray101,
-                                      ColorConstant
-                                          .bluegray10000,
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  width: getHorizontalSize(
-                                    226.00,
-                                  ),
-                                  margin: getMargin(
-                                    left: 16,
-                                    top: 25,
-                                    right: 16,
-                                    bottom: 16,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .spaceBetween,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .center,
-                                    mainAxisSize:
-                                    MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: getPadding(
-                                          top: 4,
-                                        ),
-                                        child: Text(
-                                          "lbl_wallet_1".tr,
-                                          overflow:
-                                          TextOverflow
-                                              .ellipsis,
-                                          textAlign:
-                                          TextAlign
-                                              .center,
-                                          style: AppStyle
-                                              .txtInterSemiBold14
-                                              .copyWith(
-                                            height: 1.14,
-                                          ),
-                                        ),
-                                      ),
                                       Container(
-                                        height:
-                                        getVerticalSize(
-                                          20.00,
-                                        ),
-                                        width:
-                                        getHorizontalSize(
-                                          77.00,
-                                        ),
-                                        decoration:
-                                        BoxDecoration(
-                                          borderRadius:
-                                          BorderRadius
-                                              .circular(
-                                            getHorizontalSize(
-                                              4.00,
-                                            ),
+                                          width: getHorizontalSize(
+                                            222.00,
                                           ),
-                                          border:
-                                          Border.all(
-                                            color:
-                                            ColorConstant
-                                                .gray500,
-                                            width:
-                                            getHorizontalSize(
-                                              1.00,
-                                            ),
+                                          margin: getMargin(
+                                            top: 16,
+                                            right: 16,
+                                            left: 16
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment
+                                                .spaceBetween,
+                                            children: [
+                                              Text("Balance"),
+                                              Padding(
+                                                padding: getPadding(
+                                                  top: 10,
+                                                  bottom: 2,
+                                                ),
+                                                child:
+                                                CommonImageView(
+                                                  svgPath: ImageConstant
+                                                      .imgMorehoriz,
+                                                  height:
+                                                  getVerticalSize(
+                                                    4.00,
+                                                  ),
+                                                  width:
+                                                  getHorizontalSize(
+                                                    16.00,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
+                                      Container(
+                                          margin: getMargin(top: 10),
+                                          child: Padding(
+                                            padding: getPadding(
+                                              left: 16,
+                                              right: 16,
+                                            ),
+                                            child: Text(
+                                              "\$ " + wallets[pagePosition].walletBalanceUSD.toString(),
+                                              overflow:
+                                              TextOverflow
+                                                  .ellipsis,
+                                              textAlign: TextAlign
+                                                  .center,
+                                              style: AppStyle
+                                                  .txtInterMedium20
+                                                  .copyWith(
+                                                height: 0.80,
+                                              ),
+                                            ),
+                                          )
                                       ),
                                     ],
                                   ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: getVerticalSize(
-                            144.00,
-                          ),
-                          width: getHorizontalSize(
-                            40.00,
-                          ),
-                          child: Card(
-                            clipBehavior: Clip.antiAlias,
-                            elevation: 0,
-                            margin: EdgeInsets.all(0),
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                color: ColorConstant
-                                    .black9001e,
-                                width: getHorizontalSize(
-                                  2.00,
-                                ),
-                              ),
-                              borderRadius:
-                              BorderRadius.circular(
-                                getHorizontalSize(
-                                  8.00,
-                                ),
-                              ),
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                                Get.toNamed(AppRoutes.addNewWalletScreen);
-                              },
-                              child:  Align(
-                                  alignment:
-                                  Alignment.center,
-                                  child: Padding(
-                                    padding: getPadding(
-                                      left: 13,
-                                      top: 40,
-                                      right: 13,
-                                      bottom: 40,
-                                    ),
-                                    child: Text(
-                                      "+", style: TextStyle(fontSize: 30),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Container(
+                                      width: getHorizontalSize(
+                                        226.00,
+                                      ),
+                                      margin: getMargin(
+                                        left: 16,
+                                        top: 25,
+                                        right: 16,
+                                        bottom: 16,
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment
+                                            .center,
+                                        mainAxisSize:
+                                        MainAxisSize.min,
+                                        children: [
+                                          Padding(
+                                            padding: getPadding(
+                                              top: 4,
+                                            ),
+                                            child: Text(
+                                              wallets[pagePosition].name,
+                                              overflow:
+                                              TextOverflow
+                                                  .ellipsis,
+                                              textAlign:
+                                              TextAlign
+                                                  .center,
+                                              style: AppStyle
+                                                  .txtInterSemiBold14
+                                                  .copyWith(
+                                                height: 1.14,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
+                                ],
+                              ),
+                            );
+                          }
+                      ),
+                    ),
+                    Container(
+                      height: getVerticalSize(
+                        144.00,
+                      ),
+                      width: getHorizontalSize(
+                        40.00,
+                      ),
+                      margin: getMargin(right:10),
+                      child: Card(
+                        clipBehavior: Clip.antiAlias,
+                        elevation: 0,
+                        margin: EdgeInsets.all(0),
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: ColorConstant
+                                .black9001e,
+                            width: getHorizontalSize(
+                              2.00,
+                            ),
+                          ),
+                          borderRadius:
+                          BorderRadius.circular(
+                            getHorizontalSize(
+                              8.00,
                             ),
                           ),
                         ),
-                      ],
+                        child: TextButton(
+                          onPressed: () {
+                            Get.toNamed(AppRoutes.addNewWalletScreen);
+                          },
+                          child:  Align(
+                            alignment:
+                            Alignment.center,
+                            child: Padding(
+                              padding: getPadding(
+                                left: 13,
+                                top: 40,
+                                right: 13,
+                                bottom: 40,
+                              ),
+                              child: Text(
+                                "+", style: TextStyle(fontSize: 30),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
+                ),
+                Obx(() =>
+                    Container(
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (int i = 0; i < wallets.length; i++) Container(
+                            margin: EdgeInsets.all(3),
+                            width: 8,
+                            height: 9,
+                            decoration: BoxDecoration(
+                                color: i == controller.activeWallet.value ? Colors.blue : Colors.black26,
+                                shape: BoxShape.circle),
+                          )
+                        ],
+                      ),
+                    ),
                 ),
                 Padding(
                   padding: getPadding(
@@ -542,126 +488,6 @@ class WalletsScreen extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.center,
-                  child: Container(
-                    margin: getMargin(
-                      left: 16,
-                      top: 8,
-                      right: 16,
-                    ),
-                    decoration: AppDecoration.fillWhiteA700,
-                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.start,
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          margin: getMargin(
-                            left: 2,
-                            right: 2,
-                          ),
-                          padding: EdgeInsets.all(2),
-                          child: ElevatedButton(
-                            child: CommonImageView(
-                              svgPath: ImageConstant
-                                  .imgBitcoinBadge,
-                            ),
-                            onPressed: () {
-                              //
-                            },
-                            style: ButtonStyle(
-                              minimumSize: MaterialStateProperty.all(Size(40, 40)),
-                              backgroundColor: MaterialStateProperty.all(Colors.amber),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: getPadding(
-                            left: 8,
-                            top: 8,
-                            bottom: 28,
-                          ),
-                          child: Text(
-                            "lbl_btc_bitcoin2".tr,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.left,
-                            style: AppStyle
-                                .txtInterRegular14Black90099
-                                .copyWith(
-                              letterSpacing: 0.10,
-                              height: 1.43,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: getHorizontalSize(
-                            94.00,
-                          ),
-                          margin: getMargin(
-                            left: 14,
-                            top: 8,
-                            bottom: 8,
-                          ),
-                          child: Text(
-                            "msg_2_8_btc_100_000".tr,
-                            maxLines: null,
-                            textAlign: TextAlign.left,
-                            style: AppStyle
-                                .txtInterRegular14Black900
-                                .copyWith(
-                              letterSpacing: 0.07,
-                              height: 1.43,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: getMargin(
-                            left: 26,
-                            top: 34,
-                            right: 20,
-                            bottom: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(
-                              getHorizontalSize(
-                                4.00,
-                              ),
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.center,
-                            mainAxisAlignment:
-                            MainAxisAlignment.start,
-                            children: [
-                              Align(
-                                alignment:
-                                Alignment.centerLeft,
-                                child: Text(
-                                  "lbl_4_35".tr,
-                                  overflow:
-                                  TextOverflow.ellipsis,
-                                  textAlign:
-                                  TextAlign.center,
-                                  style: AppStyle
-                                      .txtInterMedium12
-                                      .copyWith(
-                                    height: 1.00,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
                   child: Padding(
                     padding: getPadding(
                       left: 16,
@@ -673,54 +499,11 @@ class WalletsScreen extends StatelessWidget {
                           () => ListView.builder(
                         physics: BouncingScrollPhysics(),
                         shrinkWrap: true,
-                        itemCount: controller
-                            .walletsModelObj
-                            .value
-                            .walletsItemList
-                            .length,
+                        itemCount: wallets[controller.activeWallet.value].tokens.length,
                         itemBuilder: (context, index) {
-                          WalletsItemModel model =
-                          controller
-                              .walletsModelObj
-                              .value
-                              .walletsItemList[index];
-                          return WalletsItemWidget(
-                            model,
-                          );
+                          TokenItem token = wallets[controller.activeWallet.value].tokens[index];
+                          return WalletsCoins(token.name, token.fullName, token.balance, token.balanceUSD, 0.0);
                         },
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            decoration: AppDecoration.fillWhiteA700,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: getVerticalSize(
-                    2.00,
-                  ),
-                  width: getHorizontalSize(
-                    64.00,
-                  ),
-                  margin: getMargin(
-                    left: 148,
-                    top: 8,
-                    right: 148,
-                    bottom: 6,
-                  ),
-                  decoration: BoxDecoration(
-                    color: ColorConstant.gray500,
-                    borderRadius: BorderRadius.circular(
-                      getHorizontalSize(
-                        1.00,
                       ),
                     ),
                   ),
@@ -733,55 +516,44 @@ class WalletsScreen extends StatelessWidget {
     );
   }
 }
-class WalletsItemWidget extends StatelessWidget {
-  WalletsItemWidget(this.walletsItemModelObj);
-
-  WalletsItemModel walletsItemModelObj;
-
-  var controller = Get.find<WalletsController>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Padding(
-        padding: getPadding(
-          top: 12.0,
-          bottom: 12.0,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                    getHorizontalSize(
-                      20.00,
-                    ),
-                  ),
-                  child: CommonImageView(
-                    svgPath: ImageConstant.imgEthereumBadge,
-                    height: getSize(
-                      40.00,
-                    ),
-                    width: getSize(
-                      40.00,
-                    ),
+Align WalletsCoins(String name, String hintText, double balance, double usdBalance, double persentage) {
+  return Align(
+    alignment: Alignment.center,
+    child: Padding(
+      padding: getPadding(
+        top: 12.0,
+        bottom: 12.0,
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  getHorizontalSize(
+                    20.00,
                   ),
                 ),
-                Container(
-                  width: getHorizontalSize(
-                    80.00,
+                child: CommonImageView(
+                  svgPath: (name == "ETH") ? ImageConstant.imgEthereumBadge :
+                  (name == "BTC") ? ImageConstant.imgBitcoinBadge : ImageConstant.imgCosmosBadge,
+                  height: getSize(
+                    40.00,
                   ),
-                  margin: getMargin(
-                    left: 8,
+                  width: getSize(
+                    40.00,
                   ),
-                  child: Text(
-                    "lbl_eth_ethereum2".tr,
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
                     maxLines: null,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtInterRegular14Black90099.copyWith(
@@ -789,66 +561,74 @@ class WalletsItemWidget extends StatelessWidget {
                       height: 1.43,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: getPadding(
-                    left: 8,
-                    bottom: 20,
-                  ),
-                  child: Text(
-                    "lbl_1_2_eth_0".tr,
-                    overflow: TextOverflow.ellipsis,
+                  Text(
+                    hintText,
+                    maxLines: null,
                     textAlign: TextAlign.left,
-                    style: AppStyle.txtInterRegular14Black900.copyWith(
-                      letterSpacing: 0.07,
+                    style: AppStyle.txtInterRegular14Black90099.copyWith(
+                      letterSpacing: 0.10,
                       height: 1.43,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                balance.toString() + " " + name,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtInterRegular14Black900.copyWith(
+                  letterSpacing: 0.07,
+                  height: 1.43,
+                ),
+              ),
+              Text(
+                usdBalance.toString() + " " + name,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtInterRegular14Black900.copyWith(
+                  letterSpacing: 0.07,
+                  height: 1.43,
+                ),
+              ),
+            ]
+          ),
+           Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    persentage.toString() + '%',
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.end,
+                    style: AppStyle.txtInterMedium12.copyWith(
+                      height: 1.00,
                     ),
                   ),
                 ),
               ],
             ),
-            Container(
-              margin: getMargin(
-                left: 70,
-                top: 26,
-                right: 4,
-                bottom: 2,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  getHorizontalSize(
-                    4.00,
-                  ),
-                ),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "lbl_02".tr,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: AppStyle.txtInterMedium12.copyWith(
-                        height: 1.00,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
 class WalletsController extends GetxController {
-  Rx<WalletsModel> walletsModelObj = WalletsModel().obs;
+  RxInt activeWallet = (0).obs;
   @override
+  void onInit() {
+    super.onInit();
+    wallets[0].AddToken("ETH", "Ethereum", 100, 2.8);
+    wallets[0].AddToken("BTC", "Bitcoin", 1000, 2.9);
+    wallets[1].AddToken("USDT", "Tether", 20, 1.0);
+  }
   void onReady() {
     super.onReady();
   }
@@ -856,16 +636,5 @@ class WalletsController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-}
-class WalletsModel {
-  RxList<WalletsItemModel> walletsItemList =
-  RxList.filled(3, WalletsItemModel());
-}
-class WalletsItemModel {}
-class WalletsBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => WalletsController());
   }
 }

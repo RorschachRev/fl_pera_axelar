@@ -7,9 +7,11 @@ bool hasLoggedIn = false;
 
 class TokenItem {
   String name = "";
+  String fullName = "";
   double balanceUSD = 0.0;
   double balance = 0.0;
-  TokenItem(String name, double balanceUSD, double balance) {
+  TokenItem(String name, String fullName, double balanceUSD, double balance) {
+    this.fullName = fullName;
     this.name = name;
     this.balanceUSD = balanceUSD;
     this.balance = balance;
@@ -24,10 +26,10 @@ class WalletItem {
     this.name = name;
     this.walletBalanceBTC = walletBalanceBTC;
     this.walletBalanceUSD = walletBalanceUSD;
-    tokens = List<TokenItem>.empty();
+    tokens = List<TokenItem>.empty(growable: true);
   }
-  AddToken(String name, double balanceUSD, double balance) {
-    tokens.add(TokenItem(name, balanceUSD, balance));
+  AddToken(String name, String fullName, double balanceUSD, double balance) {
+    tokens.add(TokenItem(name, fullName, balanceUSD, balance));
   }
 }
 
