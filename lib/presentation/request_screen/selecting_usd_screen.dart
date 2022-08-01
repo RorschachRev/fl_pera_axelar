@@ -126,12 +126,11 @@ class SelectingUSDScreen extends StatelessWidget {
                                 padding: EdgeInsets.all(10),
                                 child: Column(
                                   children: [
-                                    for (var i in wallets)
-                                      Text(
-                                        "ETH - ${i.name} - ${i.walletBalanceUSD} \$",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(fontSize: 20),
-                                      ),
+                                    Text(
+                                      "ETH - ${wallets[0].name} - ${wallets[0].walletBalanceUSD} \$",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(fontSize: 20),
+                                    ),
                                   ],
                                 ),
                                 decoration: BoxDecoration(
