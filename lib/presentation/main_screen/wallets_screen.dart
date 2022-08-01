@@ -588,7 +588,7 @@ Align WalletsCoins(String name, String hintText, double balance, double usdBalan
                 ),
               ),
               Text(
-                usdBalance.toString() + " " + name,
+                "\$" + usdBalance.toString(),
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
                 style: AppStyle.txtInterRegular14Black900.copyWith(
