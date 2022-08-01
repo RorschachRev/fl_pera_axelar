@@ -9,16 +9,18 @@ class MainScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
           backgroundColor: ColorConstant.gray100,
-          body: Stack(
-            children: [
-              Padding(
+          body: Container(
+            height: size.height,
+            child: Stack(
+              children: [
+                Padding(
                   padding: EdgeInsets.only(top: 55.0),
                   child: SingleChildScrollView(
                       child: WalletsScreen()
                   ),
-              ),
-              Positioned(
-                top: 0,
+                ),
+                Positioned(
+                  top: 0,
                   child: Container(
                     alignment: Alignment.topCenter,
                     width: size.width,
@@ -283,8 +285,9 @@ class MainScreen extends StatelessWidget {
                     ),
                   ),
                 )
-            ],
-          ),
+              ],
+            ),
+          )
         )
     );
 

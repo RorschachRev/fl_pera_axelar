@@ -7,7 +7,6 @@ class WalletsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: size.height,
       decoration: AppDecoration.fillGray100,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -464,7 +463,6 @@ class WalletsScreen extends StatelessWidget {
               BorderRadiusStyle.roundedBorder12,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -493,12 +491,12 @@ class WalletsScreen extends StatelessWidget {
                       left: 16,
                       top: 16,
                       right: 16,
-                      bottom: 161,
                     ),
                     child: Obx(
                           () => ListView.builder(
                         physics: BouncingScrollPhysics(),
                         shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
                         itemCount: wallets[controller.activeWallet.value].tokens.length,
                         itemBuilder: (context, index) {
                           TokenItem token = wallets[controller.activeWallet.value].tokens[index];
