@@ -65,55 +65,114 @@ class SelectingUSDScreen extends StatelessWidget {
                                                       top: 21, right: 21, bottom: 21),
                                                   child: CustomCloseIcon(AppRoutes.mainScreen),)
                                               ])))),
-                              Container(
-                                margin: getMargin(right: 14, left: 14, top: 10),
-                                padding: getPadding(left: 10),
-                                width: double.infinity,
-                                height: 50,
-                                child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Row(
-                                      children: [
-                                        Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Text("\$  "),
+                              Stack(
+                                children: [
+                                  Positioned.fill(
+                                    child: Container(
+                                      margin: getMargin(right: 14, left: 14, top: 10),
+                                      padding: getPadding(left: 20, top: 2),
+                                      width: double.infinity,
+                                      alignment: Alignment.topCenter,
+                                      child: TextFormField(
+                                        controller: textEditController,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter value';
+                                          }
+                                          if (double.tryParse(value) == null) {
+                                            return 'Enter only numbers';
+                                          }
+                                          controller.formValue.value = double.parse(value).toString();
+                                          return null;
+                                        },
+                                        readOnly: true,
+                                        autofocus: true,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
                                         ),
-                                        Expanded(
-                                          child: TextFormField(
-                                            controller: textEditController,
-                                            validator: (value) {
-                                              if (value == null || value.isEmpty) {
-                                                return 'Please enter value';
-                                              }
-                                              if (double.tryParse(value) == null) {
-                                                return 'Enter only numbers';
-                                              }
-                                              controller.formValue.value = double.parse(value).toString();
-                                              return null;
-                                            },
-                                            readOnly: true,
-                                            autofocus: true,
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
+                                      ),
                                     )
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    getHorizontalSize(
-                                      8.00,
+                                  ),
+                                  Container(
+                                    margin: getMargin(right: 14, left: 14, top: 10, bottom: 11),
+                                    alignment: Alignment.center,
+                                    padding: getPadding(left: 10),
+                                    width: double.infinity,
+                                    height: 50,
+                                    child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Row(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text("\$  "),
+                                            ),
+                                          ],
+                                        )
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                        getHorizontalSize(
+                                          8.00,
+                                        ),
+                                      ),
+                                      border: Border.all(
+                                        color: ColorConstant.bluegray100,
+                                        width: 1.1,
+                                      ),
                                     ),
                                   ),
-                                  border: Border.all(
-                                    color: ColorConstant.bluegray100,
-                                    width: 1.1,
-                                  ),
-                                ),
+                                ],
                               ),
+                              // Container(
+                              //   margin: getMargin(right: 14, left: 14, top: 10),
+                              //   padding: getPadding(left: 10),
+                              //   width: double.infinity,
+                              //   height: 50,
+                              //   child: Align(
+                              //       alignment: Alignment.centerLeft,
+                              //       child: Row(
+                              //         children: [
+                              //           Align(
+                              //             alignment: Alignment.centerLeft,
+                              //             child: Text("\$  "),
+                              //           ),
+                              //           Expanded(
+                              //             child: TextFormField(
+                              //               controller: textEditController,
+                              //               validator: (value) {
+                              //                 if (value == null || value.isEmpty) {
+                              //                   return 'Please enter value';
+                              //                 }
+                              //                 if (double.tryParse(value) == null) {
+                              //                   return 'Enter only numbers';
+                              //                 }
+                              //                 controller.formValue.value = double.parse(value).toString();
+                              //                 return null;
+                              //               },
+                              //               readOnly: true,
+                              //               autofocus: true,
+                              //               decoration: InputDecoration(
+                              //                 border: InputBorder.none,
+                              //               ),
+                              //             ),
+                              //           ),
+                              //
+                              //         ],
+                              //       )
+                              //   ),
+                              //   decoration: BoxDecoration(
+                              //     borderRadius: BorderRadius.circular(
+                              //       getHorizontalSize(
+                              //         8.00,
+                              //       ),
+                              //     ),
+                              //     border: Border.all(
+                              //       color: ColorConstant.bluegray100,
+                              //       width: 1.1,
+                              //     ),
+                              //   ),
+                              // ),
                               Container(
                                 width: double.infinity,
                                 margin: getMargin(right: 14, left: 14, top: 10),

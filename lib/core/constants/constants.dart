@@ -36,3 +36,5 @@ class WalletItem {
 List<String> chains = ["chain1", "chain2", "chain3"];
 List<WalletItem> wallets = List<WalletItem>.generate(2, (index) =>
     WalletItem("Wallet 0x3adc..." + index.toString(), 10.0, 1.0));
+
+List<String> secretPhrases = ["phrase1", "phrase2", "phrase3", "phrase4"];

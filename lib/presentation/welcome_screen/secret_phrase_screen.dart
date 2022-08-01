@@ -302,6 +302,10 @@ class SecretPhraseController extends GetxController {
 
   RxBool isSelectedSwitch = false.obs;
 
+  void PrintSecretPhrase(String phrase) {
+    print(phrase);
+  }
+
   @override
   void onReady() {
     super.onReady();
@@ -315,18 +319,22 @@ class SecretPhraseController extends GetxController {
 }
 
 class SecretPhraseItemModel {
-  Rx<String> secretPhraseTxt = Rx('Life');
+  Rx<String> secretPhraseTxt = Rx('');
 
   RxBool isSelected = false.obs;
+  SecretPhraseItemModel(String name) {
+    this.secretPhraseTxt = name.obs;
+  }
 }
 class SecretPhraseModel {
-  RxList<SecretPhraseItemModel> secretPhraseItemList =
-    RxList.generate(12, (index) => SecretPhraseItemModel());
+  RxList<SecretPhraseItemModel> secretPhraseItemList = secretPhrases.map((element) =>
+    SecretPhraseItemModel(element)
+  ).toList().obs;
 }
 
 class SecretPhraseItemWidget extends StatelessWidget {
   SecretPhraseItemWidget(this.secretphraseItemModelObj);
-
+  final controller = Get.put(SecretPhraseController());
   SecretPhraseItemModel secretphraseItemModelObj;
 
   @override
@@ -382,6 +390,9 @@ class SecretPhraseItemWidget extends StatelessWidget {
           ),
           onSelected: (value) {
             secretphraseItemModelObj.isSelected.value = value;
+            if (value == true) {
+              controller.PrintSecretPhrase(secretphraseItemModelObj.secretPhraseTxt.toString());
+            }
           },
         ),
       ),
