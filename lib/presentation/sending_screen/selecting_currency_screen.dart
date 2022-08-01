@@ -137,13 +137,15 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                             width: double.infinity,
                             margin: getMargin(right: 14, left: 14, top: 10),
                             padding: EdgeInsets.all(10),
-                            child: Align(
-                              child: Text(
-                                "ETH - Wallet 0x3adc... - ${walletBalance} \$ \n"
-                                    "ETH - Wallet 0x3adc... USDt",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(fontSize: 20),
-                              ),
+                            child: Column(
+                              children: [
+                                for (var i in wallets)
+                                  Text(
+                                    "ETH - ${i.name} - ${i.walletBalanceUSD} \$",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                              ],
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(

@@ -263,9 +263,11 @@ class WalletsScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            child: Stack(
-                              children: [
-                                Align(
+                            child: TextButton(
+                              onPressed: () {
+                                Get.toNamed(AppRoutes.addNewWalletScreen);
+                              },
+                              child:  Align(
                                   alignment:
                                   Alignment.center,
                                   child: Padding(
@@ -275,19 +277,11 @@ class WalletsScreen extends StatelessWidget {
                                       right: 13,
                                       bottom: 40,
                                     ),
-                                    child: CommonImageView(
-                                      svgPath: ImageConstant
-                                          .imgClose,
-                                      height: getSize(
-                                        14.00,
-                                      ),
-                                      width: getSize(
-                                        14.00,
-                                      ),
+                                    child: Text(
+                                      "+", style: TextStyle(fontSize: 30),
                                     ),
                                   ),
                                 ),
-                              ],
                             ),
                           ),
                         ),
