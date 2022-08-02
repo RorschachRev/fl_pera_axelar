@@ -2,7 +2,7 @@ final Map<String, String> enUs = {
   'msg_network_err': 'Network Error',
   'msg_something_went_wrong': 'Something Went Wrong!',
   "lbl_continue": "Continue",
-  "lbl_ethereum_etc": "Ethereum ETC",
+  "lbl_ethereum_etc": "Ethereum Classic ETC",
   "msg_request_prefere2": "Request_preferences",
   "msg_0xc34281_fr21": "0xC34281...FR21crt",
   "lbl_judgment": "Judgment",
@@ -16,7 +16,7 @@ final Map<String, String> enUs = {
   "lbl_app_navigation": "App Navigation",
   "msg_how_should_we_c": "How should we call you?",
   "lbl_balance_1_btc": "Balance: 1 BTC",
-  "msg_welcome_to_cro": "Welcome \nto crosspay\nwallet!",
+  "msg_welcome_to_cro": "Welcome to the\nPera Platform!",
   "lbl_ethereum": "Ethereum",
   "lbl_best_options": "Best options",
   "msg_sending_succesf": "Sending succesful!",
@@ -49,15 +49,15 @@ final Map<String, String> enUs = {
   "lbl_equivalent": "Equivalent",
   "lbl_total_0_6_eth": "Total: 0.6 ETH",
   "msg_selecting_an_am": "Selecting an amount_currency",
-  "lbl_bitcoine": "Bitcoine",
+  "lbl_bitcoine": "Bitcoin",
   "msg_check_your_app":
       "Check your app's UI from the below demo screens of your app.",
   "msg_morbi_tempus_ia":
-      "Morbi tempus iaculis urna id volutpat. Laoreet non curabitur gravida arcu ac.",
+      "This phrase is your private key, in word form. Protect this phrase and use it to add your wallet on other devices.",
   "lbl_search_currency": "Search currency",
   "lbl_send_link_one": "Send link One",
   "msg_request_prefere": "Request_preferences_usd",
-  "msg_selecting_curre": "Selecting currency/dropdown",
+  "msg_selecting_curre": "Selecting currency:",
   "lbl_to2": "To",
   "msg_your_receiving": "Your receiving link is ready!",
   "msg_this_is_the_onl":
@@ -74,7 +74,7 @@ final Map<String, String> enUs = {
   "lbl_0_usdt_0": r"0 USDT 0$",
   "lbl_100_000": r"$100 000",
   "msg_this_name_will":
-      "This name will be visible to other users  on your page and during various \ntransactions",
+      "This name will be visible to other users on your profile page.",
   "lbl_btc_bitcoin2": "BTC Bitcoin",
   "msg_balance_100": r"Balance: $ 100 000",
   "lbl_confirm": "Confirm",
@@ -85,7 +85,7 @@ final Map<String, String> enUs = {
   "lbl_public_tx": "Public Tx",
   "msg_protect_your_wa": "Protect your wallet",
   "msg_what_is_a_secre":
-      "What is a secret phrase?  Morbi tempus iaculis urna id volutpat. Laoreet non curabitur gravida arcu ac.",
+      "What is a secret phrase?   This phrase is your private key, in word form. Protect this phrase and use it to add your wallet on other devices.",
   "lbl_balance_0_usdt": "Balance: 0 USDT",
   "lbl_usdt_tether2": "USDT Tether",
   "lbl_0_00421_etc": "0.00421 ETC",
@@ -127,12 +127,12 @@ final Map<String, String> enUs = {
   "lbl_sending": "Sending",
   "lbl_from2": "From",
   "msg_send_this_link":
-      "Send this link or QR-Code to  your friend to recieve funds",
+      "Send this link or QR-Code to  your friend to receive funds",
   "lbl_wallet_1": "Wallet 1 ",
   "lbl_1_2_eth_0": r"1.2 ETH 0$",
   "msg_what_is_a_secre2": "What is a secret phrase? ",
   "lbl_recent": "Recent",
-  "msg_notification_on": "Notification on payment recieved",
+  "msg_notification_on": "Notification on payment received",
   "msg_username_creati": "Username creation",
   "lbl_eth": "ETH\n",
   "lbl_tether": "Tether",

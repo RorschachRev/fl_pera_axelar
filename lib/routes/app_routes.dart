@@ -14,6 +14,7 @@ import 'package:application1/presentation/request_screen/selecting_currency_scre
 import 'package:application1/presentation/request_screen/send_link_currency_screen.dart';
 import 'package:application1/presentation/sending_screen/selecting_currency_amount.dart';
 import 'package:application1/presentation/main_screen/add_new_wallet_screen.dart';
+import 'package:application1/presentation/welcome_screen/import_wallet_screen.dart';
 
 
 class AppRoutes {
@@ -32,6 +33,7 @@ class AppRoutes {
   static String selectingRequestCurrencyScreen = '/request/currency_screen';
   static String sendingLinkCurrencyScreen = '/request/currency_link';
   static String addNewWalletScreen = '/add_new_wallet_screen';
+  static String importWallet = '/import_wallet';
 
   static List<GetPage> pages = [
     GetPage(
@@ -102,6 +104,10 @@ class AppRoutes {
     GetPage(
       name: addNewWalletScreen,
       page: () => AddNewWalletScreen(),
+    ),
+    GetPage(
+      name: importWallet,
+      page: () => ImportWalletScreen(),
     ),
   ];
 }

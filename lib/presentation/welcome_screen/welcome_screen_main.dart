@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Container(
                       height: getVerticalSize(
-                        8.00,
+                        20.00,
                       ),
                       width: getHorizontalSize(
                         87.00,
@@ -137,30 +137,21 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: getPadding(
-                        left: 16,
-                        top: 16,
-                        right: 16,
-                        bottom: 16
-                      ),
-                      child: Text(
-                        "lbl_import_wallet".tr,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        style: AppStyle.txtInterMedium16Black90099.copyWith(
-                          letterSpacing: 0.16,
-                          height: 1.50,
+                   Container(
+                        padding: EdgeInsets.all(8),
+                        child: OutlinedButton(
+                          child: Text('Import wallet'),
+                          onPressed: () {
+                            //Navigator.of(context).pushNamed('/import');
+                            Get.toNamed(AppRoutes.importWallet);
+                          },
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
-        ),
-      ),
     );
+
   }
 }
