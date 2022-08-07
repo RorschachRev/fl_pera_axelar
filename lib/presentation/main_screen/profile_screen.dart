@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/img_bg1.png'),
+                  image: AssetImage('assets/images/profiles_screen/img_bg1.png'),
                   alignment: Alignment.topCenter,
               ),
               color: Colors.white,
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image: NetworkImage('https://googleflutter.com/sample_image.jpg'),
+                                  image: AssetImage('assets/images/profiles_screen/img_avatar_agent.png'),
                                   fit: BoxFit.fill
                               ),
                             ),
@@ -67,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.black),
                           ),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.grey),
+                            backgroundColor: MaterialStateProperty.all(ColorConstant.gray101),
                           ),
                         ),
                       ),
@@ -77,34 +77,101 @@ class ProfileScreen extends StatelessWidget {
                 Divider(
                     color: Colors.grey
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextButton(
-                      onPressed: () {
+                Container(
+                  height: 40,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        height: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CommonImageView(
+                              svgPath: "assets/images/profiles_screen/edit_square.svg",
+                            ),
+                            TextButton(
+                              onPressed: () {
 
-                      },
-                      child: Text("New post"),
-                    ),
-                    TextButton(
-                      onPressed: () {
+                              },
+                              child: Text("New post"),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CommonImageView(
+                              svgPath: "assets/images/profiles_screen/img_add_photo.svg",
+                            ),
+                            TextButton(
+                              onPressed: () {
 
-                      },
-                      child: Text("Image"),
-                    ),
-                    TextButton(
-                      onPressed: () {
+                              },
+                              child: Text("Image"),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CommonImageView(
+                              svgPath: ImageConstant.imgArrowDown,
+                            ),
+                            TextButton(
+                              onPressed: () {
 
-                      },
-                      child: Text("Receive"),
-                    ),
-                    TextButton(
-                      onPressed: () {
+                              },
+                              child: Text("Receive"),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CommonImageView(
+                              svgPath: ImageConstant.imgArrowRight,
+                            ),
+                            TextButton(
+                              onPressed: () {
 
-                      },
-                      child: Text("Send"),
-                    ),
-                  ],
+                              },
+                              child: Text("Send"),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Divider(
                     color: Colors.grey

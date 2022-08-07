@@ -366,8 +366,7 @@ class RequestCurrencyOnScreen extends GetWidget<RequestCurrencyOnController> {
                                                           right: 22,
                                                           bottom: 24),
                                                       child: CommonImageView(
-                                                          svgPath: ImageConstant
-                                                              .imgArrowdownGray900,
+                                                          svgPath: ImageConstant.imgArrowDownGray,
                                                           height:
                                                               getVerticalSize(
                                                                   7.00),

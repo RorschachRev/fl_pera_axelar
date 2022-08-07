@@ -294,7 +294,7 @@ class RequestPreferencesUsdScreen
                                                                               bottom:
                                                                                   20),
                                                                           child: CommonImageView(
-                                                                              svgPath: ImageConstant.imgArrowdownGray900,
+                                                                              svgPath: ImageConstant.imgArrowDownGray,
                                                                               height: getVerticalSize(7.00),
                                                                               width: getHorizontalSize(12.00)))
                                                                     ])),
@@ -444,8 +444,7 @@ class RequestPreferencesUsdScreen
                                                 margin: getMargin(
                                                     left: 30, right: 22),
                                                 child: CommonImageView(
-                                                    svgPath: ImageConstant
-                                                        .imgArrowdownGray900)),
+                                                    svgPath: ImageConstant.imgArrowDownGray)),
                                             hintText: "lbl_none".tr,
                                             margin: getMargin(
                                                 left: 15, top: 8, right: 9),

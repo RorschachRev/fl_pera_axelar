@@ -101,8 +101,7 @@ class RequestCurrencyBasedScreen
                                                           getHorizontalSize(
                                                               20.00)),
                                                   child: CommonImageView(
-                                                      imagePath: ImageConstant
-                                                          .img1419515122agen,
+                                                      imagePath: ImageConstant.imgAvatarAgent,
                                                       height: getSize(40.00),
                                                       width: getSize(40.00)))),
                                           Container(
@@ -151,7 +150,7 @@ class RequestCurrencyBasedScreen
                                         top: 31, right: 14, bottom: 32),
                                     child: CommonImageView(
                                         svgPath:
-                                            ImageConstant.imgArrowdownGray900,
+                                            ImageConstant.imgArrowDownGray,
                                         height: getVerticalSize(7.00),
                                         width: getHorizontalSize(12.00)))
                               ])),

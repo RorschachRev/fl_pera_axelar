@@ -261,8 +261,7 @@ class WalletsScreen extends StatelessWidget {
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
                                 child: CommonImageView(
-                                  svgPath: ImageConstant
-                                      .imgBlueA400,
+                                  svgPath: ImageConstant.imgArrowRight,
                                 ),
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.sendingScreen);
@@ -312,8 +311,7 @@ class WalletsScreen extends StatelessWidget {
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
                                 child: CommonImageView(
-                                  svgPath: ImageConstant
-                                      .imgBlueA40052X52,
+                                  svgPath: ImageConstant.imgArrowDown,
                                 ),
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.requestPreferencesScreen);
@@ -363,8 +361,7 @@ class WalletsScreen extends StatelessWidget {
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
                                 child: CommonImageView(
-                                  svgPath: ImageConstant
-                                      .img,
+                                  svgPath: 'assets/images/img_switch.svg',
                                 ),
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.sendingScreen);
@@ -414,8 +411,7 @@ class WalletsScreen extends StatelessWidget {
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
                                 child: CommonImageView(
-                                  svgPath: ImageConstant
-                                      .img52X52,
+                                  svgPath: ImageConstant.imgTime,
                                 ),
                                 onPressed: () {
                                   Get.toNamed(AppRoutes.sendingScreen);

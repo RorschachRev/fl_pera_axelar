@@ -254,7 +254,7 @@ class ProfilesItemWidget extends StatelessWidget {
                       ),
                     ),
                     child: CommonImageView(
-                      imagePath: ImageConstant.img1419515122agen,
+                      imagePath: ImageConstant.imgAvatarAgent,
                       height: getSize(
                         40.00,
                       ),
@@ -309,7 +309,7 @@ class ProfilesItemWidget extends StatelessWidget {
                     bottom: 28,
                   ),
                   child: CommonImageView(
-                    svgPath: ImageConstant.imgArrowdownGray900,
+                    svgPath: ImageConstant.imgArrowDownGray,
                     height: getVerticalSize(
                       7.00,
                     ),

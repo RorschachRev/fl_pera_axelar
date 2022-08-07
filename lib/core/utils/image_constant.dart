@@ -13,34 +13,27 @@ class ImageConstant {
 
   static String imgEtherBadge = 'assets/images/img_cryptotetherba.svg';
 
-  static String imgEthereumBadge = 'assets/images/img_arrowdown.svg';
+  static String imgEthereumBadge = 'assets/images/img_ethereum_badge.svg';
 
   static String imgClose = 'assets/images/img_close.svg';
 
-  static String img1419515122agen = 'assets/images/img_1419515122agen.png';
+  static String imgAvatarAgent = 'assets/images/img_avatar_agent.png';
 
   static String imgMenu = 'assets/images/img_menu.svg';
 
   static String imgSort = 'assets/images/img_sort.svg';
 
-  static String img52X52 = 'assets/images/img__52X52.svg';
+  static String imgTime = 'assets/images/img_time.svg';
 
-  static String imgArrowdownGray900 =
-      'assets/images/img_arrowdown_gray_900.svg';
+  static String imgArrowDownGray = 'assets/images/img_arrow_down_gray.svg';
 
   static String imgDelete = 'assets/images/img_delete.svg';
 
-  static String img274pxneo21 = 'assets/images/img_274pxneo21.png';
+  static String imgAvatarNeo = 'assets/images/img_avatar_neo.png';
 
   static String imgBitcoinBadge = 'assets/images/img_bitcoinbadge.svg';
 
-  static String imgUser = 'assets/images/img_user.svg';
-
-  static String imgDashboard = 'assets/images/img_dashboard.svg';
-
   static String imgPhoto = 'assets/images/img_photo.png';
-
-  static String imgCreditcard20X20 = 'assets/images/img_creditcard_20X20.svg';
 
   static String imgUpload = 'assets/images/img_upload.svg';
 
@@ -50,7 +43,7 @@ class ImageConstant {
 
   static String imgVectorBlue300 = 'assets/images/img_vector_blue_300.svg';
 
-  static String imgBlueA40052X52 = 'assets/images/img__blue_A400_52X52.svg';
+  static String imgArrowDown = 'assets/images/img_arrow_down.svg';
 
   static String imgCosmosBadge = 'assets/images/img_cut.svg';
 
@@ -58,13 +51,11 @@ class ImageConstant {
 
   static String imgCheckmark = 'assets/images/img_checkmark.svg';
 
-  static String imgBlueA400 = 'assets/images/img__blue_A400.svg';
+  static String imgArrowRight = 'assets/images/img_arrow_right.svg';
 
   static String imgCheckmark58X78 = 'assets/images/img_checkmark_58X78.svg';
 
   static String imgComputer = 'assets/images/img_computer.svg';
-
-  static String img = 'assets/images/img_.svg';
 
   static String imgEye = 'assets/images/img_eye.svg';
 

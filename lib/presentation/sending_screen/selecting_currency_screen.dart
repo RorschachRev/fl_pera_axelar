@@ -84,8 +84,7 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                       child: Padding(
                                         padding: getPadding(right: 10),
                                         child: CommonImageView(
-                                            svgPath: ImageConstant
-                                                .imgArrowdownGray900,
+                                            svgPath: ImageConstant.imgArrowDownGray,
                                             height:
                                             getVerticalSize(7.00),
                                             width: getHorizontalSize(

@@ -335,7 +335,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                                       margin: getMargin(right: 14),
                                                                       child: CommonImageView(
                                                                           svgPath:
-                                                                          ImageConstant.imgArrowdownGray900))
+                                                                          ImageConstant.imgArrowDownGray))
                                                               )
                                                           )
                                                         ],
