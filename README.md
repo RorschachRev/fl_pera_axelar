@@ -1,51 +1,23 @@
 
-# application1
+# Pera Platform
 
 <div>
-  <h1 align="center">Getting Started with Flutter 🚀 </h1>
-  <strong>
-    Generated with ❤️ from Dhiwise
-  </strong>
-  <p>
-    This is the documentation of Flutter Applications.
-    It holds all the info you need to get started with
-    and make changes to your App
-  </p>
+Created for Axelar Hackathon, but a bit too ambitious!
 </div>
 
-
-### Table of Contents
-- [System Requirements](#system-requirements)
-- [Figma design guideline for better accuracy](#figma-design-guideline-for-better-accuracy)
-- [App Navigations](#app-navigations)
-- [Project Structure](#project-structure)
-- [How you can do code formatting?](#how-you-can-do-code-formatting)
-- [How you can improve the readability of code?](#how-you-can-improve-the-readability-of-code)
-- [Libraries and tools used](#libraries-and-tools-used)
-- [Support](#support)
+Next Generation Wallet with transaction routing between chains
 
 ### System Requirements
+Targeting builds for iOS, Android, web, and possibly gaming consoles.
 
 Dart SDK Version 2.12.0 or greater.
 Flutter SDK Version 2.0.0 or greater.
 
-### Figma design guideline for better accuracy
-
-Read our guidelines to increase the accuracy of design conversion to code by optimizing Figma designs.
-https://docs.dhiwise.com/knowledgehub/reference-guide-and-tools/figma
-
-### App Navigations
-
-Check your app's UI from the AppNavigation screen of your app.
-
-### Project Structure
-
-After successful build, your application structure should look like this:
-
+General Structure
 ```
 .
 ├── android                         - contains files and folders required for running the application on an Android operating system.
-├── assets                          - contains all images and fonts of your application.
+├── assets                          - contains all images and fonts
 ├── ios                             - contains files required by the application to run the dart code on iOS platforms.
 ├── lib                             - Most important folder in the project, used to write most of the dart code.
     ├── main.dart                   - starting point of the application
@@ -66,32 +38,3 @@ After successful build, your application structure should look like this:
     └── theme                       - contains app theme and decoration classes
 ```
 
-### How you can do code formatting?
-
-- if your code is not formatted then run following command in your terminal to format code
-  ```
-  dart format .
-  ```
-
-### How you can improve the readability of code?
-
-Resolve the errors and warnings that are shown in the application.
-
-### Libraries and tools used
-
-- get - State management
-https://pub.dev/packages/get
-- connectivity_plus - For status of network connectivity
-https://pub.dev/packages/connectivity_plus
-- pull_to_refresh - For list functionalities
-https://pub.dev/packages/pull_to_refresh
-- cupertino_icons - For iOS icons
-https://pub.dev/packages/cupertino_icons
-- shared_preferences - Provide persistent storage for simple data
-https://pub.dev/packages/shared_preferences
-- cached_network_image - For storing internet image into cache
-https://pub.dev/packages/cached_network_image
-    
-### Support
-
-If you have problems or questions go to our Discord channel, we will then try to help you as quickly as possible: https://discord.com/invite/rFMnCG5MZ7
