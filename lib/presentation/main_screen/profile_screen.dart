@@ -12,11 +12,18 @@ class ProfileScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/img_bg1.png'),
+                  alignment: Alignment.topCenter,
+              ),
+              color: Colors.white,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 60),
+                  margin: EdgeInsets.only(top: 80),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -51,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       SizedBox(
                         width: double.infinity,
-                        child: ElevatedButton(
+                        child: TextButton(
                           onPressed: () {
 
                           },
@@ -60,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.black),
                           ),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.white70),
+                            backgroundColor: MaterialStateProperty.all(Colors.grey),
                           ),
                         ),
                       ),
