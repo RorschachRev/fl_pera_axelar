@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/presentation/main_screen/wallets_screen.dart';
+import 'package:application1/presentation/main_screen/profile_screen.dart';
 
 
 class MainScreen extends StatelessWidget {
+  final controller = Get.put(MainScreenController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,9 +17,10 @@ class MainScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 55.0),
-                  child: SingleChildScrollView(
-                      child: WalletsScreen()
-                  ),
+                  child: Obx(() => SingleChildScrollView(
+                      child: (controller._selectedScreen.value == selectedScreen.wallets) ? WalletsScreen() :
+                      (controller._selectedScreen.value == selectedScreen.user) ? ProfileScreen() : null
+                  ),)
                 ),
                 Positioned(
                   top: 0,
@@ -104,18 +107,12 @@ class MainScreen extends StatelessWidget {
                               children: [
                                 Container(
                                   decoration: AppDecoration.fillWhiteA700,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: getPadding(
-                                          left: 14,
-                                          top: 11,
-                                          right: 14,
-                                        ),
-                                        child: CommonImageView(
+                                  child: TextButton(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        CommonImageView(
                                           svgPath: ImageConstant.imgCreditcard,
                                           height: getVerticalSize(
                                             18.00,
@@ -124,158 +121,184 @@ class MainScreen extends StatelessWidget {
                                             19.00,
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: getPadding(
-                                          left: 14,
-                                          top: 3,
-                                          right: 14,
-                                          bottom: 8,
-                                        ),
-                                        child: Text(
-                                          "lbl_wallets".tr,
-                                          overflow: TextOverflow.ellipsis,
-                                          textAlign: TextAlign.center,
-                                          style: AppStyle.txtRobotoRegular12.copyWith(
-                                            letterSpacing: 0.40,
-                                            height: 1.33,
+                                        Obx( () => Padding(
+                                          padding: getPadding(
+                                            left: 14,
+                                            right: 14,
                                           ),
+                                          child: (controller._selectedScreen.value == selectedScreen.wallets) ? Text(
+                                            "lbl_wallets".tr,
+                                            overflow: TextOverflow.ellipsis,
+                                            textAlign: TextAlign.center,
+                                            style: AppStyle.txtRobotoRegular12.copyWith(
+                                              letterSpacing: 0.40,
+                                              height: 1.33,
+                                            ),
+                                          ) : null,
                                         ),
-                                      ),
-                                    ],
-                                  ),
+                                        ),
+                                      ],
+                                    ),
+                                    onPressed: () {
+                                      controller._selectedScreen.value = selectedScreen.wallets;
+                                    },
+                                  )
                                 ),
                                 Container(
-                                  height: getVerticalSize(
-                                    56.00,
-                                  ),
-                                  width: getHorizontalSize(
-                                    72.00,
-                                  ),
-                                  decoration: AppDecoration.fillWhiteA700,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: getPadding(
-                                            left: 26,
-                                            top: 18,
-                                            right: 26,
-                                            bottom: 18,
-                                          ),
-                                          child: CommonImageView(
+                                    decoration: AppDecoration.fillWhiteA700,
+                                    child: TextButton(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          CommonImageView(
                                             svgPath: ImageConstant.imgDashboard,
-                                            height: getSize(
-                                              20.00,
-                                            ),
-                                            width: getSize(
-                                              20.00,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: getVerticalSize(
-                                    56.00,
-                                  ),
-                                  width: getHorizontalSize(
-                                    72.00,
-                                  ),
-                                  decoration: AppDecoration.fillWhiteA700,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: getPadding(
-                                            left: 27,
-                                            top: 19,
-                                            right: 27,
-                                            bottom: 19,
-                                          ),
-                                          child: CommonImageView(
-                                            svgPath: ImageConstant.imgCreditcard18X18,
-                                            height: getSize(
-                                              18.00,
-                                            ),
-                                            width: getSize(
-                                              18.00,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: getVerticalSize(
-                                    56.00,
-                                  ),
-                                  width: getHorizontalSize(
-                                    72.00,
-                                  ),
-                                  decoration: AppDecoration.fillWhiteA700,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: getPadding(
-                                            left: 26,
-                                            top: 18,
-                                            right: 26,
-                                            bottom: 18,
-                                          ),
-                                          child: CommonImageView(
-                                            svgPath: ImageConstant.imgCreditcard20X20,
-                                            height: getSize(
-                                              20.00,
-                                            ),
-                                            width: getSize(
-                                              20.00,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: getVerticalSize(
-                                    56.00,
-                                  ),
-                                  width: getHorizontalSize(
-                                    72.00,
-                                  ),
-                                  decoration: AppDecoration.fillWhiteA700,
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                          padding: getPadding(
-                                            left: 25,
-                                            top: 20,
-                                            right: 25,
-                                            bottom: 20,
-                                          ),
-                                          child: CommonImageView(
-                                            svgPath: ImageConstant.imgUser,
                                             height: getVerticalSize(
-                                              16.00,
+                                              18.00,
                                             ),
                                             width: getHorizontalSize(
-                                              22.00,
+                                              19.00,
                                             ),
                                           ),
-                                        ),
+                                          Obx( () => Padding(
+                                            padding: getPadding(
+                                              left: 14,
+                                              right: 14,
+                                            ),
+                                            child: (controller._selectedScreen.value == selectedScreen.dashboard) ? Text(
+                                              "Dashboard",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              style: AppStyle.txtRobotoRegular12.copyWith(
+                                                letterSpacing: 0.40,
+                                                height: 1.33,
+                                              ),
+                                            ) : null,
+                                          ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                      onPressed: () {
+                                        controller._selectedScreen.value = selectedScreen.dashboard;
+                                      },
+                                    )
+                                ),
+                                Container(
+                                    decoration: AppDecoration.fillWhiteA700,
+                                    child: TextButton(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          CommonImageView(
+                                            svgPath: ImageConstant.imgCreditcard18X18,
+                                            height: getVerticalSize(
+                                              18.00,
+                                            ),
+                                            width: getHorizontalSize(
+                                              19.00,
+                                            ),
+                                          ),
+                                          Obx( () => Padding(
+                                            padding: getPadding(
+                                              left: 14,
+                                              right: 14,
+                                            ),
+                                            child: (controller._selectedScreen.value == selectedScreen.social) ? Text(
+                                              "Social",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              style: AppStyle.txtRobotoRegular12.copyWith(
+                                                letterSpacing: 0.40,
+                                                height: 1.33,
+                                              ),
+                                            ) : null,
+                                          ),
+                                          ),
+                                        ],
+                                      ),
+                                      onPressed: () {
+                                        controller._selectedScreen.value = selectedScreen.social;
+                                      },
+                                    )
+                                ),
+                                Container(
+                                    decoration: AppDecoration.fillWhiteA700,
+                                    child: TextButton(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          CommonImageView(
+                                            svgPath: ImageConstant.imgCreditcard20X20,
+                                            height: getVerticalSize(
+                                              18.00,
+                                            ),
+                                            width: getHorizontalSize(
+                                              19.00,
+                                            ),
+                                          ),
+                                          Obx( () => Padding(
+                                            padding: getPadding(
+                                              left: 14,
+                                              right: 14,
+                                            ),
+                                            child: (controller._selectedScreen.value == selectedScreen.messages) ? Text(
+                                              "Messages",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              style: AppStyle.txtRobotoRegular12.copyWith(
+                                                letterSpacing: 0.40,
+                                                height: 1.33,
+                                              ),
+                                            ) : null,
+                                          ),
+                                          ),
+                                        ],
+                                      ),
+                                      onPressed: () {
+                                        controller._selectedScreen.value = selectedScreen.messages;
+                                      },
+                                    )
+                                ),
+                                Container(
+                                    decoration: AppDecoration.fillWhiteA700,
+                                    child: TextButton(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          CommonImageView(
+                                            svgPath: ImageConstant.imgUser,
+                                            height: getVerticalSize(
+                                              18.00,
+                                            ),
+                                            width: getHorizontalSize(
+                                              19.00,
+                                            ),
+                                          ),
+                                          Obx( () => Padding(
+                                            padding: getPadding(
+                                              left: 14,
+                                              right: 14,
+                                            ),
+                                            child: (controller._selectedScreen.value == selectedScreen.user) ? Text(
+                                              "User",
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              style: AppStyle.txtRobotoRegular12.copyWith(
+                                                letterSpacing: 0.40,
+                                                height: 1.33,
+                                              ),
+                                            ) : null,
+                                          ),
+                                          ),
+                                        ],
+                                      ),
+                                      onPressed: () {
+                                        controller._selectedScreen.value = selectedScreen.user;
+                                      },
+                                    )
                                 ),
                               ],
                             ),
@@ -290,8 +313,19 @@ class MainScreen extends StatelessWidget {
           )
         )
     );
+  }
+}
+enum selectedScreen {wallets, dashboard, social, messages, user}
+class MainScreenController extends GetxController {
+  Rx<selectedScreen> _selectedScreen = selectedScreen.wallets.obs;
 
+  @override
+  void onReady() {
+    super.onReady();
   }
 
-
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }
