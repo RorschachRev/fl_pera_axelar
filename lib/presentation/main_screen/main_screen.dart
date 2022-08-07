@@ -152,7 +152,7 @@ class MainScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           CommonImageView(
-                                            svgPath: "assets/images/main_screen/img_dashboard.svg",
+                                            svgPath: "assets/images/img_dashboard.svg",
                                             height: getVerticalSize(
                                               18.00,
                                             ),
@@ -191,7 +191,7 @@ class MainScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           CommonImageView(
-                                            svgPath: "assets/images/main_screen/img_social.svg",
+                                            svgPath: "assets/images/img_social.svg",
                                             height: getVerticalSize(
                                               18.00,
                                             ),
@@ -230,7 +230,7 @@ class MainScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           CommonImageView(
-                                            svgPath: "assets/images/main_screen/img_messages.svg",
+                                            svgPath: "assets/images/img_messages.svg",
                                             height: getVerticalSize(
                                               18.00,
                                             ),
@@ -269,7 +269,7 @@ class MainScreen extends StatelessWidget {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           CommonImageView(
-                                            svgPath: "assets/images/main_screen/img_user.svg",
+                                            svgPath: "assets/images/img_users.svg",
                                             height: getVerticalSize(
                                               18.00,
                                             ),

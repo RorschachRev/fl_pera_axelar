@@ -26,7 +26,6 @@ flutter:
   assets: 
     - assets/
     - assets/images/
-    - assets/images/main_screen/
     - assets/images/profiles_screen/
   fonts: 
     - family: Inter
