@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
-import 'package:application1/presentation/main_screen/profiles/profile_overlay_info.dart';
 
 class ProfileScreen extends StatelessWidget {
   final controller = Get.put(ProfileScreenController());

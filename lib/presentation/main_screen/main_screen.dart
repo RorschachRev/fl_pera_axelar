@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/presentation/main_screen/wallets_screen.dart';
 import 'package:application1/presentation/main_screen/profile_screen.dart';
+import 'package:application1/presentation/main_screen/messages_screen.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -19,7 +20,8 @@ class MainScreen extends StatelessWidget {
                   padding: EdgeInsets.only(top: 55.0),
                   child: Obx(() => SingleChildScrollView(
                       child: (controller._selectedScreen.value == selectedScreen.wallets) ? WalletsScreen() :
-                      (controller._selectedScreen.value == selectedScreen.user) ? ProfileScreen() : null
+                      (controller._selectedScreen.value == selectedScreen.user) ? ProfileScreen() :
+                      (controller._selectedScreen.value == selectedScreen.messages) ? MessagesScreen() : Container()
                   ),)
                 ),
                 Positioned(
