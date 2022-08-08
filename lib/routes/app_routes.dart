@@ -16,6 +16,8 @@ import 'package:application1/presentation/sending_screen/selecting_currency_amou
 import 'package:application1/presentation/main_screen/add_new_wallet_screen.dart';
 import 'package:application1/presentation/welcome_screen/import_wallet_screen.dart';
 import 'package:application1/presentation/main_screen/profiles/profile_overlay_info.dart';
+import 'package:application1/presentation/main_screen/profiles/edit_profile/edit_profile_menu_screen.dart';
+import 'package:application1/presentation/main_screen/profiles/edit_profile/edit_proifile_main.dart';
 
 
 class AppRoutes {
@@ -36,6 +38,8 @@ class AppRoutes {
   static String addNewWalletScreen = '/add_new_wallet_screen';
   static String importWallet = '/import_wallet';
   static String profilesOverlayScreen = '/profiles_info';
+  static String editProfileScreen = '/profiles/edit_profiles_screen';
+  static String editProfileMainScreen = '/profiles/edit_main_screen';
 
   static List<GetPage> pages = [
     GetPage(
@@ -114,6 +118,14 @@ class AppRoutes {
     GetPage(
       name: profilesOverlayScreen,
       page: () => ProfileOverlayInfo(),
+    ),
+    GetPage(
+      name: editProfileScreen,
+      page: () => EditProfileMenuScreen(),
+    ),
+    GetPage(
+      name: editProfileMainScreen,
+      page: () => EditProfileMainScreen(),
     ),
   ];
 }

@@ -41,8 +41,8 @@ class ProfileScreen extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/profiles_screen/img_avatar_agent.png'),
-                                          fit: BoxFit.fill
+                                          image: AssetImage(user.profile_photo_path),
+                                          fit: BoxFit.cover
                                       ),
                                     ),
                                   ),
@@ -50,13 +50,13 @@ class ProfileScreen extends StatelessWidget {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Agent Smith", style: TextStyle(fontSize: 25),),
+                                          Text(user.first_name + " " + user.last_name, style: TextStyle(fontSize: 25),),
                                           CommonImageView(
                                             svgPath: 'assets/images/profiles_screen/img_check.svg',
                                           ),
                                         ],
                                       ),
-                                      Text("Looking for work", style: TextStyle(fontSize: 16, color: ColorConstant.gray501),),
+                                      Text(user.hiring_status.name, style: TextStyle(fontSize: 16, color: ColorConstant.gray501),),
                                       Text("Online", style: TextStyle(fontSize: 14, color: ColorConstant.blueA400),),
                                     ],
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                                 width: double.infinity,
                                 child: TextButton(
                                   onPressed: () {
-
+                                    Get.toNamed(AppRoutes.editProfileScreen);
                                   },
                                   child: Text(
                                     "Edit Profile",
@@ -197,7 +197,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 3, bottom: 3),
-                          child: Text("About text"),
+                          child: Text(user.about_me),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 3, bottom: 3),
@@ -206,7 +206,7 @@ class ProfileScreen extends StatelessWidget {
                               CommonImageView(
                                 svgPath: 'assets/images/profiles_screen/img_education.svg',
                               ),
-                              Text("Education: School of secret agent", style: TextStyle(color: ColorConstant.blueA400),),
+                              Text("Education: " + user.education, style: TextStyle(color: ColorConstant.blueA400),),
                             ],
                           ),
                         ),
@@ -217,7 +217,7 @@ class ProfileScreen extends StatelessWidget {
                               CommonImageView(
                                 svgPath: 'assets/images/profiles_screen/img_career.svg',
                               ),
-                              Text("Career: AWL3", style: TextStyle(color: ColorConstant.blueA400))
+                              Text("Career: " + user.career, style: TextStyle(color: ColorConstant.blueA400))
                             ],
                           ),
                         ),

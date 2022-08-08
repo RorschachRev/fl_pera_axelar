@@ -54,7 +54,7 @@ class ProfileOverlayInfo extends StatelessWidget {
                               TextSpan(text: "Hiring status: ", style: TextStyle(
                                   fontWeight: FontWeight.bold
                               )),
-                              TextSpan(text: "Looking for work")
+                              TextSpan(text: user.hiring_status.name)
                             ]
                         ),
                       ),
@@ -62,7 +62,7 @@ class ProfileOverlayInfo extends StatelessWidget {
                     ),
                     Padding(
                       child: InformationRow("assets/images/profiles_screen/img_user.svg",
-                          "About: ", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh"),
+                          "About: ", user.about_me),
                       padding: EdgeInsets.only(bottom: 5, top: 5),
                     ),
                     Padding(
@@ -92,12 +92,12 @@ class ProfileOverlayInfo extends StatelessWidget {
                     ),
                     Padding(
                       child: InformationRow("assets/images/profiles_screen/img_education.svg",
-                          "Education: ", "School of secret agent"),
+                          "Education: ", user.education),
                       padding: EdgeInsets.only(bottom: 5, top: 5),
                     ),
                     Padding(
                       child: InformationRow("assets/images/profiles_screen/img_career.svg",
-                          "Career: ", "AWL3"),
+                          "Career: ", user.career),
                       padding: EdgeInsets.only(bottom: 5, top: 5),
                     ),
                     Padding(
