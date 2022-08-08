@@ -6,9 +6,7 @@ class ProfileScreen extends StatelessWidget {
   final controller = Get.put(ProfileScreenController());
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
+    return Container(
           width: double.infinity,
           decoration: AppDecoration.fillGray100,
           child: Column(
@@ -236,7 +234,7 @@ class ProfileScreen extends StatelessWidget {
                               ],
                             ),
                             onPressed: () {
-
+                              Get.toNamed(AppRoutes.profilesOverlayScreen);
                             },
                             style: TextButton.styleFrom(
                               minimumSize: Size.zero,
@@ -250,16 +248,11 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-        Obx(
-            () => (controller.profileOverlayVisibility.value == true) ? Align(alignment: Alignment.center, child: ProfileOverlayInfo(),) : Container()
-        )
-      ],
-    );
+            );
   }
 }
 class ProfileScreenController extends GetxController {
-  RxBool profileOverlayVisibility = false.obs;
+  RxBool profileOverlayVisibility = true.obs;
   @override
   void onReady() {
     super.onReady();

@@ -47,8 +47,6 @@ class ImageConstant {
 
   static String imgCosmosBadge = 'assets/images/img_cut.svg';
 
-  static String imgCreditcard18X18 = 'assets/images/img_creditcard_18X18.svg';
-
   static String imgCheckmark = 'assets/images/img_checkmark.svg';
 
   static String imgArrowRight = 'assets/images/img_arrow_right.svg';
@@ -63,4 +61,13 @@ class ImageConstant {
 
   static String imgCheckbox = 'assets/images/img_checkbox.svg';
 
+  static String imgArrowRightGrey = 'assets/images/img_arrow_right_grey.svg';
+
+  static String imgUsers = 'assets/images/img_users.svg';
+
+  static String imgDashboard = 'assets/images/img_dashboard.svg';
+
+  static String imgMessages = 'assets/images/img_messages.svg';
+
+  static String imgSocials = 'assets/images/img_social.svg';
 }

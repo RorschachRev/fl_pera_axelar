@@ -15,6 +15,7 @@ import 'package:application1/presentation/request_screen/send_link_currency_scre
 import 'package:application1/presentation/sending_screen/selecting_currency_amount.dart';
 import 'package:application1/presentation/main_screen/add_new_wallet_screen.dart';
 import 'package:application1/presentation/welcome_screen/import_wallet_screen.dart';
+import 'package:application1/presentation/main_screen/profiles/profile_overlay_info.dart';
 
 
 class AppRoutes {
@@ -34,6 +35,7 @@ class AppRoutes {
   static String sendingLinkCurrencyScreen = '/request/currency_link';
   static String addNewWalletScreen = '/add_new_wallet_screen';
   static String importWallet = '/import_wallet';
+  static String profilesOverlayScreen = '/profiles_info';
 
   static List<GetPage> pages = [
     GetPage(
@@ -108,6 +110,10 @@ class AppRoutes {
     GetPage(
       name: importWallet,
       page: () => ImportWalletScreen(),
+    ),
+    GetPage(
+      name: profilesOverlayScreen,
+      page: () => ProfileOverlayInfo(),
     ),
   ];
 }
