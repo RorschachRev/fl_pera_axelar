@@ -70,4 +70,6 @@ class ImageConstant {
   static String imgMessages = 'assets/images/img_messages.svg';
 
   static String imgSocials = 'assets/images/img_social.svg';
+
+  static String imgDone = 'assets/images/img_done.svg';
 }

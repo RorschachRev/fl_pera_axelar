@@ -320,7 +320,12 @@ class MainScreen extends StatelessWidget {
 enum selectedScreen {wallets, dashboard, social, messages, user}
 class MainScreenController extends GetxController {
   Rx<selectedScreen> _selectedScreen = selectedScreen.wallets.obs;
-
+  @override
+  void onInit() {
+    super.onInit();
+    if (Get.parameters["selected_screen"] == "user") _selectedScreen = selectedScreen.user.obs;
+    else _selectedScreen =  selectedScreen.wallets.obs;
+  }
   @override
   void onReady() {
     super.onReady();

@@ -62,5 +62,5 @@ class UserProfile {
   }
 }
 UserProfile user = UserProfile(
-    "Agent", "Smith", "About me text", hiringStatus.looking_for_work,
+    "Agent", "Smith", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh ", hiringStatus.looking_for_work,
     'assets/images/profiles_screen/img_avatar_agent.png', "School of secret agent", "AWL3");
