@@ -72,4 +72,14 @@ class ImageConstant {
   static String imgSocials = 'assets/images/img_social.svg';
 
   static String imgDone = 'assets/images/img_done.svg';
+
+  static String imgMore = 'assets/images/img_more.svg';
+
+  static String imgSocialComment = 'assets/images/social/img_comment.svg';
+
+  static String imgSocialHeart = 'assets/images/social/img_heart.svg';
+
+  static String imgSocialRepost = 'assets/images/social/img_repost.svg';
+
+  static String imgSocialVisibility = 'assets/images/social/img_visibility.svg';
 }
