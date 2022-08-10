@@ -41,6 +41,7 @@ List<String> secretPhrases = ["phrase1", "phrase2", "phrase3", "phrase4"];
 
 enum hiringStatus {looking_for_work, hiring, hide_status}
 class UserProfile {
+  int id = 0;
   String first_name = "";
   String last_name = "";
   String about_me = "";
@@ -48,10 +49,10 @@ class UserProfile {
   String profile_photo_path = "";
   String education = "";
   String career = "";
-
+  List<int> friends = [];
   UserProfile(String first_name, String last_name,
       String about_me, var hiring_status, String profile_photo_path,
-      String education, String career) {
+      String education, String career, int id, List<int> friends) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.about_me = about_me;
@@ -59,8 +60,14 @@ class UserProfile {
     this.profile_photo_path = profile_photo_path;
     this.education = education;
     this.career = career;
+    this.id = id;
+    this.friends = friends;
   }
 }
 UserProfile user = UserProfile(
     "Agent", "Smith", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh ", hiringStatus.looking_for_work,
-    'assets/images/profiles_screen/img_avatar_agent.png', "School of secret agent", "AWL3");
+    'assets/images/profiles_screen/img_avatar_agent.png', "School of secret agent", "AWL3", 0, [1, 2]);
+
+List<UserProfile> users = [user, UserProfile("John", "Anderson", "About me 2", hiringStatus.hiring, 'assets/images/profiles_screen/img_avatar_neo.png',
+    "School 2", "None", 1, [0]), UserProfile("Peter", "Stevens", "About me 3", hiringStatus.hiring, 'assets/images/profiles_screen/img_avatar_peter.png',
+    "School 2", "None", 2, [0])];

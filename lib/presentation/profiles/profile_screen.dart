@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
-import 'package:application1/presentation/main_screen/social/post.dart';
+import 'package:application1/presentation/social/post.dart';
 
 class ProfileScreen extends StatelessWidget {
+  ProfileScreen(this.userProfile);
   final controller = Get.put(ProfileScreenController());
+  final UserProfile userProfile;
+  List<int> GetUserFriends() {
+    if (userProfile.friends.length < 5) return userProfile.friends;
+    return userProfile.friends.sublist(0, 5);
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                    image: AssetImage(user.profile_photo_path),
+                                    image: AssetImage(userProfile.profile_photo_path),
                                     fit: BoxFit.cover
                                 ),
                               ),
@@ -51,13 +57,13 @@ class ProfileScreen extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Text(user.first_name + " " + user.last_name, style: TextStyle(fontSize: 25),),
+                                    Text(userProfile.first_name + " " + userProfile.last_name, style: TextStyle(fontSize: 25),),
                                     CommonImageView(
                                       svgPath: 'assets/images/profiles_screen/img_check.svg',
                                     ),
                                   ],
                                 ),
-                                Text(user.hiring_status.name, style: TextStyle(fontSize: 16, color: ColorConstant.gray501),),
+                                Text(userProfile.hiring_status.name, style: TextStyle(fontSize: 16, color: ColorConstant.gray501),),
                                 Text("Online", style: TextStyle(fontSize: 14, color: ColorConstant.blueA400),),
                               ],
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -198,7 +204,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 3, bottom: 3),
-                    child: Text(user.about_me),
+                    child: Text(userProfile.about_me),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 3, bottom: 3),
@@ -207,7 +213,7 @@ class ProfileScreen extends StatelessWidget {
                         CommonImageView(
                           svgPath: 'assets/images/profiles_screen/img_education.svg',
                         ),
-                        Text("Education: " + user.education, style: TextStyle(color: ColorConstant.blueA400),),
+                        Text("Education: " + userProfile.education, style: TextStyle(color: ColorConstant.blueA400),),
                       ],
                     ),
                   ),
@@ -218,7 +224,7 @@ class ProfileScreen extends StatelessWidget {
                         CommonImageView(
                           svgPath: 'assets/images/profiles_screen/img_career.svg',
                         ),
-                        Text("Career: " + user.career, style: TextStyle(color: ColorConstant.blueA400))
+                        Text("Career: " + userProfile.career, style: TextStyle(color: ColorConstant.blueA400))
                       ],
                     ),
                   ),
@@ -242,6 +248,63 @@ class ProfileScreen extends StatelessWidget {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                     ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(5))
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text("Friends "),
+                          Text(userProfile.friends.length.toString()),
+                        ]
+                      ),
+                      CommonImageView(
+                        svgPath: ImageConstant.imgArrowRightGrey,
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      for (int i = 0; i < GetUserFriends().length; i++) TextButton(
+                        onPressed: () {
+
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: AssetImage(users[userProfile.friends[i]].profile_photo_path),
+                                    fit: BoxFit.cover
+                                ),
+                              ),
+                            ),
+                            Text(users[userProfile.friends[i]].first_name, style: TextStyle(fontSize: 13, color: Colors.black),),
+                            Text(users[userProfile.friends[i]].last_name, style: TextStyle(fontSize: 13, color: Colors.black),)
+                          ],
+                        ),
+                      )
+                    ],
                   )
                 ],
               ),
