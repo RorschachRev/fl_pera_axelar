@@ -3,6 +3,7 @@ import 'package:application1/core/app_export.dart';
 import 'package:application1/presentation/main_screen/main_screen.dart';
 import 'package:application1/presentation/profiles/profile_screen.dart';
 import 'package:application1/presentation/profiles/friend_list_screen.dart';
+import 'package:application1/presentation/sending_screen/sending_screen.dart';
 
 class OtherUserProfile extends MainScreen {
   OtherUserProfile(this.userProfile);
@@ -98,93 +99,49 @@ class OtherUserProfile extends MainScreen {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      // Container(
-                      //   height: double.infinity,
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //     children: [
-                      //       CommonImageView(
-                      //         svgPath: "assets/images/profiles_screen/edit_square.svg",
-                      //       ),
-                      //       TextButton(
-                      //         onPressed: () {
-                      //
-                      //         },
-                      //         child: Text("New post"),
-                      //         style: TextButton.styleFrom(
-                      //           minimumSize: Size.zero,
-                      //           padding: EdgeInsets.zero,
-                      //           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                      // Container(
-                      //   height: double.infinity,
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //     children: [
-                      //       CommonImageView(
-                      //         svgPath: "assets/images/profiles_screen/img_add_photo.svg",
-                      //       ),
-                      //       TextButton(
-                      //         onPressed: () {
-                      //
-                      //         },
-                      //         child: Text("Image"),
-                      //         style: TextButton.styleFrom(
-                      //           minimumSize: Size.zero,
-                      //           padding: EdgeInsets.zero,
-                      //           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
                       Container(
-                        height: double.infinity,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CommonImageView(
-                              svgPath: ImageConstant.imgArrowRight,
+                          height: double.infinity,
+                          child: TextButton(
+                            onPressed: () {
+                              Get.to(() => SendingScreen(userProfile));
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CommonImageView(
+                                  svgPath: ImageConstant.imgArrowRight,
+                                ),
+                                Text("Send"),
+                              ],
                             ),
-                            TextButton(
-                              onPressed: () {
-
-                              },
-                              child: Text("Send"),
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.zero,
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
-                          ],
-                        ),
+                          )
                       ),
                       Container(
-                        height: double.infinity,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CommonImageView(
-                              svgPath: ImageConstant.imgArrowDown,
-                            ),
-                            TextButton(
-                              onPressed: () {
+                          height: double.infinity,
+                          child: TextButton(
+                            onPressed: () {
 
-                              },
-                              child: Text("Request"),
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.zero,
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CommonImageView(
+                                  svgPath: ImageConstant.imgArrowDown,
+                                ),
+                                Text("Request"),
+                              ],
                             ),
-                          ],
-                        ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                          )
                       ),
                     ],
                   ),

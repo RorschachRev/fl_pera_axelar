@@ -17,7 +17,7 @@ class ImageConstant {
 
   static String imgClose = 'assets/images/img_close.svg';
 
-  static String imgAvatarAgent = 'assets/images/img_avatar_agent.png';
+  static String imgAvatarAgent = 'assets/images/profiles_screen/img_avatar_agent.png';
 
   static String imgMenu = 'assets/images/img_menu.svg';
 

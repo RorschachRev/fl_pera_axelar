@@ -1,4 +1,5 @@
 import 'package:application1/core/app_export.dart';
+import 'package:application1/presentation/sending_screen/sending_screen.dart';
 import 'package:flutter/material.dart';
 
 class WalletsScreen extends StatelessWidget {
@@ -264,7 +265,7 @@ class WalletsScreen extends StatelessWidget {
                                   svgPath: ImageConstant.imgArrowRight,
                                 ),
                                 onPressed: () {
-                                  Get.toNamed(AppRoutes.sendingScreen);
+                                  Get.to(() => SendingScreen(users[user.friends[0]]));
                                 },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(52, 52)),
@@ -364,7 +365,7 @@ class WalletsScreen extends StatelessWidget {
                                   svgPath: 'assets/images/img_switch.svg',
                                 ),
                                 onPressed: () {
-                                  Get.toNamed(AppRoutes.sendingScreen);
+
                                 },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(52, 52)),
@@ -414,7 +415,7 @@ class WalletsScreen extends StatelessWidget {
                                   svgPath: ImageConstant.imgTime,
                                 ),
                                 onPressed: () {
-                                  Get.toNamed(AppRoutes.sendingScreen);
+
                                 },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(52, 52)),

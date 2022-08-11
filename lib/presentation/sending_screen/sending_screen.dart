@@ -1,8 +1,17 @@
 import 'package:application1/core/app_export.dart';
 import 'package:flutter/material.dart';
 
-class SendingScreen extends StatelessWidget {
+class SendingScreen extends StatefulWidget {
+  SendingScreen(this.profileToSend);
+  final UserProfile profileToSend;
+  @override
+  State<SendingScreen> createState() => _sendingScreen(profileToSend);
+}
+
+class _sendingScreen extends State<SendingScreen> {
+  _sendingScreen(this.profileToSend);
   final controller = Get.put(SendingController());
+  UserProfile profileToSend;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -55,20 +64,117 @@ class SendingScreen extends StatelessWidget {
                                                     height: 1.50)))
                                       ]))),
                           Container(
-                              decoration: AppDecoration.fillWhiteA700.copyWith(
-                                  borderRadius: BorderRadiusStyle.customBorderBL8),
-                              child: Obx(() => ListView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: controller.sendingModelObj.value
-                                      .profilesItemList.length,
-                                  itemBuilder: (context, index) {
-                                    ProfilesItemModel model = controller
-                                        .sendingModelObj
-                                        .value
-                                        .profilesItemList[index];
-                                    return ProfilesItemWidget(model);
-                                  }))
+                            decoration: AppDecoration.fillWhiteA700,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Text("From:"),
+                                ),
+                                Expanded(
+                                    child: Container(
+                                      decoration: AppDecoration.outlineBlack9001e.copyWith(
+                                          borderRadius: BorderRadiusStyle
+                                              .roundedBorder8),
+                                      margin: EdgeInsets.only(right: 20, left: 20),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: 40,
+                                            height: 40,
+                                            margin: EdgeInsets.all(10),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                  image: AssetImage(user.profile_photo_path),
+                                                  fit: BoxFit.cover
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(user.first_name + " " + user.last_name),
+                                              Text("Balance: \$ 100 000"),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            decoration: AppDecoration.fillWhiteA700,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 20, right: 15),
+                                  child: Text("To:"),
+                                ),
+                                Expanded(
+                                    child: Container(
+                                        decoration: AppDecoration.outlineBlack9001e.copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .roundedBorder8),
+                                        margin: EdgeInsets.only(right: 20, left: 20),
+                                        child: DropdownButton<UserProfile>(
+                                          value: profileToSend,
+                                          icon: Expanded (
+                                            child: Align(
+                                                alignment: Alignment.centerRight,
+                                                child: Padding(
+                                                  padding: getPadding(right: 10),
+                                                  child: CommonImageView(
+                                                      svgPath: ImageConstant.imgArrowDownGray,
+                                                      height:
+                                                      getVerticalSize(7.00),
+                                                      width: getHorizontalSize(
+                                                          12.00)),
+                                                )
+                                            ),
+                                          ),
+                                          items: [for (int i = 0; i < user.friends.length; i++)
+                                            DropdownMenuItem<UserProfile> (
+                                              value: users[user.friends[i]],
+                                              child: Row(
+                                                children: [
+                                                  Container(
+                                                    width: 40,
+                                                    height: 40,
+                                                    margin: EdgeInsets.all(10),
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      image: DecorationImage(
+                                                          image: AssetImage(users[user.friends[i]].profile_photo_path),
+                                                          fit: BoxFit.cover
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(users[user.friends[i]].first_name + " " + users[user.friends[i]].last_name),
+                                                      Text("0x...1"),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                          onChanged: (UserProfile? userProfile) {
+                                            setState(() {
+                                              profileToSend = userProfile!;
+                                            });
+                                          },
+                                        )
+                                    )
+                                ),
+                              ],
+                            ),
                           ),
                           Container(
                               width: double.infinity,
@@ -179,8 +285,6 @@ class SendingScreen extends StatelessWidget {
   }
 }
 class SendingController extends GetxController {
-  Rx<SendingModel> sendingModelObj = SendingModel().obs;
-
   @override
   void onReady() {
     super.onReady();
@@ -189,146 +293,5 @@ class SendingController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-}
-class ProfilesItemModel {}
-class SendingModel {
-  RxList<ProfilesItemModel> profilesItemList =
-  RxList.filled(2, ProfilesItemModel());
-}
-class ProfilesItemWidget extends StatelessWidget {
-  ProfilesItemWidget(this.profilesItemModelObj);
-
-  ProfilesItemModel profilesItemModelObj;
-
-  var controller = Get.find<SendingController>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: getPadding(
-        left: 16,
-        top: 8.0,
-        right: 16,
-        bottom: 8.0,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Padding(
-            padding: getPadding(
-              bottom: 40,
-            ),
-            child: Text(
-              "lbl_from".tr,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: AppStyle.txtInterMedium16Black900.copyWith(
-                letterSpacing: 0.16,
-                height: 1.50,
-              ),
-            ),
-          ),
-          Container(
-            margin: getMargin(
-              left: 16,
-            ),
-            decoration: AppDecoration.outlineBlack9001e.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder8,
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: getPadding(
-                    left: 16,
-                    top: 12,
-                    bottom: 12,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                      getHorizontalSize(
-                        20.00,
-                      ),
-                    ),
-                    child: CommonImageView(
-                      imagePath: ImageConstant.imgAvatarAgent,
-                      height: getSize(
-                        40.00,
-                      ),
-                      width: getSize(
-                        40.00,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: getMargin(
-                    left: 8,
-                    top: 10,
-                    bottom: 10,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: getPadding(
-                          right: 10,
-                        ),
-                        child: Text(
-                          "lbl_agent_smith".tr,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.left,
-                          style: AppStyle.txtInterMedium14.copyWith(
-                            letterSpacing: 0.10,
-                            height: 1.71,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "msg_balance_100".tr,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.left,
-                        style: AppStyle.txtInterRegular14.copyWith(
-                          letterSpacing: 0.07,
-                          height: 1.43,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: getPadding(
-                    left: 46,
-                    top: 27,
-                    right: 14,
-                    bottom: 28,
-                  ),
-                  child: CommonImageView(
-                    svgPath: ImageConstant.imgArrowDownGray,
-                    height: getVerticalSize(
-                      7.00,
-                    ),
-                    width: getHorizontalSize(
-                      12.00,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-class SendingBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SendingController());
   }
 }
