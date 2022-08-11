@@ -1,10 +1,12 @@
+import 'package:application1/presentation/profiles/other_user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
 import 'package:application1/presentation/social/post.dart';
+import 'package:application1/presentation/main_screen/main_screen.dart';
+import 'package:application1/presentation/profiles/friend_list_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends MainScreen {
   ProfileScreen(this.userProfile);
-  final controller = Get.put(ProfileScreenController());
   final UserProfile userProfile;
   List<int> GetUserFriends() {
     if (userProfile.friends.length < 5) return userProfile.friends;
@@ -260,25 +262,38 @@ class ProfileScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Text("Friends "),
-                          Text(userProfile.friends.length.toString()),
-                        ]
+                  TextButton(
+                      onPressed: () async {
+                        int result = await Get.to(() => FriendListScreen(userProfile));
+                        if (result != -1) {
+                          controller.changePage(OtherUserProfile(users[result]));
+                        }
+                      },
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
-                      CommonImageView(
-                        svgPath: ImageConstant.imgArrowRightGrey,
-                      )
-                    ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                              children: [
+                                Text("Friends "),
+                                Text(userProfile.friends.length.toString()),
+                              ]
+                          ),
+                          CommonImageView(
+                            svgPath: ImageConstant.imgArrowRightGrey,
+                          )
+                        ],
+                      ),
                   ),
                   Row(
                     children: [
                       for (int i = 0; i < GetUserFriends().length; i++) TextButton(
                         onPressed: () {
-
+                          controller.changePage(OtherUserProfile(users[userProfile.friends[i]]));
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
@@ -313,16 +328,5 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       );
-  }
-}
-class ProfileScreenController extends GetxController {
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 }

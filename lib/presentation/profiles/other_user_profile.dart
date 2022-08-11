@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:application1/core/app_export.dart';
+import 'package:application1/presentation/main_screen/main_screen.dart';
+import 'package:application1/presentation/profiles/profile_screen.dart';
+import 'package:application1/presentation/profiles/friend_list_screen.dart';
 
-class OtherUserProfile extends StatefulWidget {
+class OtherUserProfile extends MainScreen {
   OtherUserProfile(this.userProfile);
   final UserProfile userProfile;
-  @override
-  State<OtherUserProfile> createState() => _otherUserProfile(userProfile);
-}
-class _otherUserProfile extends State<OtherUserProfile> {
-  _otherUserProfile(this.userProfile);
-  UserProfile userProfile;
   List<int> GetUserFriends() {
     if (userProfile.friends.length < 5) return userProfile.friends;
     return userProfile.friends.sublist(0, 5);
@@ -264,23 +261,46 @@ class _otherUserProfile extends State<OtherUserProfile> {
             ),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                        children: [
-                          Text("Friends "),
-                          Text(userProfile.friends.length.toString()),
-                        ]
-                    ),
-                    CommonImageView(
-                      svgPath: ImageConstant.imgArrowRightGrey,
-                    )
-                  ],
+                TextButton(
+                  onPressed: () async {
+                    int result = await Get.to(() => FriendListScreen(userProfile));
+                    if (result != -1) {
+                      if (result == 0) controller.changePage(ProfileScreen(user));
+                      else controller.changePage(OtherUserProfile(users[result]));
+                    }
+                  },
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                          children: [
+                            Text("Friends "),
+                            Text(userProfile.friends.length.toString()),
+                          ]
+                      ),
+                      CommonImageView(
+                        svgPath: ImageConstant.imgArrowRightGrey,
+                      )
+                    ],
+                  ),
                 ),
                 Row(
                   children: [
-                    for (int i = 0; i < GetUserFriends().length; i++) Container(
+                    for (int i = 0; i < GetUserFriends().length; i++) TextButton(
+                      onPressed: () {
+                        if (userProfile.friends[i] == 0) controller.changePage(ProfileScreen(user));
+                        else controller.changePage(OtherUserProfile(users[userProfile.friends[i]]));
+                      },
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
                       child: Column(
                         children: [
                           Container(
@@ -295,8 +315,8 @@ class _otherUserProfile extends State<OtherUserProfile> {
                               ),
                             ),
                           ),
-                          Text(users[userProfile.friends[i]].first_name, style: TextStyle(fontSize: 13),),
-                          Text(users[userProfile.friends[i]].last_name, style: TextStyle(fontSize: 13),)
+                          Text(users[userProfile.friends[i]].first_name, style: TextStyle(fontSize: 13, color: Colors.black),),
+                          Text(users[userProfile.friends[i]].last_name, style: TextStyle(fontSize: 13, color: Colors.black),)
                         ],
                       ),
                     )

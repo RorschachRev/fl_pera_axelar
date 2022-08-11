@@ -82,4 +82,8 @@ class ImageConstant {
   static String imgSocialRepost = 'assets/images/social/img_repost.svg';
 
   static String imgSocialVisibility = 'assets/images/social/img_visibility.svg';
+
+  static String imgChatIcon = 'assets/images/profiles_screen/img_chat_bubble.svg';
+
+  static String imgCallIconGray = 'assets/images/profiles_screen/img_call_icon_gray.svg';
 }

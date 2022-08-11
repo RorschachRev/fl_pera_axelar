@@ -17,7 +17,7 @@ import 'package:application1/presentation/main_screen/add_new_wallet_screen.dart
 import 'package:application1/presentation/welcome_screen/import_wallet_screen.dart';
 import 'package:application1/presentation/profiles/profile_overlay_info.dart';
 import 'package:application1/presentation/profiles/edit_profile/edit_profile_menu_screen.dart';
-import 'package:application1/presentation/profiles/edit_profile/edit_proifile_main.dart';
+import 'package:application1/presentation/profiles/edit_profile/edit_profile_main.dart';
 
 
 class AppRoutes {

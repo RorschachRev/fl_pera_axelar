@@ -4,7 +4,6 @@ import 'package:application1/presentation/main_screen/wallets_screen.dart';
 import 'package:application1/presentation/profiles/profile_screen.dart';
 import 'package:application1/presentation/main_screen/messages_screen.dart';
 
-
 class MainScreen extends StatelessWidget {
   final controller = Get.put(MainScreenController());
   @override
@@ -19,9 +18,7 @@ class MainScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 55.0, bottom: 56.00),
                   child: Obx(() => SingleChildScrollView(
-                      child: (controller._selectedScreen.value == selectedScreen.wallets) ? WalletsScreen() :
-                      (controller._selectedScreen.value == selectedScreen.user) ? ProfileScreen(user) :
-                      (controller._selectedScreen.value == selectedScreen.messages) ? MessagesScreen() : Container()
+                      child: controller._selectedPage.value,
                   ),)
                 ),
                 Positioned(
@@ -143,6 +140,7 @@ class MainScreen extends StatelessWidget {
                                     ),
                                     onPressed: () {
                                       controller._selectedScreen.value = selectedScreen.wallets;
+                                      controller._selectedPage.value = controller.getPage();
                                     },
                                   )
                                 ),
@@ -182,6 +180,7 @@ class MainScreen extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         controller._selectedScreen.value = selectedScreen.dashboard;
+                                        controller._selectedPage.value = controller.getPage();
                                       },
                                     )
                                 ),
@@ -221,6 +220,7 @@ class MainScreen extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         controller._selectedScreen.value = selectedScreen.social;
+                                        controller._selectedPage.value = controller.getPage();
                                       },
                                     )
                                 ),
@@ -260,6 +260,7 @@ class MainScreen extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         controller._selectedScreen.value = selectedScreen.messages;
+                                        controller._selectedPage.value = controller.getPage();
                                       },
                                     )
                                 ),
@@ -299,6 +300,7 @@ class MainScreen extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         controller._selectedScreen.value = selectedScreen.user;
+                                        controller._selectedPage.value = controller.getPage();
                                       },
                                     )
                                 ),
@@ -318,13 +320,32 @@ class MainScreen extends StatelessWidget {
   }
 }
 enum selectedScreen {wallets, dashboard, social, messages, user}
+
 class MainScreenController extends GetxController {
   Rx<selectedScreen> _selectedScreen = selectedScreen.wallets.obs;
+  Widget getPage() {
+    switch (_selectedScreen.value) {
+      case selectedScreen.wallets: return WalletsScreen();
+      case selectedScreen.user: return ProfileScreen(user);
+      case selectedScreen.dashboard:
+        return Container();
+      case selectedScreen.social:
+        return Container();
+      case selectedScreen.messages:
+        return Container();
+    }
+  }
+  void changePage(Widget page) {
+    _selectedPage.value = page;
+  }
+  late Rx<Widget> _selectedPage;
+
   @override
   void onInit() {
     super.onInit();
     if (Get.parameters["selected_screen"] == "user") _selectedScreen = selectedScreen.user.obs;
     else _selectedScreen =  selectedScreen.wallets.obs;
+    _selectedPage = getPage().obs;
   }
   @override
   void onReady() {
