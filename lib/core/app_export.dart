@@ -22,7 +22,6 @@ export 'package:application1/routes/app_routes.dart';
 export 'package:application1/data/models/selectionPopupModel/selection_popup_model.dart';
 
 export 'package:application1/widgets/common_image_view.dart';
-export 'package:application1/widgets/paginated_list_view.dart';
 
 export 'package:application1/core/errors/exceptions.dart';
 export 'package:application1/core/network/network_info.dart';

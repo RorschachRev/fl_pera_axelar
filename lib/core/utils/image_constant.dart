@@ -31,7 +31,7 @@ class ImageConstant {
 
   static String imgAvatarNeo = 'assets/images/img_avatar_neo.png';
 
-  static String imgBitcoinBadge = 'assets/images/img_bitcoinbadge.svg';
+  static String imgBitcoinBadge = 'assets/images/bitcoin_badge.svg';
 
   static String imgPhoto = 'assets/images/img_photo.png';
 
