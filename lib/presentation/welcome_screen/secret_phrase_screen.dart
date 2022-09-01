@@ -1,6 +1,5 @@
 import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_switch.dart';
-import 'package:application1/widgets/custom_text_form_field.dart';
 import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -133,19 +132,6 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            CustomTextFormField(
-                              width: 312,
-                              focusNode: FocusNode(),
-                              controller: controller.headlineSecretController,
-                              hintText: "msg_your_secret_phr".tr,
-                              margin: getMargin(
-                                left: 8,
-                              ),
-                              variant: TextFormFieldVariant.UnderLineBlack9001e,
-                              padding: TextFormFieldPadding.PaddingB6,
-                              fontStyle: TextFormFieldFontStyle.InterMedium16,
-                              textInputAction: TextInputAction.done,
-                            ),
                             Wrap(
                               children: List<Widget>.generate(
                                   controller.secretPhraseModelObj.value
