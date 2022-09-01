@@ -64,7 +64,11 @@ class SelectingUSDScreen extends StatelessWidget {
                                                   padding: getPadding(
                                                       top: 21, right: 21, bottom: 21),
                                                   child: CustomCloseIcon(AppRoutes.mainScreen),)
-                                              ])))),
+                                              ]
+                                          )
+                                      )
+                                  )
+                              ),
                               Stack(
                                 children: [
                                   Positioned.fill(
