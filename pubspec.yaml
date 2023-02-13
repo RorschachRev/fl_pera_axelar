@@ -17,6 +17,11 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   bip39: ^1.0.6
   qr_code_scanner: ^1.0.0
+  pointycastle: ^3.6.2
+  stream_channel: ^2.1.0
+  stream_transform: ^2.0.0
+  json_rpc_2: ^3.0.2
+  eip55: ^1.0.2
 
 dev_dependencies: 
   flutter_test: 

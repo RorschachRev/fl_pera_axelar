@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 Size size = WidgetsBinding.instance.window.physicalSize /
@@ -97,4 +99,15 @@ EdgeInsetsGeometry getMargin({
       bottom ?? 0,
     ),
   );
+}
+
+Uint8List uint8ListFromList(List<int> data) {
+  if (data is Uint8List) return data;
+  return Uint8List.fromList(data);
+}
+
+Uint8List padUint8ListTo32(Uint8List data) {
+  assert(data.length <= 32);
+  if (data.length == 32) return data;
+  return Uint8List(32)..setRange(32 - data.length, 32, data);
 }
