@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:application1/presentation/main_screen/main_screen.dart';
 import 'package:application1/presentation/welcome_screen/welcome_screen_main.dart';
-import 'package:application1/presentation/welcome_screen/secret_phrase_screen.dart';
-import 'package:application1/presentation/welcome_screen/username_creation_screen.dart';
+import 'package:application1/presentation/welcome_screen/screens/secret_phrase_screen.dart';
+import 'package:application1/presentation/welcome_screen/screens/username_creation_screen.dart';
 import 'package:application1/presentation/sending_screen/selecting_currency_screen.dart';
 import 'package:application1/presentation/sending_screen/checkout_screen.dart';
 import 'package:application1/presentation/sending_screen/sending_completed_screen.dart';
@@ -13,7 +13,7 @@ import 'package:application1/presentation/request_screen/selecting_currency_scre
 import 'package:application1/presentation/request_screen/send_link_currency_screen.dart';
 import 'package:application1/presentation/sending_screen/selecting_currency_amount.dart';
 import 'package:application1/presentation/main_screen/add_new_wallet_screen.dart';
-import 'package:application1/presentation/welcome_screen/import_wallet_screen.dart';
+import 'package:application1/presentation/welcome_screen/screens/import_wallet_screen.dart';
 import 'package:application1/presentation/profiles/profile_overlay_info.dart';
 import 'package:application1/presentation/profiles/edit_profile/edit_profile_menu_screen.dart';
 import 'package:application1/presentation/profiles/edit_profile/edit_profile_main.dart';
