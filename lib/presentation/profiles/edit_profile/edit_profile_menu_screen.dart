@@ -22,7 +22,7 @@ class EditProfileMenuScreen extends StatelessWidget {
                           onPressed: () {
                             Get.back();
                           },
-                          child: CommonImageView(
+                          child: SvgImageView(
                             svgPath: ImageConstant.imgArrowleft,
                           )
                       ),

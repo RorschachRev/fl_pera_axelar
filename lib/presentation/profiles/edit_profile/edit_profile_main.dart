@@ -32,7 +32,7 @@ class _editProfileMainScreen extends State<EditProfileMainScreen> {
                             onPressed: () {
                               Get.back();
                             },
-                            child: CommonImageView(
+                            child: SvgImageView(
                               svgPath: ImageConstant.imgArrowleft,
                             )
                         ),
@@ -42,7 +42,7 @@ class _editProfileMainScreen extends State<EditProfileMainScreen> {
                             onPressed: () {
                               Get.offAllNamed(AppRoutes.mainScreen);
                             },
-                            child: CommonImageView(
+                            child: SvgImageView(
                               svgPath: ImageConstant.imgClose,
                             )
                         ) : TextButton(
@@ -55,7 +55,7 @@ class _editProfileMainScreen extends State<EditProfileMainScreen> {
                                   Get.offAllNamed(AppRoutes.mainScreen + "?selected_screen=user");
                               }
                             },
-                            child: CommonImageView(
+                            child: SvgImageView(
                               svgPath: ImageConstant.imgDone,
                             )
                         )

@@ -22,7 +22,7 @@ class ProfileOverlayInfo extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      child: CommonImageView(
+                      child: SvgImageView(
                         svgPath: ImageConstant.imgClose,
                       ),
                       onPressed: () {
@@ -124,7 +124,7 @@ Row InformationRow(String img_path, String text_bold, String text_normal) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      CommonImageView(
+      SvgImageView(
         svgPath: img_path,
       ),
       Expanded(
@@ -156,7 +156,7 @@ TextButton InfoItem(String svgPath, String text) {
         children: [
           Row(
             children: [
-              CommonImageView(
+              SvgImageView(
                 svgPath: svgPath,
               ),
               Container(
@@ -165,7 +165,7 @@ TextButton InfoItem(String svgPath, String text) {
               )
             ],
           ),
-          CommonImageView(
+          SvgImageView(
             svgPath: ImageConstant.imgArrowRightGrey,
           )
         ],

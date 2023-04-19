@@ -43,7 +43,7 @@ class _sendingScreen extends State<SendingScreen> {
                                             child: Padding(
                                                 padding: getPadding(
                                                     left: 22, top: 18, bottom: 18),
-                                                child: CommonImageView(
+                                                child: SvgImageView(
                                                     svgPath:
                                                     ImageConstant.imgArrowleft,
                                                     height: getVerticalSize(20.00),
@@ -128,7 +128,7 @@ class _sendingScreen extends State<SendingScreen> {
                                                 alignment: Alignment.centerRight,
                                                 child: Padding(
                                                   padding: getPadding(right: 10),
-                                                  child: CommonImageView(
+                                                  child: SvgImageView(
                                                       svgPath: ImageConstant.imgArrowDownGray,
                                                       height:
                                                       getVerticalSize(7.00),
@@ -224,14 +224,11 @@ class _sendingScreen extends State<SendingScreen> {
                                                           BorderRadius.circular(
                                                               getHorizontalSize(
                                                                   20.00)),
-                                                          child: CommonImageView(
-                                                              imagePath:
-                                                              ImageConstant
-                                                                  .imgPhoto,
-                                                              height:
-                                                              getSize(40.00),
-                                                              width:
-                                                              getSize(40.00)))),
+                                                          child: Image.asset(
+                                                            ImageConstant.imgPhoto,
+                                                            height: getSize(40.00),
+                                                            width: getSize(40.00),
+                                                          ))),
                                                   Padding(
                                                       padding: getPadding(
                                                           left: 8,
@@ -252,7 +249,7 @@ class _sendingScreen extends State<SendingScreen> {
                                                           top: 23,
                                                           right: 18,
                                                           bottom: 23),
-                                                      child: CommonImageView(
+                                                      child: SvgImageView(
                                                           svgPath: ImageConstant
                                                               .imgCheckmark,
                                                           height:

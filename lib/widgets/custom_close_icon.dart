@@ -6,7 +6,7 @@ GestureDetector CustomCloseIcon(String address) {
     onTap: () {
       Get.offAllNamed(address);
     },
-    child: CommonImageView(
+    child: SvgImageView(
       svgPath: ImageConstant.imgClose,
       height: getSize(
         14.00,

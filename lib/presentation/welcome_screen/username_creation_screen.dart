@@ -222,7 +222,7 @@ class UsernameCreationScreen extends StatelessWidget {
                                 top: 6,
                                 bottom: 7,
                               ),
-                              child: CommonImageView(
+                              child: SvgImageView(
                                 svgPath: ImageConstant.imgCheckmark10X13,
                                 height: getVerticalSize(
                                   10.00,

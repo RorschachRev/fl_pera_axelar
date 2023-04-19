@@ -3,6 +3,7 @@ import 'package:application1/core/app_export.dart';
 import 'package:application1/presentation/main_screen/wallets_screen.dart';
 import 'package:application1/presentation/profiles/profile_screen.dart';
 import 'package:application1/presentation/main_screen/messages_screen.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatelessWidget {
   final controller = Get.put(MainScreenController());
@@ -46,7 +47,7 @@ class MainScreen extends StatelessWidget {
                               top: 4,
                               bottom: 4,
                             ),
-                            child: CommonImageView(
+                            child: SvgImageView(
                               svgPath: ImageConstant.imgMenu,
                               height: getVerticalSize(
                                 12.00,
@@ -56,7 +57,7 @@ class MainScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          CommonImageView(
+                          SvgImageView(
                             svgPath: ImageConstant.imgComputer,
                             height: getSize(
                               21.00,
@@ -111,7 +112,7 @@ class MainScreen extends StatelessWidget {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        CommonImageView(
+                                        SvgImageView(
                                           svgPath: ImageConstant.imgCreditcard,
                                           height: getVerticalSize(
                                             18.00,
@@ -151,7 +152,7 @@ class MainScreen extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          CommonImageView(
+                                          SvgImageView(
                                             svgPath: ImageConstant.imgDashboard,
                                             height: getVerticalSize(
                                               18.00,
@@ -191,7 +192,7 @@ class MainScreen extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          CommonImageView(
+                                          SvgImageView(
                                             svgPath: ImageConstant.imgSocials,
                                             height: getVerticalSize(
                                               18.00,
@@ -231,7 +232,7 @@ class MainScreen extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          CommonImageView(
+                                          SvgImageView(
                                             svgPath: ImageConstant.imgMessages,
                                             height: getVerticalSize(
                                               18.00,
@@ -271,7 +272,7 @@ class MainScreen extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          CommonImageView(
+                                          SvgImageView(
                                             svgPath: ImageConstant.imgUsers,
                                             height: getVerticalSize(
                                               18.00,

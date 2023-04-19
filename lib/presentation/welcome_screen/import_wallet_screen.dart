@@ -40,7 +40,7 @@ class ImportWalletScreen extends StatelessWidget {
                                                           left: 22,
                                                           top: 18,
                                                           bottom: 18),
-                                                      child: CommonImageView(
+                                                      child: SvgImageView(
                                                           svgPath: ImageConstant
                                                               .imgArrowleft,
                                                           height:

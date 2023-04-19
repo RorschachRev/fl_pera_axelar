@@ -60,7 +60,7 @@ class OtherUserProfile extends MainScreen {
                               Row(
                                 children: [
                                   Text(userProfile.first_name + " " + userProfile.last_name, style: TextStyle(fontSize: 25),),
-                                  CommonImageView(
+                                  SvgImageView(
                                     svgPath: 'assets/images/profiles_screen/img_check.svg',
                                   ),
                                 ],
@@ -108,7 +108,7 @@ class OtherUserProfile extends MainScreen {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CommonImageView(
+                                SvgImageView(
                                   svgPath: ImageConstant.imgArrowRight,
                                 ),
                                 Text("Send"),
@@ -130,7 +130,7 @@ class OtherUserProfile extends MainScreen {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CommonImageView(
+                                SvgImageView(
                                   svgPath: ImageConstant.imgArrowDown,
                                 ),
                                 Text("Request"),
@@ -153,7 +153,7 @@ class OtherUserProfile extends MainScreen {
                   margin: EdgeInsets.only(top: 3, bottom: 3),
                   child: Row(
                     children: [
-                      CommonImageView(
+                      SvgImageView(
                         svgPath: 'assets/images/profiles_screen/img_user.svg',
                       ),
                       Text("About", style: TextStyle(color: ColorConstant.blueA400),),
@@ -168,7 +168,7 @@ class OtherUserProfile extends MainScreen {
                   margin: EdgeInsets.only(top: 3, bottom: 3),
                   child: Row(
                     children: [
-                      CommonImageView(
+                      SvgImageView(
                         svgPath: 'assets/images/profiles_screen/img_education.svg',
                       ),
                       Text("Education: " + userProfile.education, style: TextStyle(color: ColorConstant.blueA400),),
@@ -179,7 +179,7 @@ class OtherUserProfile extends MainScreen {
                   margin: EdgeInsets.only(top: 3, bottom: 3),
                   child: Row(
                     children: [
-                      CommonImageView(
+                      SvgImageView(
                         svgPath: 'assets/images/profiles_screen/img_career.svg',
                       ),
                       Text("Career: " + userProfile.career, style: TextStyle(color: ColorConstant.blueA400))
@@ -191,7 +191,7 @@ class OtherUserProfile extends MainScreen {
                   child: TextButton(
                     child: Row(
                       children: [
-                        CommonImageView(
+                        SvgImageView(
                           svgPath: 'assets/images/profiles_screen/img_info.svg',
                         ),
                         Text("More information", style: TextStyle(color: Colors.black),),
@@ -240,7 +240,7 @@ class OtherUserProfile extends MainScreen {
                             Text(userProfile.friends.length.toString()),
                           ]
                       ),
-                      CommonImageView(
+                      SvgImageView(
                         svgPath: ImageConstant.imgArrowRightGrey,
                       )
                     ],

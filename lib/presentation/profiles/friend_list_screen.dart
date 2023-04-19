@@ -21,7 +21,7 @@ class FriendListScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton(
-                      child: CommonImageView(
+                      child: SvgImageView(
                         svgPath: ImageConstant.imgArrowleft,
                       ),
                       onPressed: () {
@@ -54,7 +54,7 @@ class FriendListScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Search",
-                    icon: CommonImageView(
+                    icon: SvgImageView(
                       svgPath: ImageConstant.imgSearch,
                     ),
                   ),
@@ -114,7 +114,7 @@ class FriendListScreen extends StatelessWidget {
                           Row(
                             children: [
                               TextButton(
-                                child: CommonImageView(svgPath: ImageConstant.imgChatIcon,),
+                                child: SvgImageView(svgPath: ImageConstant.imgChatIcon,),
                                 onPressed: () {
 
                                 },
@@ -123,7 +123,7 @@ class FriendListScreen extends StatelessWidget {
                                   onPressed: () {
 
                                   },
-                                  child: CommonImageView(svgPath: ImageConstant.imgCallIconGray,)
+                                  child: SvgImageView(svgPath: ImageConstant.imgCallIconGray,)
                               ),
                             ],
                           )

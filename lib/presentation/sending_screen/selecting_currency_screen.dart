@@ -46,7 +46,7 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                                         left: 22,
                                                         top: 18,
                                                         bottom: 18),
-                                                    child: CommonImageView(
+                                                    child: SvgImageView(
                                                         svgPath: ImageConstant
                                                             .imgArrowleft,
                                                         height:
@@ -83,7 +83,7 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                       alignment: Alignment.centerRight,
                                       child: Padding(
                                         padding: getPadding(right: 10),
-                                        child: CommonImageView(
+                                        child: SvgImageView(
                                             svgPath: ImageConstant.imgArrowDownGray,
                                             height:
                                             getVerticalSize(7.00),
@@ -103,7 +103,7 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                                     value: item,
                                     child: Row(
                                         children: [
-                                          CommonImageView(
+                                          SvgImageView(
                                             svgPath: item.imageConst,
                                             width: 30,
                                             height: 30,
@@ -218,7 +218,7 @@ Container currencyDropdownItem(String item) {
                           padding: getPadding(
                               top: 3,
                               bottom: 15),
-                          child: CommonImageView(
+                          child: SvgImageView(
                               svgPath: (item == "Ethereum") ? ImageConstant.imgEthereumBadge :
                               (item == "Bitcoin") ? ImageConstant.imgBitcoinBadge : ImageConstant.imgCosmosBadge,
                               height:

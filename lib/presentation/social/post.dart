@@ -43,7 +43,7 @@ class _postElement extends State<PostElement> {
                         Row(
                           children: [
                             Text("Agent Smith"),
-                            CommonImageView(
+                            SvgImageView(
                               svgPath: ImageConstant.imgCheckmark,
                             )
                           ],
@@ -58,14 +58,14 @@ class _postElement extends State<PostElement> {
                   onPressed: () {
 
                   },
-                  child: CommonImageView(
+                  child: SvgImageView(
                     svgPath: ImageConstant.imgMore,
                   )
               ),
             ],
           ),
           Text("Check out my new NFT I've just bought!"),
-          // CommonImageView(
+          // SvgImageView(
           //   svgPath: 'assets/images/test_image.svg',
           // ),
           Row(
@@ -84,7 +84,7 @@ class _postElement extends State<PostElement> {
                         padding: EdgeInsets.all(3),
                         child: Row(
                           children: [
-                            CommonImageView(
+                            SvgImageView(
                               svgPath: ImageConstant.imgSocialHeart,
                             ),
                             Text("402"),
@@ -99,7 +99,7 @@ class _postElement extends State<PostElement> {
                         padding: EdgeInsets.all(3),
                         child: Row(
                           children: [
-                            CommonImageView(
+                            SvgImageView(
                               svgPath: ImageConstant.imgSocialComment,
                             ),
                             Text("57"),
@@ -114,7 +114,7 @@ class _postElement extends State<PostElement> {
                         padding: EdgeInsets.all(3),
                         child: Row(
                           children: [
-                            CommonImageView(
+                            SvgImageView(
                               svgPath: ImageConstant.imgSocialRepost,
                             ),
                             Text("64"),
@@ -132,7 +132,7 @@ class _postElement extends State<PostElement> {
                 padding: EdgeInsets.all(3),
                 child: Row(
                   children: [
-                    CommonImageView(
+                    SvgImageView(
                       svgPath: ImageConstant.imgSocialVisibility,
                     ),
                     Text("1026"),

@@ -78,7 +78,7 @@ class WalletsScreen extends StatelessWidget {
                                                   bottom: 2,
                                                 ),
                                                 child:
-                                                CommonImageView(
+                                                SvgImageView(
                                                   svgPath: ImageConstant
                                                       .imgMorehoriz,
                                                   height:
@@ -261,7 +261,7 @@ class WalletsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
-                                child: CommonImageView(
+                                child: SvgImageView(
                                   svgPath: ImageConstant.imgArrowRight,
                                 ),
                                 onPressed: () {
@@ -311,7 +311,7 @@ class WalletsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
-                                child: CommonImageView(
+                                child: SvgImageView(
                                   svgPath: ImageConstant.imgArrowDown,
                                 ),
                                 onPressed: () {
@@ -361,7 +361,7 @@ class WalletsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
-                                child: CommonImageView(
+                                child: SvgImageView(
                                   svgPath: 'assets/images/img_switch.svg',
                                 ),
                                 onPressed: () {
@@ -411,7 +411,7 @@ class WalletsScreen extends StatelessWidget {
                               ),
                               padding: EdgeInsets.all(2),
                               child: ElevatedButton(
-                                child: CommonImageView(
+                                child: SvgImageView(
                                   svgPath: ImageConstant.imgTime,
                                 ),
                                 onPressed: () {
@@ -532,7 +532,7 @@ Align WalletsCoins(String name, String hintText, double balance, double usdBalan
                     20.00,
                   ),
                 ),
-                child: CommonImageView(
+                child: SvgImageView(
                   svgPath: (name == "ETH") ? ImageConstant.imgEthereumBadge :
                   (name == "BTC") ? ImageConstant.imgBitcoinBadge : ImageConstant.imgCosmosBadge,
                   height: getSize(

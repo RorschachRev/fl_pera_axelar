@@ -47,7 +47,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                                   top: 18,
                                                   bottom:
                                                   18),
-                                              child: CommonImageView(
+                                              child: SvgImageView(
                                                   svgPath:
                                                   ImageConstant
                                                       .imgArrowleft,
@@ -216,7 +216,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                           margin: getMargin(
                                               left: 30,
                                               right: 22),
-                                          child: CommonImageView(
+                                          child: SvgImageView(
                                               svgPath:
                                               ImageConstant
                                                   .imgArrowleft)),
@@ -296,7 +296,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                     children: [
                                       Padding(
                                           padding: EdgeInsets.all(10.0),
-                                          child:  CommonImageView(
+                                          child:  SvgImageView(
                                               svgPath: controller.currentItemCurrency.value.imageConst,
                                               height:
                                               getVerticalSize(
@@ -315,7 +315,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                               alignment: Alignment.centerRight,
                                               child: Container(
                                                   margin: getMargin(right: 14),
-                                                  child: CommonImageView(
+                                                  child: SvgImageView(
                                                       svgPath:
                                                       ImageConstant.imgArrowDownGray))
                                           )
@@ -367,7 +367,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                           padding: EdgeInsets.all(3),
                                           child: Row(
                                             children: [
-                                              CommonImageView(
+                                              SvgImageView(
                                                   svgPath: controller.requestPreferencesModelObj.value.dropdownItemList[index].imageConst,
                                                   height:
                                                   getVerticalSize(

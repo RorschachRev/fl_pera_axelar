@@ -42,7 +42,7 @@ class SendingCompletedScreen extends StatelessWidget {
                             padding: getPadding(
                               all: 40,
                             ),
-                            child: CommonImageView(
+                            child: SvgImageView(
                               svgPath:
                               ImageConstant.imgCheckmark58X78,
                               height: getVerticalSize(
@@ -132,7 +132,7 @@ class SendingCompletedScreen extends StatelessWidget {
                                 top: 13,
                                 bottom: 13,
                               ),
-                              child: CommonImageView(
+                              child: SvgImageView(
                                 svgPath: ImageConstant.imgUpload,
                                 height: getSize(
                                   13.00,

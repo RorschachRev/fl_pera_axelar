@@ -112,7 +112,7 @@ class SendLinkCurrencyScreen extends StatelessWidget {
                               padding: getPadding(
                                 all: 12,
                               ),
-                              child: CommonImageView(
+                              child: SvgImageView(
                                 svgPath: ImageConstant.imgVector,
                                 height: getSize(
                                   160.00,
@@ -162,7 +162,7 @@ class SendLinkCurrencyScreen extends StatelessWidget {
                             top: 8,
                             bottom: 8,
                           ),
-                          child: CommonImageView(
+                          child: SvgImageView(
                             svgPath: ImageConstant.imgQrcode,
                             height: getSize(
                               24.00,
@@ -210,7 +210,7 @@ class SendLinkCurrencyScreen extends StatelessWidget {
                             top: 9,
                             bottom: 8,
                           ),
-                          child: CommonImageView(
+                          child: SvgImageView(
                             svgPath: ImageConstant.imgVectorBlue300,
                             height: getSize(
                               22.00,

@@ -61,7 +61,7 @@ class ProfileScreen extends MainScreen {
                                 Row(
                                   children: [
                                     Text(userProfile.first_name + " " + userProfile.last_name, style: TextStyle(fontSize: 25),),
-                                    CommonImageView(
+                                    SvgImageView(
                                       svgPath: 'assets/images/profiles_screen/img_check.svg',
                                     ),
                                   ],
@@ -109,7 +109,7 @@ class ProfileScreen extends MainScreen {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CommonImageView(
+                                SvgImageView(
                                   svgPath: "assets/images/profiles_screen/edit_square.svg",
                                 ),
                                 Text("New post"),
@@ -131,7 +131,7 @@ class ProfileScreen extends MainScreen {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CommonImageView(
+                                  SvgImageView(
                                     svgPath: "assets/images/profiles_screen/img_add_photo.svg",
                                   ),
                                   Text("Image"),
@@ -153,7 +153,7 @@ class ProfileScreen extends MainScreen {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CommonImageView(
+                                  SvgImageView(
                                     svgPath: ImageConstant.imgArrowDown,
                                   ),
                                   Text("Receive"),
@@ -175,7 +175,7 @@ class ProfileScreen extends MainScreen {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CommonImageView(
+                                  SvgImageView(
                                     svgPath: ImageConstant.imgArrowRight,
                                   ),
                                   Text("Send"),
@@ -198,7 +198,7 @@ class ProfileScreen extends MainScreen {
                     margin: EdgeInsets.only(top: 3, bottom: 3),
                     child: Row(
                       children: [
-                        CommonImageView(
+                        SvgImageView(
                           svgPath: 'assets/images/profiles_screen/img_user.svg',
                         ),
                         Text("About", style: TextStyle(color: ColorConstant.blueA400),),
@@ -213,7 +213,7 @@ class ProfileScreen extends MainScreen {
                     margin: EdgeInsets.only(top: 3, bottom: 3),
                     child: Row(
                       children: [
-                        CommonImageView(
+                        SvgImageView(
                           svgPath: 'assets/images/profiles_screen/img_education.svg',
                         ),
                         Text("Education: " + userProfile.education, style: TextStyle(color: ColorConstant.blueA400),),
@@ -224,7 +224,7 @@ class ProfileScreen extends MainScreen {
                     margin: EdgeInsets.only(top: 3, bottom: 3),
                     child: Row(
                       children: [
-                        CommonImageView(
+                        SvgImageView(
                           svgPath: 'assets/images/profiles_screen/img_career.svg',
                         ),
                         Text("Career: " + userProfile.career, style: TextStyle(color: ColorConstant.blueA400))
@@ -236,7 +236,7 @@ class ProfileScreen extends MainScreen {
                     child: TextButton(
                       child: Row(
                         children: [
-                          CommonImageView(
+                          SvgImageView(
                             svgPath: 'assets/images/profiles_screen/img_info.svg',
                           ),
                           Text("More information", style: TextStyle(color: Colors.black),),
@@ -284,7 +284,7 @@ class ProfileScreen extends MainScreen {
                                 Text(userProfile.friends.length.toString()),
                               ]
                           ),
-                          CommonImageView(
+                          SvgImageView(
                             svgPath: ImageConstant.imgArrowRightGrey,
                           )
                         ],

@@ -81,21 +81,21 @@ class WelcomeScreen extends StatelessWidget {
                               height: getVerticalSize(
                                 8.00,
                               ),
-                              child: SmoothIndicator(
-                                offset: 0,
-                                count: 5,
-                                axisDirection: Axis.horizontal,
-                                effect: ScrollingDotsEffect(
-                                  activeDotColor: ColorConstant.black90099,
-                                  dotColor: ColorConstant.black90060,
-                                  dotHeight: getVerticalSize(
-                                    8.00,
-                                  ),
-                                  dotWidth: getHorizontalSize(
-                                    8.00,
-                                  ),
-                                ),
-                              ),
+                              // child: SmoothIndicator(
+                              //   offset: 0,
+                              //   count: 5,
+                              //   axisDirection: Axis.horizontal,
+                              //   effect: ScrollingDotsEffect(
+                              //     activeDotColor: ColorConstant.black90099,
+                              //     dotColor: ColorConstant.black90060,
+                              //     dotHeight: getVerticalSize(
+                              //       8.00,
+                              //     ),
+                              //     dotWidth: getHorizontalSize(
+                              //       8.00,
+                              //     ),
+                              //   ),
+                              // ),
                             ),
                           ),
                           Align(

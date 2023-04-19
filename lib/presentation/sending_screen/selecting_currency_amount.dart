@@ -40,7 +40,7 @@ class SelectingCurrencyAmountScreen extends StatelessWidget {
                                                         left: 22,
                                                         top: 18,
                                                         bottom: 18),
-                                                    child: CommonImageView(
+                                                    child: SvgImageView(
                                                         svgPath: ImageConstant
                                                             .imgArrowleft,
                                                         height:
@@ -60,7 +60,7 @@ class SelectingCurrencyAmountScreen extends StatelessWidget {
                                             Padding(
                                                 padding: getPadding(
                                                     top: 21, right: 21, bottom: 21),
-                                                child: CommonImageView(
+                                                child: SvgImageView(
                                                     svgPath: ImageConstant.imgClose,
                                                     height: getSize(14.00),
                                                     width: getSize(14.00)))
@@ -82,8 +82,8 @@ class SelectingCurrencyAmountScreen extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              CommonImageView(
-                                                  svgPath: Get.parameters['imageConst'],
+                                              SvgImageView(
+                                                  svgPath: Get.parameters['imageConst']!,
                                                   height:
                                                   getVerticalSize(
                                                       24.00),
@@ -178,7 +178,7 @@ class SelectingCurrencyAmountScreen extends StatelessWidget {
                                     Padding(
                                         padding: getPadding(
                                             top: 22, right: 20, bottom: 22),
-                                        child: CommonImageView(
+                                        child: SvgImageView(
                                             svgPath: ImageConstant.imgSort,
                                             height: getVerticalSize(20.00),
                                             width: getHorizontalSize(16.00)))
