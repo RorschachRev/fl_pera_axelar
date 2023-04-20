@@ -195,7 +195,7 @@ class WalletsScreen extends StatelessWidget {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Get.toNamed(AppRoutes.addNewWalletScreen);
+                            Get.rootDelegate.toNamed(AppRoutes.addNewWalletScreen);
                           },
                           child:  Align(
                             alignment:
@@ -315,7 +315,7 @@ class WalletsScreen extends StatelessWidget {
                                   svgPath: ImageConstant.imgArrowDown,
                                 ),
                                 onPressed: () {
-                                  Get.toNamed(AppRoutes.requestPreferencesScreen);
+                                  Get.rootDelegate.toNamed(AppRoutes.requestPreferencesScreen);
                                 },
                                 style: ButtonStyle(
                                   minimumSize: MaterialStateProperty.all(Size(52, 52)),

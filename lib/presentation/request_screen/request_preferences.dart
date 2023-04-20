@@ -256,7 +256,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                           height: 50,
                           child: OutlinedButton(
                               onPressed: ()  {
-                                Get.toNamed(AppRoutes.selectingUSDScreen);
+                                Get.rootDelegate.toNamed(AppRoutes.selectingUSDScreen);
                               },
                               style: ButtonStyle(
                                 fixedSize: MaterialStateProperty.all(Size(double.infinity, double.infinity)),
@@ -454,7 +454,7 @@ class _requestPreferencesScreen extends State<RequestPreferencesScreen> {
                                     minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
                                   ),
                                   onPressed: () {
-                                    Get.toNamed(AppRoutes.selectingRequestCurrencyScreen +
+                                    Get.rootDelegate.toNamed(AppRoutes.selectingRequestCurrencyScreen +
                                         '?currency=${controller.currentItemCurrency.value.title}&imageConst=${controller.currentItemCurrency.value.imageConst}');
                                   },
                                 ),

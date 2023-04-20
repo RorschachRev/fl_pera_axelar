@@ -4,6 +4,7 @@ import 'package:application1/presentation/main_screen/wallets_screen.dart';
 import 'package:application1/presentation/profiles/profile_screen.dart';
 import 'package:application1/presentation/main_screen/messages_screen.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatelessWidget {
   final controller = Get.put(MainScreenController());
@@ -33,9 +34,9 @@ class MainScreen extends StatelessWidget {
                     child: Padding(
                       padding: getPadding(
                         left: 19,
-                        top: 17,
+                        top: 8,
                         right: 17,
-                        bottom: 17,
+                        bottom: 8,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,18 +45,29 @@ class MainScreen extends StatelessWidget {
                         children: [
                           Padding(
                             padding: getPadding(
-                              top: 4,
-                              bottom: 4,
+                              top: 0,
+                              bottom: 0,
                             ),
-                            child: SvgImageView(
-                              svgPath: ImageConstant.imgMenu,
-                              height: getVerticalSize(
-                                12.00,
+                            child: TextButton(
+                              onPressed: () async {
+                                final SharedPreferences _prefs = await SharedPreferences.getInstance();
+                                await _prefs.setBool('hasLoggedIn', false);
+                                Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
+                              },
+                              child: SvgImageView(
+                                svgPath: ImageConstant.imgMenu,
+                                height: getVerticalSize(
+                                  12.00,
+                                ),
+                                width: getHorizontalSize(
+                                  18.00,
+                                ),
                               ),
-                              width: getHorizontalSize(
-                                18.00,
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
                               ),
-                            ),
+                            )
                           ),
                           SvgImageView(
                             svgPath: ImageConstant.imgComputer,

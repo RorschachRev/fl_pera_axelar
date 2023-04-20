@@ -233,7 +233,7 @@ class SelectingUSDScreen extends StatelessWidget {
                                   child: Text('Continue'),
                                   onPressed: () {
                                     if (formKey.currentState!.validate()) {
-                                      Get.toNamed(AppRoutes.sendLinkUSDScreen + '?amount=${controller.formValue.value}');
+                                      Get.rootDelegate.toNamed(AppRoutes.sendLinkUSDScreen + '?amount=${controller.formValue.value}');
                                     }
                                   },
                                   style: ButtonStyle(

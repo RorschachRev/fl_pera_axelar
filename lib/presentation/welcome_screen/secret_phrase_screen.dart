@@ -2,6 +2,7 @@ import 'package:application1/core/app_export.dart';
 import 'package:application1/widgets/custom_switch.dart';
 import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
   @override
@@ -266,8 +267,10 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                     padding: EdgeInsets.all(8),
                     child:  ElevatedButton(
                       child: Text('Continue'),
-                      onPressed: () {
-                        Get.offAllNamed(AppRoutes.mainScreen);
+                      onPressed: () async {
+                        final SharedPreferences _prefs = await SharedPreferences.getInstance();
+                        await _prefs.setBool('hasLoggedIn', true);
+                        Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
                       },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),

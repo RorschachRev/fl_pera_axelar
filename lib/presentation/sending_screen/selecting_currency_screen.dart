@@ -171,7 +171,7 @@ class _selectingCurrencyScreen extends State<SelectingCurrencyScreen> {
                           child: Text('Continue'),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              Get.toNamed(AppRoutes.selectingCurrencyAmountScreen + '?&currency=${item_controller.currentItemCurrency.value.hint}');
+                              Get.rootDelegate.toNamed(AppRoutes.selectingCurrencyAmountScreen + '?&currency=${item_controller.currentItemCurrency.value.hint}');
                             }
                           },
                           style: ButtonStyle(

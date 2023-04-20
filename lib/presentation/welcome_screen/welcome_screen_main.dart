@@ -130,7 +130,7 @@ class WelcomeScreen extends StatelessWidget {
                     child:  ElevatedButton(
                       child: Text('Create new account'),
                       onPressed: () {
-                        Get.toNamed(AppRoutes.usernameCreationScreen);
+                        Get.rootDelegate.toNamed(AppRoutes.usernameCreationScreen);
                       },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
@@ -143,7 +143,7 @@ class WelcomeScreen extends StatelessWidget {
                           child: Text('Import wallet'),
                           onPressed: () {
                             //Navigator.of(context).pushNamed('/import');
-                            Get.toNamed(AppRoutes.importWallet);
+                            Get.rootDelegate.toNamed(AppRoutes.importWallet);
                           },
                         ),
                       ),

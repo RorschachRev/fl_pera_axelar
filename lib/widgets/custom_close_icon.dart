@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 GestureDetector CustomCloseIcon(String address) {
   return GestureDetector(
     onTap: () {
-      Get.offAllNamed(address);
+      Get.rootDelegate.offAndToNamed(address);
     },
     child: SvgImageView(
       svgPath: ImageConstant.imgClose,

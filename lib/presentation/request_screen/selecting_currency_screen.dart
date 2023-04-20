@@ -215,7 +215,7 @@ class SelectingCurrencyOnScreen extends StatelessWidget {
                                     controller.formValue.value = "";
                                   }
                                   else {
-                                    Get.offAllNamed(AppRoutes.sendingLinkCurrencyScreen + '?amount=${controller.formValue.value}&currency=${Get.parameters['currency']}');
+                                    Get.rootDelegate.offAndToNamed(AppRoutes.sendingLinkCurrencyScreen + '?amount=${controller.formValue.value}&currency=${Get.parameters['currency']}');
                                   }
                                 },
                                 style: ButtonStyle(

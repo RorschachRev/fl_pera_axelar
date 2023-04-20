@@ -78,7 +78,7 @@ class ProfileScreen extends MainScreen {
                           width: double.infinity,
                           child: TextButton(
                             onPressed: () {
-                              Get.toNamed(AppRoutes.editProfileScreen);
+                              Get.rootDelegate.toNamed(AppRoutes.editProfileScreen);
                             },
                             child: Text(
                               "Edit Profile",
@@ -148,7 +148,7 @@ class ProfileScreen extends MainScreen {
                             height: double.infinity,
                             child: TextButton(
                               onPressed: () {
-                                Get.toNamed(AppRoutes.requestPreferencesScreen);
+                                Get.rootDelegate.toNamed(AppRoutes.requestPreferencesScreen);
                               },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -243,7 +243,7 @@ class ProfileScreen extends MainScreen {
                         ],
                       ),
                       onPressed: () {
-                        Get.toNamed(AppRoutes.profilesOverlayScreen);
+                        Get.rootDelegate.toNamed(AppRoutes.profilesOverlayScreen);
                       },
                       style: TextButton.styleFrom(
                         minimumSize: Size.zero,

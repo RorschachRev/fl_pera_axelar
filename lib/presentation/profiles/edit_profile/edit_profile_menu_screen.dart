@@ -36,7 +36,7 @@ class EditProfileMenuScreen extends StatelessWidget {
                   width: double.infinity,
                   child: TextButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.editProfileMainScreen);
+                        Get.rootDelegate.toNamed(AppRoutes.editProfileMainScreen);
                       },
                       child: Align(
                         alignment: Alignment.centerLeft,

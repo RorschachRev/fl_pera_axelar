@@ -198,7 +198,7 @@ class OtherUserProfile extends MainScreen {
                       ],
                     ),
                     onPressed: () {
-                      Get.toNamed(AppRoutes.profilesOverlayScreen);
+                      Get.rootDelegate.toNamed(AppRoutes.profilesOverlayScreen);
                     },
                     style: TextButton.styleFrom(
                       minimumSize: Size.zero,

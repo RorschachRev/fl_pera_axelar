@@ -244,7 +244,7 @@ class SendLinkCurrencyScreen extends StatelessWidget {
                     child:  ElevatedButton(
                       child: Text('Home'),
                       onPressed: () {
-                        Get.offAllNamed(AppRoutes.mainScreen);
+                        Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
                       },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),

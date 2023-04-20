@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:application1/core/utils/middleware.dart';
 import 'package:application1/presentation/main_screen/main_screen.dart';
 import 'package:application1/presentation/welcome_screen/welcome_screen_main.dart';
 import 'package:application1/presentation/welcome_screen/secret_phrase_screen.dart';
@@ -41,15 +42,18 @@ class AppRoutes {
 
   static List<GetPage> pages = [
     GetPage(
+        name: mainScreen,
+        page: () => MainScreen(),
+        middlewares: [
+          AuthMiddleware(),
+        ]
+    ),
+    GetPage(
         name: secretPhrasesScreen,
         page: () => SecretPhraseScreen(),
         bindings: [
           SecretPhraseBinding(),
         ]
-    ),
-    GetPage(
-        name: mainScreen,
-        page: () => MainScreen()
     ),
     GetPage(
       name: welcomeScreen,
