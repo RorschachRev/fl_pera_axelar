@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
    // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp.router(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       translations: AppLocalization(),
       locale: Get.deviceLocale, //for setting localization strings
       fallbackLocale: Locale('en', 'US'),
       title: 'application1',
       initialBinding: InitialBindings(),
-      // initialRoute: AppRoutes.mainScreen,
+      initialRoute: AppRoutes.mainScreen,
       getPages: AppRoutes.pages,
     );
   }

@@ -23,6 +23,7 @@ dependencies:
   json_rpc_2: ^3.0.2
   eip55: ^1.0.2
 
+
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

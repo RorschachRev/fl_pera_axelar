@@ -40,7 +40,7 @@ class _editProfileMainScreen extends State<EditProfileMainScreen> {
                         (!controller.form_has_changed.value) ?
                         TextButton(
                             onPressed: () {
-                              Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
+                              Get.offAllNamed(AppRoutes.mainScreen);
                             },
                             child: SvgImageView(
                               svgPath: ImageConstant.imgClose,
@@ -52,7 +52,7 @@ class _editProfileMainScreen extends State<EditProfileMainScreen> {
                                   user.last_name = last_name;
                                   user.about_me = about_me;
                                   user.hiring_status = hiring_status;
-                                  Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen + "?selected_screen=user");
+                                  Get.offAllNamed(AppRoutes.mainScreen + "?selected_screen=user");
                               }
                             },
                             child: SvgImageView(

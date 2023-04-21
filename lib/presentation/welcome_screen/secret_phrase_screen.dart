@@ -3,6 +3,7 @@ import 'package:application1/widgets/custom_switch.dart';
 import 'package:application1/widgets/custom_close_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:application1/core/crypto/secret_phrase.dart';
 
 class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
   @override
@@ -133,17 +134,20 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Wrap(
-                              children: List<Widget>.generate(
-                                  controller.secretPhraseModelObj.value
-                                      .secretPhraseItemList.length, (index) {
-                                SecretPhraseItemModel model = controller
-                                    .secretPhraseModelObj
-                                    .value
-                                    .secretPhraseItemList[index];
-                                return SecretPhraseItemWidget(model);
-                              }),
+                            controller.obx((state) =>
+                                Wrap(
+                                  children: List<Widget>.generate(
+                                      controller.secretPhraseModelObj.value
+                                          .secretPhraseItemList.length, (index) {
+                                    SecretPhraseItemModel model = controller
+                                        .secretPhraseModelObj
+                                        .value
+                                        .secretPhraseItemList[index];
+                                    return SecretPhraseItemWidget(model);
+                                  }),
+                                ),
                             ),
+
                           ],
                         ),
                       ),
@@ -270,7 +274,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
                       onPressed: () async {
                         final SharedPreferences _prefs = await SharedPreferences.getInstance();
                         await _prefs.setBool('hasLoggedIn', true);
-                        Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
+                        Get.offAllNamed(AppRoutes.mainScreen);
                       },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
@@ -284,7 +288,7 @@ class SecretPhraseScreen extends GetWidget<SecretPhraseController> {
     );
   }
 }
-class SecretPhraseController extends GetxController {
+class SecretPhraseController extends GetxController with StateMixin<SecretPhraseModel> {
   TextEditingController headlineSecretController = TextEditingController();
 
   Rx<SecretPhraseModel> secretPhraseModelObj = SecretPhraseModel().obs;
@@ -295,6 +299,12 @@ class SecretPhraseController extends GetxController {
     print(phrase);
   }
 
+  @override
+  void onInit() async {
+    await secretPhraseModelObj.value.onReady();
+    change(null, status: RxStatus.success());
+    super.onInit();
+  }
   @override
   void onReady() {
     super.onReady();
@@ -316,9 +326,12 @@ class SecretPhraseItemModel {
   }
 }
 class SecretPhraseModel {
-  RxList<SecretPhraseItemModel> secretPhraseItemList = secretPhrases.map((element) =>
-    SecretPhraseItemModel(element)
-  ).toList().obs;
+  RxList<SecretPhraseItemModel> secretPhraseItemList = new RxList<SecretPhraseItemModel>();
+  Future<void> onReady() async {
+    secretPhraseItemList.assignAll((await MnemonicPhrase().GenerateSecretPhrase()).map((element) =>
+        SecretPhraseItemModel(element)
+    ).toList().obs);
+  }
 }
 
 class SecretPhraseItemWidget extends StatelessWidget {

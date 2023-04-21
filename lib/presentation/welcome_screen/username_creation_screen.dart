@@ -242,7 +242,7 @@ class UsernameCreationScreen extends StatelessWidget {
                     child:  ElevatedButton(
                       child: Text('Continue'),
                       onPressed: () {
-                        Get.rootDelegate.toNamed(AppRoutes.secretPhrasesScreen);
+                        Get.toNamed(AppRoutes.secretPhrasesScreen);
                       },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),

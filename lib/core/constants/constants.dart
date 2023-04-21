@@ -1,10 +1,3 @@
-import 'dart:math';
-
-import 'package:application1/core/app_export.dart';
-import 'package:flutter/material.dart';
-
-bool hasLoggedIn = false;
-
 class TokenItem {
   String name = "";
   String fullName = "";
@@ -36,8 +29,6 @@ class WalletItem {
 List<String> chains = ["chain1", "chain2", "chain3"];
 List<WalletItem> wallets = List<WalletItem>.generate(2, (index) =>
     WalletItem("Wallet 0x3adc..." + index.toString(), 10.0, 1.0));
-
-List<String> secretPhrases = ["phrase1", "phrase2", "phrase3", "phrase4"];
 
 enum hiringStatus {looking_for_work, hiring, hide_status}
 class UserProfile {

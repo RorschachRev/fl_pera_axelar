@@ -322,7 +322,7 @@ class CheckoutScreen extends StatelessWidget {
                                 child:  ElevatedButton(
                                   child: Text('Confirm'),
                                   onPressed: () {
-                                    Get.rootDelegate.toNamed('/sending/completed?amount=${Get.parameters['amount']}&currency=${Get.parameters['currency']}');
+                                    Get.toNamed('/sending/completed?amount=${Get.parameters['amount']}&currency=${Get.parameters['currency']}');
                                   },
                                   style: ButtonStyle(
                                     minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),

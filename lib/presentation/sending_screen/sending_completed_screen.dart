@@ -170,7 +170,7 @@ class SendingCompletedScreen extends StatelessWidget {
                 child:  ElevatedButton(
                   child: Text('Home'),
                   onPressed: () {
-                    Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
+                    Get.offAllNamed(AppRoutes.mainScreen);
                   },
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),

@@ -52,7 +52,7 @@ class MainScreen extends StatelessWidget {
                               onPressed: () async {
                                 final SharedPreferences _prefs = await SharedPreferences.getInstance();
                                 await _prefs.setBool('hasLoggedIn', false);
-                                Get.rootDelegate.offAndToNamed(AppRoutes.mainScreen);
+                                Get.offAllNamed(AppRoutes.mainScreen);
                               },
                               child: SvgImageView(
                                 svgPath: ImageConstant.imgMenu,
@@ -354,15 +354,23 @@ class MainScreenController extends GetxController {
   late Rx<Widget> _selectedPage;
 
   @override
-  void onInit() {
+  void onInit(){
     super.onInit();
     if (Get.parameters["selected_screen"] == "user") _selectedScreen = selectedScreen.user.obs;
     else _selectedScreen =  selectedScreen.wallets.obs;
     _selectedPage = getPage().obs;
   }
   @override
-  void onReady() {
+  void onReady() async{
     super.onReady();
+    final SharedPreferences _prefs = await SharedPreferences.getInstance();
+    if (_prefs.getBool('hasLoggedIn') == null) await _prefs.setBool('hasLoggedIn', false);
+    var checkLoggedIn = _prefs.getBool('hasLoggedIn');
+    if (checkLoggedIn! == false) {
+      Future(() {
+        Get.offAllNamed(AppRoutes.welcomeScreen);
+      });
+    }
   }
 
   @override

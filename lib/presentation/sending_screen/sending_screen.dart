@@ -265,7 +265,7 @@ class _sendingScreen extends State<SendingScreen> {
                         child:  ElevatedButton(
                           child: Text('Continue'),
                           onPressed: () {
-                            Get.rootDelegate.toNamed(AppRoutes.selectingCurrencyScreen);
+                            Get.toNamed(AppRoutes.selectingCurrencyScreen);
                           },
                           style: ButtonStyle(
                             minimumSize: MaterialStateProperty.all(Size(double.infinity, 40)),
